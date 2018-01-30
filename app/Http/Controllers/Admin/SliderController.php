@@ -17,9 +17,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $categories = Slider::all()->toArray();
+        $sliders = Slider::all()->toArray();
 
-        return view('admin/sliders/index', ['sliders'=>$categories]);
+        return view('admin/sliders/index', ['sliders'=>$sliders]);
     }
 
     /**
@@ -46,6 +46,8 @@ class SliderController extends Controller
 
         if($request->hasFile('image')){
             $file_name = Storage::putFile('public', $request->file('image'));
+
+            $file_name = str_replace('public', '/storage', $file_name);
         }
 
         $slider->title = $request->slider['title'];
@@ -99,6 +101,9 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slider = Slider::find($id);
+        $slider->delete();
+
+        return redirect('admin/sliders');
     }
 }

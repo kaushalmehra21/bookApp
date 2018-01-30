@@ -299,10 +299,8 @@ class ComposerStaticInit01ae7f70ccd220b5825a5d05fddf1fcd
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_10_085519_create_categories_table.php',
-<<<<<<< HEAD
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateSlidersTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_28_030430_create_sliders_table.php',
-=======
         'CreateLanguagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_111152_create_languages_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProducRatingsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_111254_create_produc_ratings_table.php',
@@ -312,7 +310,6 @@ class ComposerStaticInit01ae7f70ccd220b5825a5d05fddf1fcd
         'CreateProductRatingsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_111309_create_product_ratings_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_094205_create_products_table.php',
         'CreateTaxesTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_111051_create_taxes_table.php',
->>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

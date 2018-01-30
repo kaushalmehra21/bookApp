@@ -34,7 +34,7 @@
                             <th>Title</th>
                             <th>Image</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,11 +42,10 @@
                         <tr>
                             <td>1</td>
                             <td>{{ $slider['title'] }}</td>
-                            <td>{{ $slider['image'] }}</td>
+                            <td><img src="{{ $slider['image'] }}" width="100%"> </td>
                             <td>{{ $slider['status'] }}</td>
                             <td>
-                                <a href="{{ url('/admin/users/'.$slider['id'].'/edit') }}">Edit</a> |
-                                <a href="{{ url('/admin/users/'.$slider['id']) }}">View</a>
+                                <a href="{{ url('/admin/sliders/'.$slider['id'].'/destroy') }}">Delete</a>
                             </td>
                         </tr>
                         @endforeach
