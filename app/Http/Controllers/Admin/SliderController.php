@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Admin\Slider;
 
@@ -38,15 +40,21 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
+        $slider = new Slider;
 
-        $category->title = $request->category['title'];
-        $category->description = $request->category['description'];
-        $category->parent_id = $request->category['parent_id'];
+        $file_name = 'default_image.png';
+
+        if($request->hasFile('image')){
+            $file_name = Storage::putFile('public', $request->file('image'));
+        }
+
+        $slider->title = $request->slider['title'];
+        $slider->image = $file_name;
+        $slider->status = 1;
         
-        $category->save();
+        $slider->save();
 
-        return redirect('admin/categories');
+        return redirect('admin/sliders');
     }
 
     /**

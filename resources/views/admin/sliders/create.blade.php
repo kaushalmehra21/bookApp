@@ -25,13 +25,13 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Name</label>
                                     <div class="col-lg-10">
-                                        <input name="slider[slider]" class="form-control" id="inputEmail" type="text" placeholder="Name">
+                                        <input name="slider[title]" class="form-control" id="inputEmail" type="text" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Choose Image</label>
                                     <div class="col-lg-10">
-                                        <input name="slider[image]" class="form-control" id="inputEmail" type="file" placeholder="Email">
+                                        <input name="image" class="form-control" id="inputEmail" type="file" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group">

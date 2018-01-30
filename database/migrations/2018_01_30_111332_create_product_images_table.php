@@ -1,13 +1,10 @@
 <?php
-<<<<<<< HEAD
 
-=======
->>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateProductImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,13 +13,12 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
-            $table->integer('parent_id')->nullable()->unsigned();
+            $table->integer('product_id');
+            $table->string('file');
+            $table->integer('is_default');
             $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
         });
     }
 
@@ -33,6 +29,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('product_images');
     }
 }

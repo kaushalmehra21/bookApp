@@ -98,15 +98,26 @@
                     </li>
                 </ul>
             </li>
+<<<<<<< HEAD
             <li class="treeview"><a href="{{ url('/admin/sliders') }}"><i class="fa fa-file-image-o"></i><span>Sliders</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
                         <a href="{{ url('/admin/sliders') }}">
+=======
+            <li class="treeview"><a href="#"><i class="fa fa-file-image-o"></i><span>Sliders</span><i class="fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ url('/admin/users') }}">
+>>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="{{ url('/admin/sliders/create') }}">
+=======
+                        <a href="{{ url('/admin/users/create') }}">
+>>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>
@@ -115,6 +126,12 @@
             <li class="active">&nbsp;</li>
             <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
             <li class="active">&nbsp;</li>
+<<<<<<< HEAD
+=======
+            <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
+            <li class="active">&nbsp;</li>
+            <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
+>>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
         </ul>
     </section>
 </aside>

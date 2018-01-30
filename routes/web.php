@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('categories/{id}/update', 'Admin\CategoryController@update');
 	Route::get('categories/{id}/show', 'Admin\CategoryController@show');
 	Route::get('categories/{id}/destroy', 'Admin\CategoryController@destroy');
+<<<<<<< HEAD
 
 	Route::get('sliders', 'Admin\SliderController@index');
 	Route::get('sliders/create', 'Admin\SliderController@create');
@@ -47,6 +48,8 @@ Route::prefix('admin')->group(function () {
 	Route::post('sliders/{id}/update', 'Admin\SliderController@update');
 	Route::get('sliders/{id}/show', 'Admin\SliderController@show');
 	Route::get('sliders/{id}/destroy', 'Admin\SliderController@destroy');
+=======
+>>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
 });
 
 

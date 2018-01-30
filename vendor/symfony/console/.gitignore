@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 composer.lock
 phpunit.xml
+=======
+vendor/
+composer.lock
+phpunit.xml
+>>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
