@@ -108,7 +108,6 @@
                     </li>
                     <li>
                         <a href="{{ url('/admin/sliders/create') }}">
-                        <a href="{{ url('/admin/sliders/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>
