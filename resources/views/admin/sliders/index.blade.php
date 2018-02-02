@@ -38,20 +38,59 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($sliders as $slider)
-                        <tr>
-                            <td>1</td>
-                            <td>{{ $slider['title'] }}</td>
-                            <td><img src="{{ $slider['image'] }}" width="100%"> </td>
-                            <td>{{ $slider['status'] }}</td>
-                            <td>
-                                <a href="{{ url('/admin/sliders/'.$slider['id'].'/destroy') }}">Delete</a>
-                            </td>
-                        </tr>
+                        @foreach($sliders as $key=>$slider)
+                            <?php $key += 1; ?>
+                            <tr>
+                                <td>{{ $key }}</td>
+                                <td>{{ $slider['title'] }}</td>
+                                <td><img src="{{ $slider['image'] }}" width="100%" style="max-width: 100px;"></td>
+                                <td>
+                                    <div class="toggle">
+                                        <label>
+                                            <input type="checkbox" id="cbStatus_{{ $slider['id'] }}"  {{ ($slider['status']==1) ? 'checked' : '' }} >
+                                            <span class="button-indecator statusTrgr" data-slider-id={{ $slider['id'] }}></span>
+                                            <input type="text" name="id" id="id_{{ $slider['id'] }}" value="{{ $slider['id'] }}">
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="{{ url('/admin/sliders/'.$slider['id'].'/destroy') }}" ><i class="fa fa-trash"></i> Delete</a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <input type="text" name="_token" id="_token" value="{{ csrf_token() }}">
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $(document).on('click', '.statusTrgr', function(){
+
+                var slider_id = $(this).attr('data-slider-id');
+
+                if($('#cbStatus_'+slider_id).prop('checked')==true) 
+                {
+                    $.ajax({
+                        type    : "POST",
+                        url     : "store/search-ajax",
+                        data    : {
+
+                        },
+                        success : function(html) {
+                            console.log(html);
+                        }
+                    });
+                }
+                
+
+
+                alert();
+                /**/
+            });
+        });
+        
+    </script>
 @endsection

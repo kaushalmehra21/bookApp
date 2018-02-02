@@ -65,7 +65,8 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <img src="img/uc.png" width="100%">
+        <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -90,6 +91,6 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>

@@ -102,17 +102,13 @@
             <li class="treeview"><a href="#"><i class="fa fa-file-image-o"></i><span>Sliders</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/users') }}">
-
+                        <a href="{{ url('/admin/sliders') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-
                         <a href="{{ url('/admin/sliders/create') }}">
-
-                        <a href="{{ url('/admin/users/create') }}">
-
+                        <a href="{{ url('/admin/sliders/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>
@@ -121,7 +117,6 @@
             <li class="active">&nbsp;</li>
             <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
             <li class="active">&nbsp;</li>
-
         </ul>
     </section>
 </aside>

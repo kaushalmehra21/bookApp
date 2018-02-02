@@ -44,9 +44,9 @@ class SliderController extends Controller
 
         $file_name = 'default_image.png';
 
+
         if($request->hasFile('image')){
             $file_name = Storage::putFile('public', $request->file('image'));
-
             $file_name = str_replace('public', '/storage', $file_name);
         }
 
@@ -90,7 +90,7 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
