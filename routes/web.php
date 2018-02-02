@@ -46,6 +46,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('sliders', 'Admin\SliderController@store');
 	Route::get('sliders/{id}/edit', 'Admin\SliderController@edit');
 	Route::post('sliders/{id}/update', 'Admin\SliderController@update');
+	Route::post('sliders/update', 'Admin\SliderController@ajaxUpdate');
 	Route::get('sliders/{id}/show', 'Admin\SliderController@show');
 	Route::get('sliders/{id}/destroy', 'Admin\SliderController@destroy');
 

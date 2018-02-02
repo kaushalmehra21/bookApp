@@ -90,7 +90,23 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        echo 'sdas';
+        $slider = User::find($id);
+        return 'sadasda';
+    }
+
+    public function ajaxUpdate(Request $request)
+    {
         
+        $slider = Slider::find($request->id);
+        if($slider->status==1){
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+
+        $slider->status = $status;
+        $slider->save();
     }
 
     /**

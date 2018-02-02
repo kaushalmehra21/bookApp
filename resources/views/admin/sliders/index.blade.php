@@ -47,9 +47,9 @@
                                 <td>
                                     <div class="toggle">
                                         <label>
-                                            <input type="checkbox" id="cbStatus_{{ $slider['id'] }}"  {{ ($slider['status']==1) ? 'checked' : '' }} >
+                                            <input type="checkbox" id="cb_status_{{ $slider['id'] }}"  {{ ($slider['status']==1) ? 'checked' : '' }} >
                                             <span class="button-indecator statusTrgr" data-slider-id={{ $slider['id'] }}></span>
-                                            <input type="text" name="id" id="id_{{ $slider['id'] }}" value="{{ $slider['id'] }}">
+                                            
                                         </label>
                                     </div>
                                 </td>
@@ -60,7 +60,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <input type="text" name="_token" id="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
             </div>
         </div>
     </div>
@@ -70,25 +70,21 @@
             $(document).on('click', '.statusTrgr', function(){
 
                 var slider_id = $(this).attr('data-slider-id');
+                var cb_status = $('#cb_status_'+slider_id).attr('checked');
+                var _token = $('#_token').val();
 
-                if($('#cbStatus_'+slider_id).prop('checked')==true) 
-                {
-                    $.ajax({
-                        type    : "POST",
-                        url     : "store/search-ajax",
-                        data    : {
-
-                        },
-                        success : function(html) {
-                            console.log(html);
-                        }
-                    });
-                }
-                
-
-
-                alert();
-                /**/
+                $.ajax({
+                    type    : "POST",
+                    url     : "sliders/update",
+                    async : true,
+                    data    : {
+                        'id' : slider_id,
+                        '_token' : $('#_token').val()
+                    },
+                    success : function(html) {
+                        //console.log(html);
+                    }
+                });
             });
         });
         
