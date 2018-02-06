@@ -15,12 +15,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Products</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/categories') }}">
+                        <a href="{{ url('/admin/products') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/categories/create') }}">
+                        <a href="{{ url('/admin/products/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>

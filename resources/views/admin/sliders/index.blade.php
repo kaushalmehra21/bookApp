@@ -69,6 +69,14 @@
             
             $(document).on('click', '.statusTrgr', function(){
 
+                $.notify({
+                    title: "Update Complete : ",
+                    message: "Something cool is just updated!",
+                    icon: 'fa fa-check' 
+                },{
+                    type: "success"
+                });
+
                 var slider_id = $(this).attr('data-slider-id');
                 var cb_status = $('#cb_status_'+slider_id).attr('checked');
                 var _token = $('#_token').val();
@@ -82,7 +90,7 @@
                         '_token' : $('#_token').val()
                     },
                     success : function(html) {
-                        //console.log(html);
+                        //
                     }
                 });
             });

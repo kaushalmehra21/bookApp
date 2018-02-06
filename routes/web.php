@@ -50,6 +50,15 @@ Route::prefix('admin')->group(function () {
 	Route::get('sliders/{id}/show', 'Admin\SliderController@show');
 	Route::get('sliders/{id}/destroy', 'Admin\SliderController@destroy');
 
+	Route::get('products', 'Admin\ProductController@index');
+	Route::get('products/create', 'Admin\ProductController@create');
+	Route::post('products', 'Admin\ProductController@store');
+	Route::get('products/{id}/edit', 'Admin\ProductController@edit');
+	Route::post('products/{id}/update', 'Admin\ProductController@update');
+	Route::post('products/update', 'Admin\ProductController@ajaxUpdate');
+	Route::get('products/{id}/show', 'Admin\ProductController@show');
+	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
+
 });
 
 
