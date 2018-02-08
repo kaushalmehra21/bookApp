@@ -87,7 +87,7 @@
                     async : true,
                     data    : {
                         'id' : slider_id,
-                        '_token' : $('#_token').val()
+                        '_token' : $('#_token').val();
                     },
                     success : function(html) {
                         //

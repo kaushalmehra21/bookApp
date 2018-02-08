@@ -7,10 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin\\Category' => $baseDir . '/app/Admin/Category.php',
+    'App\\Admin\\Product' => $baseDir . '/app/Admin/Product.php',
+    'App\\Admin\\Slider' => $baseDir . '/app/Admin/Slider.php',
     'App\\Admin\\User' => $baseDir . '/app/Admin/User.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
+    'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',
+    'App\\Http\\Controllers\\Admin\\SliderController' => $baseDir . '/app/Http/Controllers/Admin/SliderController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -33,20 +37,14 @@ return array(
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_07_10_085519_create_categories_table.php',
-<<<<<<< HEAD
-    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreateSlidersTable' => $baseDir . '/database/migrations/2018_01_28_030430_create_sliders_table.php',
-=======
     'CreateLanguagesTable' => $baseDir . '/database/migrations/2018_01_30_111152_create_languages_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreateProducRatingsTable' => $baseDir . '/database/migrations/2018_01_30_111254_create_produc_ratings_table.php',
-    'CreateProducsImagesTable' => $baseDir . '/database/migrations/2018_01_30_111016_create_producs_images_table.php',
-    'CreateProducsRatingsTable' => $baseDir . '/database/migrations/2018_01_30_111037_create_producs_ratings_table.php',
+    'CreateProductCategoriesTable' => $baseDir . '/database/migrations/2018_02_07_100621_create_product_categories_table.php',
     'CreateProductImagesTable' => $baseDir . '/database/migrations/2018_01_30_111332_create_product_images_table.php',
     'CreateProductRatingsTable' => $baseDir . '/database/migrations/2018_01_30_111309_create_product_ratings_table.php',
     'CreateProductsTable' => $baseDir . '/database/migrations/2018_01_30_094205_create_products_table.php',
+    'CreateSlidersTable' => $baseDir . '/database/migrations/2018_01_28_030430_create_sliders_table.php',
     'CreateTaxesTable' => $baseDir . '/database/migrations/2018_01_30_111051_create_taxes_table.php',
->>>>>>> 1887133be9efe42698546d87b2cada97c3fd226b
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

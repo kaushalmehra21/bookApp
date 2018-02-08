@@ -24,7 +24,6 @@ class CreateProductsTable extends Migration
             $table->double('sale_price', 8, 2);
             $table->integer('avg_rate');
             $table->integer('tax_id')->default(0)->comment('0=no tax, +ve=tax excluded');
-            $table->integer('category_id');
             $table->integer('user_id');
             $table->integer('language_id');
             $table->integer('status')->default(0);
