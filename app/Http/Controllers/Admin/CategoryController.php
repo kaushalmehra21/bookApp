@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Admin\Category;
+
 
 class CategoryController extends Controller
 {
@@ -20,16 +22,7 @@ class CategoryController extends Controller
         return view('admin/categories/index', ['categories'=>$categories]);
     }
 
-    public function ajaxListJson(Request $request)
-    {
-        $category->_token = $request->_token;
-        return print_r($category->_token);
-
-        //$categories = Category::all()->toArray();
-
-        //->where('name', 'like', 'T%')
-        //return json_encode($categories);
-    }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -106,5 +99,15 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect('admin/categories');
+    }
+
+
+    public function ajaxListJson(Request $request)
+    {
+        $categories = DB::table('categories')->select('title')->where('title', 'like', '%'.$request->search.'%')->get();
+
+        $json_categories = json_encode($categories);
+
+        return $json_categories;
     }
 }

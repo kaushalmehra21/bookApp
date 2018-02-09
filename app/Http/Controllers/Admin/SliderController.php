@@ -97,7 +97,7 @@ class SliderController extends Controller
 
     public function ajaxUpdate(Request $request)
     {
-        
+
         $slider = Slider::find($request->id);
         if($slider->status==1){
             $status = 0;

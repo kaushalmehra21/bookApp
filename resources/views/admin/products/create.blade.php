@@ -15,11 +15,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form method="post" action="/admin/categories" >
+            <form method="post" action="" >
                 
                 <div class="card-body">
                     <h4 class="card-title">Basic Detail</h4>
-                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                    <input type="text" name="token" id="token_" value="{{ csrf_token() }}">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Select Language</label>
-                            <select class="form-control" id="addLanguageTrgr">
+                            <select class="form-control" id="addLanguageTrgr" multiple>
                                 
                             </select>
                         </div>
@@ -89,24 +89,29 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#addCategoryTrgr').tokenize2({
-            searchFromStart: false,
+            //searchFromStart: false,
             dataSource: function(term, object){
+                var token_ = $('#token_').val();
+
                 $.ajax({
-                    url : "../categories/ajax_list_json",
+                    url     : '/admin/categories/ajax_list_json',
+                    async   : true,
                     data: { 
-                        search: term, 
-                        start: 0,
-                        _token : $('#_token').val()
+                        'search'    : term, 
+                        'start'     : 0,
+                        'token'     : token_
                     },
-                    type : 'POST',
-                    //dataType: 'json',
+                    dataType: 'json',
                     success: function(data){
                         console.log(data);
-                        /*var $items = [];
+                        var $items = [];
                         $.each(data, function(k, v){
-                            $items.push(v);
+                            $.each(v, function(k1, v1){
+                                console.log(v1);
+                                $items.push(v1);
+                            });
                         });
-                        object.trigger('tokenize:dropdown:fill', [$items]);*/
+                        object.trigger('tokenize:dropdown:fill', [$items]);
                     }
                 });
             }

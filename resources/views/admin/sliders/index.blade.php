@@ -87,10 +87,10 @@
                     async : true,
                     data    : {
                         'id' : slider_id,
-                        '_token' : $('#_token').val();
+                        '_token' : _token
                     },
                     success : function(html) {
-                        //
+                        console.log(html);
                     }
                 });
             });

@@ -93,4 +93,16 @@ class ProductController extends Controller
     {
         //
     }
+
+
+    public function ajaxListJson(Request $request)
+    {
+        return $request->token;
+        //return print_r($category->_token);
+
+        //$categories = Category::all()->toArray();
+
+        //->where('name', 'like', 'T%')
+        //return json_encode($categories);
+    }
 }

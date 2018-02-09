@@ -33,13 +33,15 @@ Route::prefix('admin')->group(function () {
 	//Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
 
 	Route::get('categories', 'Admin\CategoryController@index');
-	Route::post('categories/ajax_list_json', 'Admin\CategoryController@ajaxListJson');
+	
 	Route::get('categories/create', 'Admin\CategoryController@create');
 	Route::post('categories', 'Admin\CategoryController@store');
 	Route::get('categories/{id}/edit', 'Admin\CategoryController@edit');
 	Route::post('categories/{id}/update', 'Admin\CategoryController@update');
 	Route::get('categories/{id}/show', 'Admin\CategoryController@show');
 	Route::get('categories/{id}/destroy', 'Admin\CategoryController@destroy');
+	
+	Route::get('categories/ajax_list_json', 'Admin\CategoryController@ajaxListJson');
 
 
 	Route::get('sliders', 'Admin\SliderController@index');
@@ -59,6 +61,8 @@ Route::prefix('admin')->group(function () {
 	Route::post('products/update', 'Admin\ProductController@ajaxUpdate');
 	Route::get('products/{id}/show', 'Admin\ProductController@show');
 	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
+
+
 
 });
 
