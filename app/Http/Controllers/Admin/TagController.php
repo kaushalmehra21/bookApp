@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Admin\Category;
 
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all()->toArray();
+        $tags = Tag::all()->toArray();
 
-        return view('admin/categories/index', ['categories'=>$categories]);
+        return view('admin/tags/index', ['tags'=>$tags]);
     }
 
    
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/categories/create');
+        return view('admin/tags/create');
     }
 
     /**
@@ -42,15 +42,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
+        $tag = new Tag;
 
-        $category->title = $request->category['title'];
-        $category->description = $request->category['description'];
-        $category->parent_id = $request->category['parent_id'];
+        $tag->title = $request->tag['title'];
         
-        $category->save();
+        $tag->save();
 
-        return redirect('admin/categories');
+        return redirect('admin/tags');
     }
 
     /**
@@ -95,28 +93,28 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $tag = Tag::find($id);
+        $tag->delete();
 
-        return redirect('admin/categories');
+        return redirect('admin/tags');
     }
 
 
     public function ajaxListJson(Request $request)
     {
-        $categories = DB::table('categories')->select('title', 'id')->where('title', 'like', '%'.$request->search.'%')->get()->toArray();
+        $tags = DB::table('tags')->select('title', 'id')->where('title', 'like', '%'.$request->search.'%')->get()->toArray();
 
         $output = [];
         $ginti = 0;
-        foreach ($categories as $key => $value) {
+        foreach ($tags as $key => $value) {
             $output[$ginti]['text'] = $value->title;
             $output[$ginti]['value'] = $value->title;
             $ginti++;
         }
 
 
-        $json_categories = json_encode($output);
+        $json_tags = json_encode($output);
 
-        return $json_categories;
+        return $json_tags;
     }
 }

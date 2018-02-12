@@ -24,54 +24,54 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="control-label" for="inputEmail">Title</label>
-                                <input name="product[title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                                <input name="products[title]" class="form-control" id="productsTitle" type="text" placeholder="Title">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputEmail">Slug</label>
-                                <input name="product[title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                                <input name="products[slug]" class="form-control" id="productsSlug" type="text" placeholder="Title">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <label class="control-label" for="inputEmail">Sub Title</label>
-                            <textarea class="form-control" id="inputEmail" rows="4" ></textarea>
+                            <textarea class="form-control" name="products[sub_title]" id="ProductsSubTitle" rows="4" ></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="inputEmail">Description</label>
-                        <textarea class="form-control" id="inputEmail"></textarea>
+                        <textarea class="form-control" name="products[description]" id="ProductsDescription"></textarea>
                     </div>
                     <hr>
                     <h4 class="card-title">Pricing Detail</h4>
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Regular Price</label>
-                            <input name="product[sub_title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                            <input name="products[regular_price]" class="form-control" id="ProductsRegularPrice" type="text" placeholder="Title">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Sale Price</label>
-                            <input name="product[sub_title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                            <input name="products[sale_price]" class="form-control" id="ProductsSalePrice" type="text" placeholder="Title">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Discount Price</label>
-                            <input name="product[sub_title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                            <input name="discount" class="form-control" id="discount" type="text" placeholder="400">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Categories</label>
-                            <select class="" id="addCategoryTrgr" multiple>
+                            <select class="form-control" name="categories[title]" id="addCategoryTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Tags</label>
-                            <select class="form-control" id="addTagTrgr" multiple>
+                            <select class="form-control" name="tags[title]" id="addTagTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Select Language</label>
-                            <select class="form-control" id="addLanguageTrgr" multiple>
+                            <select class="form-control" name="languages[title]" id="addLanguageTrgr" multiple>
                                 
                             </select>
                         </div>
@@ -89,13 +89,12 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#addCategoryTrgr').tokenize2({
-            //searchFromStart: false,
+            searchFromStart: false,
             dataSource: function(term, object){
                 var token_ = $('#token_').val();
 
                 $.ajax({
                     url     : '/admin/categories/ajax_list_json',
-                    async   : true,
                     data: { 
                         'search'    : term, 
                         'start'     : 0,
@@ -103,13 +102,9 @@
                     },
                     dataType: 'json',
                     success: function(data){
-                        console.log(data);
                         var $items = [];
                         $.each(data, function(k, v){
-                            $.each(v, function(k1, v1){
-                                console.log(v1);
-                                $items.push(v1);
-                            });
+                            $items.push(v);
                         });
                         object.trigger('tokenize:dropdown:fill', [$items]);
                     }
@@ -120,13 +115,53 @@
     $(document).ready(function(){
         $('#addTagTrgr').tokenize2({
             searchFromStart: false,
-            tokensAllowCustom: true
+            tokensAllowCustom: true,
+            dataSource: function(term, object){
+                var token_ = $('#token_').val();
+
+                $.ajax({
+                    url     : '/admin/tags/ajax_list_json',
+                    data: { 
+                        'search'    : term, 
+                        'start'     : 0,
+                        'token'     : token_
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        var $items = [];
+                        $.each(data, function(k, v){
+                            $items.push(v);
+                        });
+                        object.trigger('tokenize:dropdown:fill', [$items]);
+                    }
+                });
+            }
         });
     });
     $(document).ready(function(){
         $('#addLanguageTrgr').tokenize2({
             searchFromStart: false,
-            tokensAllowCustom: true
+            tokensAllowCustom: true,
+            dataSource: function(term, object){
+                var token_ = $('#token_').val();
+
+                $.ajax({
+                    url     : '/admin/languages/ajax_list_json',
+                    data: { 
+                        'search'    : term, 
+                        'start'     : 0,
+                        'token'     : token_
+                    },
+                    dataType: 'json',
+                    success: function(data){
+                        var $items = [];
+                        $.each(data, function(k, v){
+                            $items.push(v);
+                        });
+                        object.trigger('tokenize:dropdown:fill', [$items]);
+                    }
+                });
+            }
         });
     });
 

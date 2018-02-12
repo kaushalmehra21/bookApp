@@ -17,8 +17,7 @@ class CreateTaxesTable extends Migration
             $table->increments('id');
             $table->double('tax', 2, 2)->default(0);
             $table->string('title', 50);
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamps();
         });
     }
 

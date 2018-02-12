@@ -27,8 +27,7 @@ class CreateProductsTable extends Migration
             $table->integer('user_id');
             $table->integer('language_id');
             $table->integer('status')->default(0);
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamps();
         });
     }
 
