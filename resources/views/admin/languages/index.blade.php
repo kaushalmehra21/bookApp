@@ -18,7 +18,7 @@
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a class="btn btn-info" href="{{ url('admin/tags/create') }}">Add New Category</a>
+                    <a class="btn btn-info" href="{{ url('admin/languages/create') }}">Add New Category</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -37,13 +37,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tags as $tag)
+                        @foreach($languages as $language)
                         <tr>
                             <td>1</td>
-                            <td>{{ $tag['title'] }}</td>
-                            <td>{{ $tag['created_at'] }}</td>
+                            <td>{{ $language['title'] }}</td>
+                            <td>{{ $language['created_at'] }}</td>
                             <td>
-                                <a href="{{ url('/admin/tags/'.$tag['id'].'/destroy') }}">Delete</a>
+                                <a href="{{ url('/admin/tags/'.$language['id'].'/destroy') }}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

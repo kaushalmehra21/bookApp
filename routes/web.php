@@ -71,6 +71,15 @@ Route::prefix('admin')->group(function () {
 	Route::get('tags/{id}/show', 'Admin\TagController@show');
 	Route::get('tags/{id}/destroy', 'Admin\TagController@destroy');
 
+	Route::get('languages', 'Admin\LanguageController@index');
+	Route::get('languages/create', 'Admin\LanguageController@create');
+	Route::post('languages', 'Admin\LanguageController@store');
+	Route::get('languages/{id}/edit', 'Admin\LanguageController@edit');
+	Route::post('languages/{id}/update', 'Admin\LanguageController@update');
+	Route::post('languages/update', 'Admin\LanguageController@ajaxUpdate');
+	Route::get('languages/{id}/show', 'Admin\LanguageController@show');
+	Route::get('languages/{id}/destroy', 'Admin\LanguageController@destroy');
+
 });
 
 

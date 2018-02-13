@@ -55,12 +55,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-language"></i><span>Languages</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/sliders') }}">
+                        <a href="{{ url('/admin/languages') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/sliders/create') }}">
+                        <a href="{{ url('/admin/languages/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>

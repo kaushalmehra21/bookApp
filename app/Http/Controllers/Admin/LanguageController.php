@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Admin\Tag;
+use App\Admin\Language;
 
 
-class TagController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all()->toArray();
+        $languages = Language::all()->toArray();
 
-        return view('admin/tags/index', ['tags'=>$tags]);
+        return view('admin/languages/index', ['languages'=>$languages]);
     }
 
    
@@ -31,7 +31,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin/tags/create');
+        return view('admin/languages/create');
     }
 
     /**
@@ -42,15 +42,15 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $tag = new Tag;
+        $language = new Language;
 
-        $tag->title = $request->tag['title'];
+        $language->title = $request->languages['title'];
 
         //$tag->timestamps = false;
         
-        $tag->save();
+        $language->save();
 
-        return redirect('admin/tags');
+        return redirect('admin/languages');
     }
 
     /**
@@ -95,28 +95,28 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tag::find($id);
-        $tag->delete();
+        $language = Language::find($id);
+        $language->delete();
 
-        return redirect('admin/tags');
+        return redirect('admin/languages');
     }
 
 
     public function ajaxListJson(Request $request)
     {
-        $tags = DB::table('tags')->select('title', 'id')->where('title', 'like', '%'.$request->search.'%')->get()->toArray();
+        $languages = DB::table('languages')->select('title', 'id')->where('title', 'like', '%'.$request->search.'%')->get()->toArray();
 
         $output = [];
         $ginti = 0;
-        foreach ($tags as $key => $value) {
+        foreach ($languages as $key => $value) {
             $output[$ginti]['text'] = $value->title;
             $output[$ginti]['value'] = $value->title;
             $ginti++;
         }
 
 
-        $json_tags = json_encode($output);
+        $json_languages = json_encode($output);
 
-        return $json_tags;
+        return $json_languages;
     }
 }
