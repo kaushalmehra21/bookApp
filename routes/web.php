@@ -62,7 +62,14 @@ Route::prefix('admin')->group(function () {
 	Route::get('products/{id}/show', 'Admin\ProductController@show');
 	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
 
-
+	Route::get('tags', 'Admin\TagController@index');
+	Route::get('tags/create', 'Admin\TagController@create');
+	Route::post('tags', 'Admin\TagController@store');
+	Route::get('tags/{id}/edit', 'Admin\TagController@edit');
+	Route::post('tags/{id}/update', 'Admin\TagController@update');
+	Route::post('tags/update', 'Admin\TagController@ajaxUpdate');
+	Route::get('tags/{id}/show', 'Admin\TagController@show');
+	Route::get('tags/{id}/destroy', 'Admin\TagController@destroy');
 
 });
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Admin\Category;
+use App\Admin\Tag;
 
 
 class TagController extends Controller
@@ -45,6 +45,8 @@ class TagController extends Controller
         $tag = new Tag;
 
         $tag->title = $request->tag['title'];
+
+        $tag->timestamps = false;
         
         $tag->save();
 
