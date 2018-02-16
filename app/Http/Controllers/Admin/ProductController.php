@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $Product = Product::all()->toArray();
 
-        return view('admin/products/index', ['categories'=>$Product]);
+        return view('admin/products/index', ['products'=>$Product]);
     }
 
     /**

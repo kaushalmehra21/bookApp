@@ -40,7 +40,6 @@ Route::prefix('admin')->group(function () {
 	Route::post('categories/{id}/update', 'Admin\CategoryController@update');
 	Route::get('categories/{id}/show', 'Admin\CategoryController@show');
 	Route::get('categories/{id}/destroy', 'Admin\CategoryController@destroy');
-	
 	Route::get('categories/ajax_list_json', 'Admin\CategoryController@ajaxListJson');
 
 
@@ -70,6 +69,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('tags/update', 'Admin\TagController@ajaxUpdate');
 	Route::get('tags/{id}/show', 'Admin\TagController@show');
 	Route::get('tags/{id}/destroy', 'Admin\TagController@destroy');
+	Route::get('tags/ajax_list_json', 'Admin\TagController@ajaxListJson');
 
 	Route::get('languages', 'Admin\LanguageController@index');
 	Route::get('languages/create', 'Admin\LanguageController@create');
@@ -79,6 +79,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('languages/update', 'Admin\LanguageController@ajaxUpdate');
 	Route::get('languages/{id}/show', 'Admin\LanguageController@show');
 	Route::get('languages/{id}/destroy', 'Admin\LanguageController@destroy');
+	Route::get('languages/ajax_list_json', 'Admin\LanguageController@ajaxListJson');
 
 });
 

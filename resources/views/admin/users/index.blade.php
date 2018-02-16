@@ -33,7 +33,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Password</th>
+                            <th>Created</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                             <td>1</td>
                             <td>{{ $user['name'] }}</td>
                             <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['password'] }}</td>
+                            <td>{{ $user['created_at'] }}</td>
                             <td>
                                 <a href="{{ url('/admin/users/'.$user['id'].'/edit') }}">Edit</a> |
                                 <a href="{{ url('/admin/users/'.$user['id']) }}">View</a>

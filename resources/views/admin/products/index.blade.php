@@ -40,11 +40,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tags as $tag)
+                        @foreach($products as $product)
                         <tr>
                             <td>1</td>
-                            <td>{{ $tag['title'] }}</td>
-                            <td>{{ $tag['created_at'] }}</td>
+                            <td>{{ $product['title'] }}</td>
+                            <td>{{ $product['created_at'] }}</td>
                             <td>
                                 <a href="{{ url('/admin/categories/'.$category['id'].'/edit') }}">Edit</a> | 
                                 <a href="{{ url('/admin/categories/'.$category['id'].'/destroy') }}">Delete</a> | 
