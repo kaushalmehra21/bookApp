@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2018 at 01:53 PM
+-- Generation Time: Feb 16, 2018 at 01:54 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -33,7 +33,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `parent_id` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`, `description`, `parent_id`, `created_at`, `updated_at`) VALUES
+(1, 'IIT', 'IIT', NULL, '2018-02-15 01:31:12', '2018-02-15 01:31:12'),
+(2, 'IIIT', 'IIIT', NULL, '2018-02-16 03:21:57', '2018-02-16 03:21:57');
 
 -- --------------------------------------------------------
 
@@ -48401,7 +48409,7 @@ CREATE TABLE IF NOT EXISTS `countries` (
   `sortname` varchar(3) NOT NULL,
   `name` varchar(150) NOT NULL,
   `phonecode` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `countries`
@@ -48665,7 +48673,15 @@ CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(10) unsigned NOT NULL,
   `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`id`, `title`, `created_at`) VALUES
+(1, 'English', '2018-02-15 01:34:20'),
+(2, 'Hindi', '2018-02-15 01:34:26');
 
 -- --------------------------------------------------------
 
@@ -48677,7 +48693,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -48695,7 +48711,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2018_01_30_111332_create_product_images_table', 1),
 (10, '2018_02_07_100621_create_product_categories_table', 1),
 (11, '2018_02_12_155717_create_tags_table', 1),
-(12, '2018_02_12_161714_create_product_tags_table', 1);
+(12, '2018_02_12_161714_create_product_tags_table', 1),
+(13, '2018_02_15_054842_create_user_details_table', 2);
 
 -- --------------------------------------------------------
 
@@ -48718,20 +48735,27 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(10) unsigned NOT NULL,
   `SKU` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sub_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `regular_price` double(8,2) NOT NULL,
   `sale_price` double(8,2) NOT NULL,
-  `avg_rate` int(11) NOT NULL,
+  `avg_rate` int(11) NOT NULL DEFAULT '0',
   `tax_id` int(11) NOT NULL DEFAULT '0' COMMENT '0=no tax, +ve=tax excluded',
   `user_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `SKU`, `title`, `slug`, `sub_title`, `description`, `regular_price`, `sale_price`, `avg_rate`, `tax_id`, `user_id`, `language_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'One Indian Girl  (English, Paperback, Chetan Bhagat)', 'One-Indian-Girl', 'and get admission in a good college. The test series at Eduncle helped us overcome the exam fear and also to improve our speed and know our mistakes.THANK YOU', 'and get admission in a good college. The test series at Eduncle helped us overcome the exam fear and also to improve our speed and know our mistakes.THANK YOU and get admission in a good college. The test series at Eduncle helped us overcome the exam fear and also to improve our speed and know our mistakes.THANK YOU\r\n and get admission in a good college. The test series at Eduncle helped us overcome the exam fear and also to improve our speed and know our mistakes.THANK YOU', 500.00, 200.00, 0, 0, 1, 2, 0, '2018-02-16 03:54:08', '2018-02-16 03:54:08');
 
 -- --------------------------------------------------------
 
@@ -52953,7 +52977,14 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`id`, `title`, `created_at`) VALUES
+(1, 'iit', '2018-02-15 01:32:03');
 
 -- --------------------------------------------------------
 
@@ -52990,8 +53021,24 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'KAUSHAL MEHRA', 'kaushalmehra.btech@gmail.com', '$2y$10$L7WwAgl7p9MXsHqOgYGNlOUWSGotlU8uy09OFeaazy111zc0CHZcy', 'fmtg9wja34mgVTbKnwV5jHRmNsmofPalvp6peZyAo3u7bxiZqn8dMgclOmsz', '2018-02-14 06:54:16', '2018-02-14 06:54:16'),
+(1, 'KAUSHAL MEHRA', 'kaushalmehra.btech@gmail.com', '$2y$10$L7WwAgl7p9MXsHqOgYGNlOUWSGotlU8uy09OFeaazy111zc0CHZcy', 'mx80xqVX4e5fMIEVOgvIMY1FSd1fKcM5BmfJcRhKRiaiheQD88CfgQlGBAiH', '2018-02-14 06:54:16', '2018-02-14 06:54:16'),
 (2, 'mehra kaushal', 'kaushal@saglusinfo.com', '$2y$10$wfucflH1wMaPWje95M7otOOUEWCRD71g8wUzyxj3M1ku5qAn4MyBG', 'xQLAldW9oXZ8rY48d2zuonuMh8CxvpHSItFShreIZRg1DyXsNdeySYbDwAZH', '2018-02-14 06:54:54', '2018-02-14 06:54:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_details`
+--
+
+CREATE TABLE IF NOT EXISTS `user_details` (
+  `id` int(10) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `member_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -53088,6 +53135,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_details`
+--
+ALTER TABLE `user_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -53095,7 +53148,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cities`
 --
@@ -53105,22 +53158,22 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=249;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
@@ -53155,7 +53208,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `taxes`
 --
@@ -53166,6 +53219,11 @@ ALTER TABLE `taxes`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `user_details`
+--
+ALTER TABLE `user_details`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
