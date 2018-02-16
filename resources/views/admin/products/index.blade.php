@@ -18,7 +18,7 @@
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a class="btn btn-info" href="{{ url('admin/categories/create') }}">Add New Category</a>
+                    <a class="btn btn-info" href="{{ url('admin/products/create') }}">Add New Category</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -32,10 +32,8 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Description</th>
-                            <th>Parent</th>
-                            <th>Updated</th>
                             <th>Created</th>
+                            <th>Updated</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -45,9 +43,10 @@
                             <td>1</td>
                             <td>{{ $product['title'] }}</td>
                             <td>{{ $product['created_at'] }}</td>
+                            <td>{{ $product['updated_at'] }}</td>
                             <td>
-                                <a href="{{ url('/admin/categories/'.$category['id'].'/edit') }}">Edit</a> | 
-                                <a href="{{ url('/admin/categories/'.$category['id'].'/destroy') }}">Delete</a> | 
+                                <a href="{{ url('/admin/products/'.$product['id'].'/edit') }}">Edit</a> | 
+                                <a href="{{ url('/admin/products/'.$product['id'].'/destroy') }}">Delete</a> | 
                                 <a href="">View</a>
                             </td>
                         </tr>

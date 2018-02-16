@@ -33,7 +33,6 @@ Route::prefix('admin')->group(function () {
 	//Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
 
 	Route::get('categories', 'Admin\CategoryController@index');
-	
 	Route::get('categories/create', 'Admin\CategoryController@create');
 	Route::post('categories', 'Admin\CategoryController@store');
 	Route::get('categories/{id}/edit', 'Admin\CategoryController@edit');
