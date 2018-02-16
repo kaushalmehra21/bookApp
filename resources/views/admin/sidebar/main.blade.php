@@ -3,7 +3,11 @@
         <div class="user-panel">
             <div class="pull-left image"><img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"></div>
             <div class="pull-left info">
-                <p> {{ Auth::user()->name }} </p>
+                <?php
+                $name = Auth::user()->name;
+                $name = explode(' ', $name);
+                ?>
+                <p>{{ ucfirst(strtolower($name[0])) }}</p>
                 <p class="designation">Frontend Developer</p>
             </div>
         </div>

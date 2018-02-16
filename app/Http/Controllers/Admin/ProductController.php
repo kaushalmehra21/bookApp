@@ -8,6 +8,16 @@ use App\Admin\Product;
 
 class ProductController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +25,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $Product = Product::all()->toArray();
+        $products = Product::all()->toArray();
 
-        return view('admin/products/index', ['categories'=>$Product]);
+        //$users = Product::all()->users;
+
+        echo '<pre>';
+        return print_r($products);
+
+
+        //return view('admin/products/index', ['products'=>$products]);
     }
 
     /**
@@ -38,15 +54,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $product = new Product;
 
-        $product->title = $request->product['title'];
-        $product->description = $request->product['description'];
-        $product->parent_id = $request->product['parent_id'];
+        $product->title = $request->products['title'];
+        $product->slug = $request->products['slug'];
+        $product->sub_title = $request->products['sub_title'];
+        $product->description = $request->products['description'];
+        $product->regular_price = $request->products['regular_price'];
+        $product->sale_price = $request->products['sale_price'];
+        $product->user_id = $request->products['user_id'];
+
+        //$product->category_id = $request->categories['id'];
+        //$product->tag_id = $request->tags['id'];
+        $product->language_id = $request->languages['id'];
         
         $product->save();
 
-        return redirect('admin/categories');
+        return redirect('admin/products');
     }
 
     /**

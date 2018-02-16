@@ -52,6 +52,7 @@ return array(
     'CreateSlidersTable' => $baseDir . '/database/migrations/2018_01_28_030430_create_sliders_table.php',
     'CreateTagsTable' => $baseDir . '/database/migrations/2018_02_12_155717_create_tags_table.php',
     'CreateTaxesTable' => $baseDir . '/database/migrations/2018_01_30_111051_create_taxes_table.php',
+    'CreateUserDetailsTable' => $baseDir . '/database/migrations/2018_02_15_054842_create_user_details_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

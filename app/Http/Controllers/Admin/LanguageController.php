@@ -110,7 +110,7 @@ class LanguageController extends Controller
         $ginti = 0;
         foreach ($languages as $key => $value) {
             $output[$ginti]['text'] = $value->title;
-            $output[$ginti]['value'] = $value->title;
+            $output[$ginti]['value'] = $value->id;
             $ginti++;
         }
 

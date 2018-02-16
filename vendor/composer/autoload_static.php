@@ -318,6 +318,7 @@ class ComposerStaticInit01ae7f70ccd220b5825a5d05fddf1fcd
         'CreateSlidersTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_28_030430_create_sliders_table.php',
         'CreateTagsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_12_155717_create_tags_table.php',
         'CreateTaxesTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_30_111051_create_taxes_table.php',
+        'CreateUserDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_15_054842_create_user_details_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

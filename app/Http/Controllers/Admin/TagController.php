@@ -110,7 +110,7 @@ class TagController extends Controller
         $ginti = 0;
         foreach ($tags as $key => $value) {
             $output[$ginti]['text'] = $value->title;
-            $output[$ginti]['value'] = $value->title;
+            $output[$ginti]['value'] = $value->id;
             $ginti++;
         }
 

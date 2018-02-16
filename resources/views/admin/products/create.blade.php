@@ -15,11 +15,12 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form method="post" action="" >
+            <form method="post" action="/admin/products" >
                 
                 <div class="card-body">
                     <h4 class="card-title">Basic Detail</h4>
-                    <input type="text" name="token" id="token_" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_token" id="token_" value="{{ csrf_token() }}">
+                    <input type="hidden" name="products[user_id]" id="token_" value="{{ Auth::user()->id }}">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -59,19 +60,19 @@
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Categories</label>
-                            <select class="form-control" name="categories[title]" id="addCategoryTrgr" multiple>
+                            <select class="form-control" name="categories[id]" id="addCategoryTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Tags</label>
-                            <select class="form-control" name="tags[title]" id="addTagTrgr" multiple>
+                            <select class="form-control" name="tags[id]" id="addTagTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Select Language</label>
-                            <select class="form-control" name="languages[title]" id="addLanguageTrgr" multiple>
+                            <select class="form-control" name="languages[id]" id="addLanguageTrgr" multiple>
                                 
                             </select>
                         </div>
@@ -158,6 +159,7 @@
                         $.each(data, function(k, v){
                             $items.push(v);
                         });
+                        console.log($items);
                         object.trigger('tokenize:dropdown:fill', [$items]);
                     }
                 });
