@@ -85,7 +85,6 @@ Route::prefix('admin')->group(function () {
 	Route::post('site-option', 'Admin\SiteOptionController@store');
 	Route::get('site-option/{id}/edit', 'Admin\SiteOptionController@edit');
 	Route::post('site-option/{id}/update', 'Admin\SiteOptionController@update');
-	Route::post('site-option/update', 'Admin\SiteOptionController@ajaxUpdate');
 	Route::get('site-option/{id}/show', 'Admin\SiteOptionController@show');
 	Route::get('site-option/{id}/destroy', 'Admin\SiteOptionController@destroy');
 

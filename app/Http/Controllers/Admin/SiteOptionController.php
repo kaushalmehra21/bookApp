@@ -67,7 +67,9 @@ class SiteOptionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $siteOption = SiteOption::find($id);
+
+        return view('admin/site-options/edit', ['siteOption'=>$siteOption]);
     }
 
     /**
@@ -79,7 +81,14 @@ class SiteOptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siteOption = SiteOption::find($id);
+
+        //$siteOption->option_key = $request->site_options['option_key'];
+        $siteOption->option_value = $request->site_options['option_value'];
+        
+        $siteOption->save();
+
+        return redirect('admin/site-options');
     }
 
     /**
@@ -90,7 +99,10 @@ class SiteOptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siteOption = SiteOption::find($id);
+        $siteOption->delete();
+
+        return redirect('admin/site-options');
     }
 
 

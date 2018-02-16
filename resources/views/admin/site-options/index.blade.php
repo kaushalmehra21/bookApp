@@ -46,7 +46,8 @@
                                     <td>{{ $siteOption['option_key'] }}</td>
                                     <td>{{ $siteOption['option_value'] }}</td>
                                     <td>
-                                        <a href="{{ url('/admin/site-option/'.$siteOption['id'].'/edit') }}" ><i class="fa fa-pencil"></i> Edit</a>
+                                        <a href="{{ url('/admin/site-option/'.$siteOption['id'].'/edit') }}" ><i class="fa fa-pencil"></i> Edit</a> | 
+                                        <a href="{{ url('/admin/site-option/'.$siteOption['id'].'/destroy') }}" ><i class="fa fa-trash"></i> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

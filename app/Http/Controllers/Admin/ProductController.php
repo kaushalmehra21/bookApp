@@ -27,13 +27,7 @@ class ProductController extends Controller
     {
         $products = Product::all()->toArray();
 
-        //$users = Product::all()->users;
-
-        echo '<pre>';
-        return print_r($products);
-
-
-        //return view('admin/products/index', ['products'=>$products]);
+        return view('admin/products/index', ['products'=>$products]);
     }
 
     /**
