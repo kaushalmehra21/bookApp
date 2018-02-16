@@ -80,6 +80,15 @@ Route::prefix('admin')->group(function () {
 	Route::get('languages/{id}/show', 'Admin\LanguageController@show');
 	Route::get('languages/{id}/destroy', 'Admin\LanguageController@destroy');
 
+	Route::get('site-options', 'Admin\SiteOptionController@index');
+	Route::get('site-option/create', 'Admin\SiteOptionController@create');
+	Route::post('site-option', 'Admin\SiteOptionController@store');
+	Route::get('site-option/{id}/edit', 'Admin\SiteOptionController@edit');
+	Route::post('site-option/{id}/update', 'Admin\SiteOptionController@update');
+	Route::post('site-option/update', 'Admin\SiteOptionController@ajaxUpdate');
+	Route::get('site-option/{id}/show', 'Admin\SiteOptionController@show');
+	Route::get('site-option/{id}/destroy', 'Admin\SiteOptionController@destroy');
+
 });
 
 

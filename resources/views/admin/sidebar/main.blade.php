@@ -137,7 +137,7 @@
                 </ul>
             </li>
             <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
-            <li class="treeview"><a href="#"><i class="fa fa-industry"></i><span>About Company</span><i class="fa fa-angle-right"></i></a></li>
+            <li class="treeview"><a href="{{ url('/admin/site-options') }}"><i class="fa fa-industry"></i><span>Site Options</span><i class="fa fa-angle-right"></i></a></li>
             
         </ul>
     </section>
