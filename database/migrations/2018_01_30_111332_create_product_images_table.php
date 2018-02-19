@@ -17,8 +17,8 @@ class CreateProductImagesTable extends Migration
             $table->increments('id');
             $table->integer('product_id');
             $table->string('file');
-            $table->integer('is_default');
-            $table->timestamp('created_at')->nullable();
+            $table->integer('is_default')->default(0);;
+            $table->timestamps();
         });
     }
 

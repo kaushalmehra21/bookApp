@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->double('regular_price', 8, 2);
             $table->double('sale_price', 8, 2);
-            $table->integer('avg_rate');
+            $table->integer('avg_rate')->default(0);
             $table->integer('tax_id')->default(0)->comment('0=no tax, +ve=tax excluded');
             $table->integer('user_id');
             $table->integer('language_id');

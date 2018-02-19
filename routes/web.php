@@ -59,6 +59,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('products/update', 'Admin\ProductController@ajaxUpdate');
 	Route::get('products/{id}/show', 'Admin\ProductController@show');
 	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
+	Route::get('products/{id}/images', 'Admin\ProductController@images');
 
 	Route::get('tags', 'Admin\TagController@index');
 	Route::get('tags/create', 'Admin\TagController@create');
@@ -87,6 +88,8 @@ Route::prefix('admin')->group(function () {
 	Route::post('site-option/{id}/update', 'Admin\SiteOptionController@update');
 	Route::get('site-option/{id}/show', 'Admin\SiteOptionController@show');
 	Route::get('site-option/{id}/destroy', 'Admin\SiteOptionController@destroy');
+
+	Route::get('dashboard', 'Admin\DashboardController@index');
 
 });
 

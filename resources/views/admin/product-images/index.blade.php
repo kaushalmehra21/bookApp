@@ -32,20 +32,20 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Created</th>
+                            <th>Image</th>
+                            <th>Make Default</th>
                             <th>Updated</th>
-                            <th>Images</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $product)
+                        @foreach($productImages as $productImage)
                         <tr>
                             <td>1</td>
-                            <td>{{ $product['title'] }}</td>
-                            <td>{{ $product['created_at'] }}</td>
-                            <td>{{ $product['updated_at'] }}</td>
-                            <td><a href="{{ url('/admin/products/'.$product['id'].'/images') }}">Manage Images</a></td>
+                            <td>{{ $productImage['file'] }}</td>
+                            <td>{{ $productImage['created_at'] }}</td>
+                            <td>{{ $productImage['updated_at'] }}</td>
+                            <td><a href="{{ url('/admin/products/'.$product['id'].'/edit') }}">Manage Images</a></td>
                             <td>
                                 <a href="{{ url('/admin/products/'.$product['id'].'/edit') }}">Edit</a> | 
                                 <a href="{{ url('/admin/products/'.$product['id'].'/destroy') }}">Delete</a> | 

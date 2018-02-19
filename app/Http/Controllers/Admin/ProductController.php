@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Input;
+//use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+
 use App\Admin\Product;
+use App\Admin\ProductImage;
 
 class ProductController extends Controller
 {
@@ -49,22 +54,34 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
         $product = new Product;
 
-        $product->title = $request->products['title'];
-        $product->slug = $request->products['slug'];
-        $product->sub_title = $request->products['sub_title'];
-        $product->description = $request->products['description'];
+        if ($request->hasFile('product_images')) {
+            $fileNameArr = [];
+            foreach ($request->product_images as $product_image) {
+                $file_name = $product_image->store('public/product_images');
+                $file_name = str_replace('public', '/storage', $file_name);
+                $fileNameArr[] = $file_name;
+            }
+        }
+        
+        $product->title         = $request->products['title'];
+        $product->slug          = $request->products['slug'];
+        $product->sub_title     = $request->products['sub_title'];
+        $product->description   = $request->products['description'];
         $product->regular_price = $request->products['regular_price'];
-        $product->sale_price = $request->products['sale_price'];
-        $product->user_id = $request->products['user_id'];
-
-        //$product->category_id = $request->categories['id'];
-        //$product->tag_id = $request->tags['id'];
-        $product->language_id = $request->languages['id'];
+        $product->sale_price    = $request->products['sale_price'];
+        $product->user_id       = $request->products['user_id'];
+        $product->language_id   = $request->languages['id'];
         
         $product->save();
+
+        foreach ($fileNameArr as $filename) {
+            $productImage = new ProductImage;
+            $productImage->product_id = $product->id;
+            $productImage->file = $filename;
+            $productImage->save();
+        }
 
         return redirect('admin/products');
     }
@@ -111,18 +128,23 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect('admin/products');
     }
 
 
-    public function ajaxListJson(Request $request)
+    public function images($product_id)
     {
-        return $request->token;
-        //return print_r($category->_token);
 
-        //$categories = Category::all()->toArray();
 
-        //->where('name', 'like', 'T%')
-        //return json_encode($categories);
+        $productImages = DB::table('product_images')->get()->toArray();
+
+        /*echo '<pre>';
+        print_r($productImages);
+        die;*/
+
+        return view('admin/products/images', ['productImages'=>$productImages]);
     }
 }

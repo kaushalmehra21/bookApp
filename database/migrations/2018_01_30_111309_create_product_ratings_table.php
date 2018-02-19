@@ -18,7 +18,7 @@ class CreateProductRatingsTable extends Migration
             $table->integer('product_id');
             $table->integer('rate');
             $table->text('review');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 
