@@ -13,4 +13,12 @@ class User extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function user_details()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }
