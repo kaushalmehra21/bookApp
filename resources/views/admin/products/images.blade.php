@@ -31,7 +31,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
+                            <th>Images</th>
                             <th>Make Default</th>
                             <th>Updated</th>
                             <th>Action</th>
@@ -41,12 +41,18 @@
                         @foreach($productImages as $productImage)
                         <tr>
                             <td>1</td>
-                            <td><img src="{{ $productImage->file }}" style="width: 100px;" ></td>
-                            <td><a href="{{ url('/admin/products/'.$productImage->id.'/edit') }}">Manage Images</a></td>
+                            <td><img src="{{ $productImage['file'] }}" style="width: 100px"> </td>
+                            <td>
+                                <?php
+                                if($productImage['is_default'] == 1){
+                                    echo 'Default';
+                                } else { ?>
+                                    <a href="{{ url('/admin/product-images/'.$productImage['id'].'/make-default') }}">Make this Default</a>
+                                <?php } ?>
+                            </td>
                             <td>{{ $productImage['updated_at'] }}</td>
                             <td>
-                                <a href="{{ url('/admin/products/'.$productImage-id.'/edit') }}">Edit</a> | 
-                                <a href="{{ url('/admin/products/'.$productImage->id.'/destroy') }}">Delete</a> | 
+                                <a href="{{ url('/admin/product-images/'.$productImage['id'].'/destroy') }}">Delete</a> | 
                                 <a href="">View</a>
                             </td>
                         </tr>

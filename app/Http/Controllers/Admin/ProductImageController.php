@@ -32,4 +32,33 @@ class ProductImageController extends Controller
 
         return view('admin/product-images/index', ['productImages'=>$productImages]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $productImage = ProductImage::find($id);
+        $productImage->delete();
+
+        return redirect('admin/products');
+    }
+
+
+    public function makeDefault(Request $request)
+    {
+
+        $slider = ProductImage::find($request->id);
+        if($slider->status==1){
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+
+        $slider->status = $status;
+        $slider->save();
+    }
 }

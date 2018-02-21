@@ -138,11 +138,10 @@ class ProductController extends Controller
     public function images($product_id)
     {
 
-
-        $productImages = DB::table('product_images')->get()->toArray();
+        $productImages = Product::find($product_id)->images->toArray();
 
         /*echo '<pre>';
-        print_r($productImages);
+        return print_r($productImages);
         die;*/
 
         return view('admin/products/images', ['productImages'=>$productImages]);
