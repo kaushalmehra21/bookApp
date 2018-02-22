@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Admin\User;
+use App\Admin\UserDetail;
 
 
 class UserController extends Controller
@@ -53,12 +54,20 @@ class UserController extends Controller
 
         $user = new User;
 
-        $user->name = $request->user['name'];
+        /*$user->name = $request->user['name'];
         $user->email = $request->user['email'];
         $user->password = Hash::make($request->user['password']);
         $user->remember_token = $request->_token;
 
         $user->save();
+
+        $userDetail = new UserDetail;
+        $userDetail->user_id = $user->id;
+        $userDetail->member_type = 'subscriber';
+        $userDetail->last_name = NULL;
+        $userDetail->status = 1;
+
+        $userDetail->save();*/
 
         return redirect('admin/users');
     }
