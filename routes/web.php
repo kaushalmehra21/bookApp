@@ -61,6 +61,16 @@ Route::prefix('admin')->group(function () {
 	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
 	Route::get('products/{id}/images', 'Admin\ProductController@images');
 
+	Route::get('product-images', 'Admin\ProductImageController@index');
+	Route::get('product-image/create', 'Admin\ProductImageController@create');
+	Route::post('product-image', 'Admin\ProductImageController@store');
+	Route::get('product-image/{id}/edit', 'Admin\ProductImageController@edit');
+	Route::post('product-image/{id}/update', 'Admin\ProductImageController@update');
+	Route::post('product-image/update', 'Admin\ProductImageController@ajaxUpdate');
+	Route::get('product-image/{id}/show', 'Admin\ProductImageController@show');
+	Route::get('product-image/{id}/destroy', 'Admin\ProductImageController@destroy');
+	Route::get('product-image/{image_id}/product/{product_id}/make-default', 'Admin\ProductImageController@makeDefault');
+
 	Route::get('tags', 'Admin\TagController@index');
 	Route::get('tags/create', 'Admin\TagController@create');
 	Route::post('tags', 'Admin\TagController@store');

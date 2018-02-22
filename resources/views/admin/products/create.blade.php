@@ -64,19 +64,19 @@
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Categories</label>
-                            <select class="form-control" name="categories[id]" id="addCategoryTrgr" multiple>
+                            <select class="form-control" name="product_categories[id][]" id="addCategoryTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Tags</label>
-                            <select class="form-control" name="tags[id]" id="addTagTrgr" multiple>
+                            <select class="form-control" name="product_tags[id]" id="addTagTrgr" multiple>
                                 
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Select Language</label>
-                            <select class="form-control" name="languages[id]" id="addLanguageTrgr" multiple>
+                            <select class="form-control" name="product_language[id]" id="addLanguageTrgr" multiple>
                                 
                             </select>
                         </div>

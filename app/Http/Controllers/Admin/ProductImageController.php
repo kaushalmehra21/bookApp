@@ -48,17 +48,22 @@ class ProductImageController extends Controller
     }
 
 
-    public function makeDefault(Request $request)
+    public function makeDefault($image_id, $product_id)
     {
 
-        $slider = ProductImage::find($request->id);
-        if($slider->status==1){
-            $status = 0;
-        } else {
-            $status = 1;
+        $productImages = Product::find($product_id)->images;
+    
+        foreach ($productImages as $productImage) {
+            $productImage = ProductImage::find($productImage->id);
+            $productImage->is_default = '0';
+            $productImage->save();
         }
 
-        $slider->status = $status;
-        $slider->save();
+        $productImage = ProductImage::find($image_id);
+        $productImage->is_default = '1';
+        $productImage->save();
+
+        return redirect('admin/products/'.$product_id.'/images');
+        
     }
 }

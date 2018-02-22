@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 use App\Admin\Product;
 use App\Admin\ProductImage;
+use App\Admin\ProductCategory;
+use App\Admin\ProductTag;
+use App\Admin\Language;
+use App\Admin\user;
 
 class ProductController extends Controller
 {
@@ -32,7 +36,19 @@ class ProductController extends Controller
     {
         $products = Product::all()->toArray();
 
-        return view('admin/products/index', ['products'=>$products]);
+        $productArr = array();
+        foreach ($products as $key => $value) {
+            $productArr[$key] = $value;
+            
+            $language = language::find($value['language_id'])->toArray();
+            $productArr[$key]['language'] = $language;
+
+            $user = User::find($value['user_id'])->toArray();
+            $productArr[$key]['user'] = $user;
+
+        }
+
+        return view('admin/products/index', ['products'=>$productArr]);
     }
 
     /**
@@ -54,6 +70,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        /*print_r($request->product_categories);
+        die;*/
+
         $product = new Product;
 
         if ($request->hasFile('product_images')) {
@@ -72,7 +91,7 @@ class ProductController extends Controller
         $product->regular_price = $request->products['regular_price'];
         $product->sale_price    = $request->products['sale_price'];
         $product->user_id       = $request->products['user_id'];
-        $product->language_id   = $request->languages['id'];
+        $product->language_id   = $request->product_language['id'];
         
         $product->save();
 
@@ -81,6 +100,20 @@ class ProductController extends Controller
             $productImage->product_id = $product->id;
             $productImage->file = $filename;
             $productImage->save();
+        }
+
+        foreach ($request->product_categories['id'] as $category_id) {
+            $productCategory = new ProductCategory;
+            $productCategory->product_id = $product->id;
+            $productCategory->category_id = $category_id;
+            $productCategory->save();
+        }
+
+        foreach ($request->product_tags['id'] as $tag_id) {
+            $productTag = new ProductTag;
+            $productCategory->product_id = $product->id;
+            $productCategory->tag_id = $tag_id;
+            $productCategory->save();
         }
 
         return redirect('admin/products');

@@ -47,7 +47,7 @@
                                 if($productImage['is_default'] == 1){
                                     echo 'Default';
                                 } else { ?>
-                                    <a href="{{ url('/admin/product-images/'.$productImage['id'].'/make-default') }}">Make this Default</a>
+                                    <a href="{{ url('/admin/product-image/'.$productImage['id'].'/product/'.$productImage['product_id'].'/make-default') }}">Make this Default</a>
                                 <?php } ?>
                             </td>
                             <td>{{ $productImage['updated_at'] }}</td>

@@ -32,9 +32,12 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Created</th>
+                            <th>Regular Price</th>
+                            <th>Sale Price</th>
+                            <th>Language</th>
+                            <th>Owner</th>
+                            <th>Manage Images</th>
                             <th>Updated</th>
-                            <th>Images</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,10 +45,20 @@
                         @foreach($products as $product)
                         <tr>
                             <td>1</td>
-                            <td>{{ $product['title'] }}</td>
-                            <td>{{ $product['created_at'] }}</td>
-                            <td>{{ $product['updated_at'] }}</td>
+                            <td>
+                                <span title="{{ $product['sub_title'] }}" >
+                                {{ $product['title'] }}
+                                </span><br>
+                                <span>
+                                    {{ date('d-m-Y', strtotime($product['created_at'])) }}
+                                </span>
+                            </td>
+                            <td><span title="{{ $product['regular_price'] }}" >{{ $product['regular_price'] }}</span></td>
+                            <td><span title="{{ $product['sale_price'] }}" >{{ $product['sale_price'] }}</span></td>
+                            <td><span title="{{ $product['language']['title'] }}" >{{ $product['language']['title'] }}</span></td>
+                            <td><span title="{{ $product['user']['email'] }}" >{{ $product['user']['name'] }}</span></td>
                             <td><a href="{{ url('/admin/products/'.$product['id'].'/images') }}">Manage Images</a></td>
+                            <td>{{ date('d-m-Y|H:i', strtotime($product['updated_at'])) }}</td>
                             <td>
                                 <a href="{{ url('/admin/products/'.$product['id'].'/edit') }}">Edit</a> | 
                                 <a href="{{ url('/admin/products/'.$product['id'].'/destroy') }}">Delete</a> | 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
-    //
-    const UPDATED_AT = null;
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
