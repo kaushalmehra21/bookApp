@@ -15,9 +15,9 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('member_type', 50);
-            $table->string('last_name', 50);
+            $table->integer('user_id')->unsigned();
+            $table->string('member_type', 50)->nullable();
+            $table->string('last_name', 50)->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
