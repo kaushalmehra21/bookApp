@@ -54,20 +54,20 @@ class UserController extends Controller
 
         $user = new User;
 
-        /*$user->name = $request->user['name'];
-        $user->email = $request->user['email'];
-        $user->password = Hash::make($request->user['password']);
+        $user->name = $request->users['name'];
+        $user->email = $request->users['email'];
+        $user->password = Hash::make($request->users['password']);
         $user->remember_token = $request->_token;
 
         $user->save();
 
         $userDetail = new UserDetail;
         $userDetail->user_id = $user->id;
-        $userDetail->member_type = 'subscriber';
-        $userDetail->last_name = NULL;
+        $userDetail->member_type = $request->user_details['member_type'];
+        $userDetail->last_name = $request->user_details['last_name'];
         $userDetail->status = 1;
 
-        $userDetail->save();*/
+        $userDetail->save();
 
         return redirect('admin/users');
     }

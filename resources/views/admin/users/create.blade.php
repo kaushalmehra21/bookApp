@@ -23,21 +23,38 @@
                             <fieldset>
                                 <legend>Add New User</legend>
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for="inputEmail">Name</label>
+                                    <label class="col-lg-2 control-label" for="inputEmail">First Name</label>
                                     <div class="col-lg-10">
-                                        <input name="user[name]" class="form-control" id="inputEmail" type="text" placeholder="Name">
+                                        <input name="users[name]" class="form-control" id="inputEmail" type="text" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label" for="inputEmail">Last Name</label>
+                                    <div class="col-lg-10">
+                                        <input name="user_details[last_name]" class="form-control" id="inputEmail" type="text" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Email</label>
                                     <div class="col-lg-10">
-                                        <input name="user[email]" class="form-control" id="inputEmail" type="email" placeholder="Email">
+                                        <input name="users[email]" class="form-control" id="inputEmail" type="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputPassword">Password</label>
                                     <div class="col-lg-10">
-                                        <input name="user[password]" class="form-control" id="inputPassword" type="password" placeholder="Password">
+                                        <input name="users[password]" class="form-control" id="inputPassword" type="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label" for="inputPassword">Role</label>
+                                    <div class="col-lg-10">
+                                        <select name="user_detail[member_type]" class="form-control">
+                                            <option value="SUBSCRIBER">Subscriber</option>
+                                            <option value="VENDOR">Vendor</option>
+                                            <option value="ADMIN">Admin</option>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="form-group">
