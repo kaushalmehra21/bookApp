@@ -7,19 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
-    /*public function categories()
-    {
-        return $this->hasMany('App\Admin\Category');
-    }*/
-
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function languages()
     {
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(Language::class, 'language_id', 'id');
     }
 
     public function images()

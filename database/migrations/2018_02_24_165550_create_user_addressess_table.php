@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDetailsTable extends Migration
+class CreateUserAddressessTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateUserDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_details', function (Blueprint $table) {
+        Schema::create('user_addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('member_type', 50)->nullable();
-            $table->string('last_name', 50)->nullable();
-            $table->integer('status')->default(0)->comment('0=inactive, 1=subscriber publish, 2=vendor publish, 3=admin publish, 4=superadmin publish');
+            $table->string('address_1')->nullable();
+            $table->string('address_2')->nullable();
+            $table->integer('pin')->default(0);
+            $table->integer('city_id')->default(0);
+            $table->integer('state_id')->default(0);
+            $table->integer('country_id')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateUserDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_details');
+        //
     }
 }

@@ -55,8 +55,8 @@
                             </td>
                             <td><span title="{{ $product['regular_price'] }}" >{{ $product['regular_price'] }}</span></td>
                             <td><span title="{{ $product['sale_price'] }}" >{{ $product['sale_price'] }}</span></td>
-                            <td><span title="{{ $product['language']['title'] }}" >{{ $product['language']['title'] }}</span></td>
-                            <td><span title="{{ $product['user']['email'] }}" >{{ $product['user']['name'] }}</span></td>
+                            <td><span title="{{ $product['languages']['title'] }}" >{{ $product['languages']['title'] }}</span></td>
+                            <td><span title="{{ $product['users']['email'] }}" >{{ $product['users']['name'] }}</span></td>
                             <td><a href="{{ url('/admin/products/'.$product['id'].'/images') }}">Manage Images</a></td>
                             <td>{{ date('d-m-Y|H:i', strtotime($product['updated_at'])) }}</td>
                             <td>

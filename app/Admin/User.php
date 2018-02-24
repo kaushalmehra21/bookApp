@@ -19,6 +19,6 @@ class User extends Model
      */
     public function user_details()
     {
-        return $this->hasOne(UserDetail::class);
+        return $this->hasOne(UserDetail::class, 'user_id', 'id');
     }
 }

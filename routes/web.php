@@ -22,15 +22,23 @@ Route::get('foo', function () {
 
 Route::prefix('admin')->group(function () {
 
-	Route::resource('users', 'Admin\UserController');
+	//Route::resource('users', 'Admin\UserController');
 
-	//Route::get('users', 'Admin\UserController@index');
-	//Route::get('users/create', 'Admin\UserController@create');
-	//Route::post('users', 'Admin\UserController@store');
-	//Route::get('users/{id}/edit', 'Admin\UserController@edit');
-	//Route::post('users/{id}/update', 'Admin\UserController@update');
-	//Route::get('users/{id}/show', 'Admin\UserController@show');
-	//Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
+	Route::get('users', 'Admin\UserController@index');
+	Route::get('users/create', 'Admin\UserController@create');
+	Route::post('users', 'Admin\UserController@store');
+	Route::get('users/{id}/edit', 'Admin\UserController@edit');
+	Route::post('users/{id}/update', 'Admin\UserController@update');
+	Route::get('users/{id}/show', 'Admin\UserController@show');
+	Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
+
+	Route::get('vendors', 'Admin\VendorController@index');
+	Route::get('vendors/create', 'Admin\VendorController@create');
+	Route::post('vendors', 'Admin\VendorController@store');
+	Route::get('vendors/{id}/edit', 'Admin\VendorController@edit');
+	Route::post('vendors/{id}/update', 'Admin\VendorController@update');
+	Route::get('vendors/{id}/show', 'Admin\VendorController@show');
+	Route::get('vendors/{id}/destroy', 'Admin\VendorController@destroy');
 
 	Route::get('categories', 'Admin\CategoryController@index');
 	Route::get('categories/create', 'Admin\CategoryController@create');

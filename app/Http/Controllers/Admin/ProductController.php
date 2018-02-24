@@ -12,8 +12,6 @@ use App\Admin\Product;
 use App\Admin\ProductImage;
 use App\Admin\ProductCategory;
 use App\Admin\ProductTag;
-use App\Admin\Language;
-use App\Admin\user;
 
 class ProductController extends Controller
 {
@@ -34,21 +32,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->toArray();
+        $products = Product::with(['users', 'languages'])->get();
 
-        $productArr = array();
-        foreach ($products as $key => $value) {
-            $productArr[$key] = $value;
-            
-            $language = language::find($value['language_id'])->toArray();
-            $productArr[$key]['language'] = $language;
+        //return $products;
 
-            $user = User::find($value['user_id'])->toArray();
-            $productArr[$key]['user'] = $user;
-
-        }
-
-        return view('admin/products/index', ['products'=>$productArr]);
+        return view('admin/products/index', ['products'=>$products]);
     }
 
     /**

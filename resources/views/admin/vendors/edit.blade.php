@@ -18,43 +18,28 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="well bs-component">
-                        <form method="post" action="/admin/users" class="form-horizontal">
+                        
+                        <form method="post" action="/admin/users/{{ $user->id }}" class="form-horizontal">
+                            {{ method_field('PUT') }}
                             {{ csrf_field() }}
                             <fieldset>
                                 <legend>Add New User</legend>
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for="inputEmail">First Name</label>
+                                    <label class="col-lg-2 control-label" for="inputEmail">Name</label>
                                     <div class="col-lg-10">
-                                        <input name="users[name]" class="form-control" id="inputEmail" type="text" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label" for="inputEmail">Last Name</label>
-                                    <div class="col-lg-10">
-                                        <input name="user_details[last_name]" class="form-control" id="inputEmail" type="text" placeholder="Name">
+                                        <input name="user[name]" class="form-control" id="inputEmail" type="text" placeholder="Name" value="{{ $user->name }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Email</label>
                                     <div class="col-lg-10">
-                                        <input name="users[email]" class="form-control" id="inputEmail" type="email" placeholder="Email">
+                                        <input name="user[email]" class="form-control" id="inputEmail" type="email" placeholder="Email" value="{{ $user->email }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputPassword">Password</label>
                                     <div class="col-lg-10">
-                                        <input name="users[password]" class="form-control" id="inputPassword" type="password" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label" for="inputPassword">Role</label>
-                                    <div class="col-lg-10">
-                                        <select name="user_details[member_type]" class="form-control">
-                                            <option value="SUBSCRIBER">Subscriber</option>
-                                            <option value="VENDOR">Vendor</option>
-                                            <option value="ADMIN">Admin</option>
-                                        </select>
-                                        
+                                        <input name="user[password]" class="form-control" id="inputPassword" type="password" placeholder="Password" value="{{ $user->password }}">
                                     </div>
                                 </div>
                                 <div class="form-group">

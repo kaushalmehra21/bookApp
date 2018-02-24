@@ -18,7 +18,7 @@
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a class="btn btn-info" href="{{ url('admin/users/create') }}">Add New User</a>
+                    <a class="btn btn-info" href="{{ url('admin/vendors/create') }}">Add New Vendor</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -33,23 +33,21 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
                             <th>Created</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach($vendors as $vendor)
                         <tr>
                             <td>1</td>
-                            <td>{{ $user['name'] }}</td>
-                            <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['user_details']['member_type'] }}</td>
-                            <td>{{ $user['created_at'] }}</td>
+                            <td>{{ $vendor['users']['name'] }}</td>
+                            <td>{{ $vendor['users']['email'] }}</td>
+                            <td>{{ $vendor['created_at'] }}</td>
                             <td>
-                                <a href="{{ url('/admin/users/'.$user['id'].'/edit') }}">Edit</a> |
-                                <a href="{{ url('/admin/users/'.$user['id']) }}">View</a> |
-                                <a href="{{ url('/admin/users/'.$user['id']).'/destroy' }}">Delete</a>
+                                <a href="{{ url('/admin/users/'.$vendor['id'].'/edit') }}">Edit</a> |
+                                <a href="{{ url('/admin/users/'.$vendor['id']) }}">View</a> |
+                                <a href="{{ url('/admin/users/'.$vendor['id']).'/destroy' }}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

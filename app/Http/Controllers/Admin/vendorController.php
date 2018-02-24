@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Admin\User;
 use App\Admin\UserDetail;
 
-
-class UserController extends Controller
+class vendorController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -30,9 +27,11 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::with('user_details')->get();
+        $vendors = UserDetail::with('users')->where('member_type', 'VENDOR')->get();
 
-        return view('admin/users/index', ['users'=>$users]);
+        //return $users;
+
+        return view('admin/vendors/index', ['vendors'=>$vendors]);
     }
 
     /**
