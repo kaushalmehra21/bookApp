@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Admin\User;
 use App\Admin\UserDetail;
+use App\Admin\VendorBusinessDetail;
+use App\Admin\VendorBankDetail;
+use App\Admin\VendorStoreDetail;
 
 
 class UserController extends Controller
@@ -67,9 +70,36 @@ class UserController extends Controller
         $userDetail->user_id = $user->id;
         $userDetail->member_type = $request->user_details['member_type'];
         $userDetail->last_name = $request->user_details['last_name'];
-        $userDetail->status = 1;
+        $userDetail->user_status = 1;
+        if($request->user_details['member_type']=='VENDOR'){
+            $userDetail->vendor_status = 1;
+        } else if ($request->user_details['member_type']=='ADMIN') {
+            $userDetail->vendor_status = 1;
+            $userDetail->admin_status = 1;
+        } else if ($request->user_details['member_type']=='SUPERADMIN') {
+            $userDetail->vendor_status = 1;
+            $userDetail->admin_status = 1;
+            $userDetail->superadmin_status = 1;
+        }
 
         $userDetail->save();
+
+
+        if($request->user_details['member_type']!='SUBSCRIBER') {
+            $vendorBankDetail = new VendorBankDetail;
+            $vendorBankDetail->user_id = $user->id;
+            $vendorBankDetail->save();
+
+            $vendorBusinessDetail = new VendorBusinessDetail;
+            $vendorBusinessDetail->user_id = $user->id;
+            $vendorBusinessDetail->save();
+
+            $vendorStoreDetail = new VendorStoreDetail;
+            $vendorStoreDetail->user_id = $user->id;
+            $vendorStoreDetail->save();
+        }
+
+        
 
         return redirect('admin/users');
     }

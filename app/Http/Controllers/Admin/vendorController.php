@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Admin\User;
+use App\Admin\User; // need to remove
 use App\Admin\UserDetail;
+use App\Admin\VendorStoreDetail;
 
 class vendorController extends Controller
 {
@@ -93,9 +94,36 @@ class vendorController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $vendor = User::find($id);
+
+        return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
+    }
+
+    public function businessDetailEdit($id)
+    {
+        $vendor = User::find($id)->vendor_business_details->get();
+
+        return $vendor;
         
-        return view('admin/users/edit', ['user'=>$user]);
+        //return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
+    }
+
+    public function bankDetailEdit($id)
+    {
+        $vendor = User::find($id)->vendor_bank_details->get();
+
+        return $vendor;
+        
+        //return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
+    }
+
+    public function storeDetailEdit($id)
+    {
+        $vendor = User::find($id)->vendor_store_details->first();
+
+        //return $vendor;
+        
+        return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
     }
 
     /**
@@ -117,6 +145,18 @@ class vendorController extends Controller
         $user->save();
 
         return redirect('admin/users');
+    }
+
+    public function storeDetailUpdate(Request $request, $id)
+    {
+        $vendorStoreDetail = VendorStoreDetail::find($id);
+
+        $vendorStoreDetail->display_name = $request->vendor_store_details['display_name'];
+        $vendorStoreDetail->description = $request->vendor_store_details['description'];
+
+        $vendorStoreDetail->save();
+
+        return redirect('admin/vendors');
     }
 
     /**

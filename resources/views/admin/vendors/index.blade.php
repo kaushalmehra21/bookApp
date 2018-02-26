@@ -33,6 +33,9 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Business Detail</th>
+                            <th>Bank Detail</th>
+                            <th>Store Detail</th>
                             <th>Created</th>
                             <th>Action</th>
                         </tr>
@@ -43,6 +46,9 @@
                             <td>1</td>
                             <td>{{ $vendor['users']['name'] }}</td>
                             <td>{{ $vendor['users']['email'] }}</td>
+                            <td><a href="{{ url('/admin/vendors/'.$vendor['user_id'].'/business-detail/edit') }}">Complete Profile</a></td>
+                            <td><a href="{{ url('/admin/vendors/'.$vendor['user_id'].'/bank-detail/edit') }}">Complete Profile</a></td>
+                            <td><a href="{{ url('/admin/vendors/'.$vendor['user_id'].'/store-detail/edit') }}">Complete Profile</a></td>
                             <td>{{ $vendor['created_at'] }}</td>
                             <td>
                                 <a href="{{ url('/admin/users/'.$vendor['id'].'/edit') }}">Edit</a> |

@@ -53,6 +53,7 @@
                                             <option value="SUBSCRIBER">Subscriber</option>
                                             <option value="VENDOR">Vendor</option>
                                             <option value="ADMIN">Admin</option>
+                                            <option value="SUPERADMIN">Super Admin</option>
                                         </select>
                                         
                                     </div>

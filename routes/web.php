@@ -32,6 +32,7 @@ Route::prefix('admin')->group(function () {
 	Route::get('users/{id}/show', 'Admin\UserController@show');
 	Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
 
+	
 	Route::get('vendors', 'Admin\VendorController@index');
 	Route::get('vendors/create', 'Admin\VendorController@create');
 	Route::post('vendors', 'Admin\VendorController@store');
@@ -39,6 +40,15 @@ Route::prefix('admin')->group(function () {
 	Route::post('vendors/{id}/update', 'Admin\VendorController@update');
 	Route::get('vendors/{id}/show', 'Admin\VendorController@show');
 	Route::get('vendors/{id}/destroy', 'Admin\VendorController@destroy');
+	// other details
+	Route::get('vendors/{id}/business-detail/edit', 'Admin\VendorController@businessDetailEdit');
+	Route::get('vendors/{id}/bank-detail/edit', 'Admin\VendorController@bankDetailEdit');
+	Route::get('vendors/{id}/store-detail/edit', 'Admin\VendorController@storeDetailEdit');
+
+	Route::post('vendors/{id}/business-detail/update', 'Admin\VendorController@businessDetailUpdate');
+	Route::post('vendors/{id}/bank-detail/update', 'Admin\VendorController@bankDetailUpdate');
+	Route::post('vendors/{id}/store-detail/update', 'Admin\VendorController@storeDetailUpdate');
+
 
 	Route::get('categories', 'Admin\CategoryController@index');
 	Route::get('categories/create', 'Admin\CategoryController@create');

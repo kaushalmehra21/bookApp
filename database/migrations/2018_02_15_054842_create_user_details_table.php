@@ -18,7 +18,10 @@ class CreateUserDetailsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('member_type', 50)->nullable();
             $table->string('last_name', 50)->nullable();
-            $table->integer('status')->default(0)->comment('0=inactive, 1=subscriber publish, 2=vendor publish, 3=admin publish, 4=superadmin publish');
+            $table->integer('user_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');
+            $table->integer('vendor_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');
+            $table->integer('admin_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');
+            $table->integer('superadmin_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');
             $table->timestamps();
         });
     }

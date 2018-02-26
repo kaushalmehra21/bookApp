@@ -21,4 +21,28 @@ class User extends Model
     {
         return $this->hasOne(UserDetail::class, 'user_id', 'id');
     }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function vendor_bank_details()
+    {
+        return $this->hasOne(VendorBankDetail::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function vendor_business_details()
+    {
+        return $this->hasOne(VendorBusinessDetail::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function vendor_store_details()
+    {
+        return $this->hasOne(VendorStoreDetail::class, 'user_id', 'id');
+    }
 }
