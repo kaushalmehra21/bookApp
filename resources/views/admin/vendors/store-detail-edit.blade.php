@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="well bs-component">
                         <form method="post" action="/admin/vendors/{{ $vendor->id }}/store-detail/update" class="form-horizontal">
-                            {{ method_field('PUT') }}
+                            
                             {{ csrf_field() }}
                             <input type="hidden" name="vendor_store_details[user_id]" value="{{ $vendor->user_id }}">
                             <fieldset>
@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Description</label>
                                     <div class="col-lg-10">
-                                        <textarea name="vendor_store_details[description]" class="form-control" id="inputEmail" >{{ $vendor->email }}</textarea>
+                                        <textarea name="vendor_store_details[description]" class="form-control" id="inputEmail" >{{ $vendor->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">

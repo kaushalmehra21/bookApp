@@ -87,12 +87,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-users"></i><span>Vendors</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/users') }}">
+                        <a href="{{ url('/admin/vendors') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/users/create') }}">
+                        <a href="{{ url('/admin/vendors/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>

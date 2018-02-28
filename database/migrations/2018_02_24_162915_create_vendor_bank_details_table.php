@@ -19,7 +19,7 @@ class CreateVendorBankDetailsTable extends Migration
             $table->string('account_holder_name')->nullable();
             $table->string('account_number')->nullable();
             $table->string('ifsc')->nullable();
-            $table->string('branch')->nullable();
+            $table->string('branch_name')->nullable();
             $table->integer('city_id')->default(0);
             $table->integer('state_id')->default(0);
             $table->integer('country_id')->default(0);

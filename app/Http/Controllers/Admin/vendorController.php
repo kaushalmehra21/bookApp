@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Admin\User; // need to remove
 use App\Admin\UserDetail;
 use App\Admin\VendorStoreDetail;
+use App\Admin\VendorBankDetail;
+use App\Admin\VendorBusinessDetail;
 
 class vendorController extends Controller
 {
@@ -101,24 +103,25 @@ class vendorController extends Controller
 
     public function businessDetailEdit($id)
     {
-        $vendor = User::find($id)->vendor_business_details->get();
+        $vendor = User::find($id)->vendor_business_details->first();
 
-        return $vendor;
+        //return $vendor;
         
-        //return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
+        return view('admin/vendors/business-detail-edit', ['vendor'=>$vendor]);
     }
 
     public function bankDetailEdit($id)
     {
-        $vendor = User::find($id)->vendor_bank_details->get();
+        $vendor = User::find($id)->vendor_bank_details->first();
 
-        return $vendor;
+        //return $vendor;
         
-        //return view('admin/vendors/store-detail-edit', ['vendor'=>$vendor]);
+        return view('admin/vendors/bank-detail-edit', ['vendor'=>$vendor]);
     }
 
     public function storeDetailEdit($id)
     {
+
         $vendor = User::find($id)->vendor_store_details->first();
 
         //return $vendor;
@@ -149,12 +152,55 @@ class vendorController extends Controller
 
     public function storeDetailUpdate(Request $request, $id)
     {
+
+        //return $id;
         $vendorStoreDetail = VendorStoreDetail::find($id);
 
         $vendorStoreDetail->display_name = $request->vendor_store_details['display_name'];
         $vendorStoreDetail->description = $request->vendor_store_details['description'];
 
         $vendorStoreDetail->save();
+
+        return redirect('admin/vendors');
+    }
+
+    public function bankDetailUpdate(Request $request, $id)
+    {
+
+        //return $id;
+        $VendorBankDetail = VendorBankDetail::find($id);
+
+        $VendorBankDetail->account_holder_name=$request->vendor_bank_details['account_holder_name'];
+        $VendorBankDetail->account_number = $request->vendor_bank_details['account_number'];
+        $VendorBankDetail->ifsc = $request->vendor_bank_details['ifsc'];
+        $VendorBankDetail->branch_name = $request->vendor_bank_details['branch_name'];
+
+        $VendorBankDetail->save();
+
+        return redirect('admin/vendors');
+    }
+
+    public function businessDetailUpdate(Request $request, $id)
+    {
+        $fn = false;
+        //return $id;
+        $vendorBusinessDetail = VendorBusinessDetail::find($id);
+
+        if($request->hasFile('signature')) {
+            $fn = $product_image->store('public/users/'.$vendorBusinessDetail->user_id.'/signature');
+            $fn = str_replace('public', '/storage', $fn);
+        }
+
+        $vendorBusinessDetail->name=$request->vendor_business_details['name'];
+        $vendorBusinessDetail->tin = $request->vendor_business_details['tin'];
+        $vendorBusinessDetail->tan = $request->vendor_business_details['tan'];
+        $vendorBusinessDetail->cin = $request->vendor_business_details['cin'];
+        $vendorBusinessDetail->signature = $fn;
+        $vendorBusinessDetail->address_1 = $request->vendor_business_details['address_1'];
+        $vendorBusinessDetail->address_2 = $request->vendor_business_details['address_2'];
+        $vendorBusinessDetail->pin = $request->vendor_business_details['pin'];
+
+        $vendorBusinessDetail->save();
 
         return redirect('admin/vendors');
     }
