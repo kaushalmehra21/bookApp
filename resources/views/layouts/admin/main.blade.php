@@ -20,7 +20,7 @@
         script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
         -->
         <script src="{{ asset('/admin/js/jquery-2.1.4.min.js') }}"></script>
-        
+        <script src="{{ asset('/admin/js/plugins/ckeditor/ckeditor.js') }}"></script>
     </head>
 <html>
 
@@ -51,5 +51,6 @@
     <script src="{{ asset('/admin/js/plugins/bootstrap-notify.min.js') }}"></script>
     <script src="{{ asset('/admin/js/plugins/sweetalert.min.js') }}"></script>
     <script src="{{ asset('/admin/js/plugins/bootstrap-datepicker.min.js') }}"></script>
+    
 </body>
 </html>

@@ -39,7 +39,10 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="inputEmail">Description</label>
-                        <textarea class="form-control" name="products[description]" id="ProductsDescription"></textarea>
+                        
+                        <textarea class="form-control" name="products[description]" id="ProductsDescription" rows="10" cols="80">
+                        </textarea>
+                        
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="inputEmail">Choose Images</label>
@@ -50,15 +53,15 @@
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Regular Price</label>
-                            <input name="products[regular_price]" class="form-control" id="ProductsRegularPrice" type="text" placeholder="Title">
+                            <input name="products[regular_price]" class="form-control ProductsRegularPrice" id="ProductsRegularPrice" type="number" placeholder="e.g. 500">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Sale Price</label>
-                            <input name="products[sale_price]" class="form-control" id="ProductsSalePrice" type="text" placeholder="Title">
+                            <input name="products[sale_price]" class="form-control ProductsSalePrice" id="ProductsSalePrice" type="number" placeholder="e.g. 400">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Discount Price</label>
-                            <input name="discount" class="form-control" id="discount" type="text" placeholder="400">
+                            <input name="discount" class="form-control discount" id="discount" type="number" placeholder="e.g. 100" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -70,7 +73,7 @@
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Tags</label>
-                            <select class="form-control" name="product_tags[id]" id="addTagTrgr" multiple>
+                            <select class="form-control" name="product_tags[id][]" id="addTagTrgr" multiple>
                                 
                             </select>
                         </div>
@@ -92,6 +95,30 @@
     </div>
 </div>
 <script type="text/javascript">
+    CKEDITOR.replace( 'ProductsDescription', {
+        toolbar :  [
+            { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline' ] },
+            { name: 'document', items: [ 'Source' ] },
+            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] }
+        ]
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $(document).on('keyup', '.ProductsSalePrice, .ProductsRegularPrice', function(){
+            var rp = parseInt($('.ProductsRegularPrice').val());
+            var sp = parseInt($('.ProductsSalePrice').val());
+            var discount = parseInt(rp-sp);
+
+            if(discount < 0) {
+                $('.ProductsSalePrice').val(rp);
+                discount = 0;
+            }
+
+            $('.discount').val(discount);
+        })
+    });
+
     $(document).ready(function(){
         $('#addCategoryTrgr').tokenize2({
             searchFromStart: false,
@@ -117,6 +144,7 @@
             }
         });
     });
+
     $(document).ready(function(){
         $('#addTagTrgr').tokenize2({
             searchFromStart: false,

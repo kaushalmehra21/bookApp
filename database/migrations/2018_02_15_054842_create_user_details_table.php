@@ -16,7 +16,7 @@ class CreateUserDetailsTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('member_type', 50)->nullable();
+            $table->string('roll', 50)->nullable();
             $table->string('last_name', 50)->nullable();
             $table->integer('user_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');
             $table->integer('vendor_status')->default(0)->comment('0=none, 1=active, 2=draft, 3=inactive');

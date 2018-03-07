@@ -1,5 +1,5 @@
 <header class="main-header hidden-print">
-    <a class="logo" href="index.html">Vali</a>
+    <a class="logo" href="index.html">{{ config('app.name') }}</a>
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
         <!-- Navbar Right Menu-->
