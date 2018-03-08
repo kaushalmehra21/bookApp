@@ -44,7 +44,7 @@
                             <td>1</td>
                             <td>{{ $user['name'] }}</td>
                             <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['user_details']['member_type'] }}</td>
+                            <td>{{ $user['user_details']['role'] }}</td>
                             <td>{{ $user['created_at'] }}</td>
                             <td>
                                 <a href="{{ url('/admin/users/'.$user['id'].'/edit') }}">Edit</a> |

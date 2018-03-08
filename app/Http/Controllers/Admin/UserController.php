@@ -68,15 +68,15 @@ class UserController extends Controller
 
         $userDetail = new UserDetail;
         $userDetail->user_id = $user->id;
-        $userDetail->member_type = $request->user_details['member_type'];
+        $userDetail->role = $request->user_details['role'];
         $userDetail->last_name = $request->user_details['last_name'];
         $userDetail->user_status = 1;
-        if($request->user_details['member_type']=='VENDOR'){
+        if($request->user_details['role']=='VENDOR'){
             $userDetail->vendor_status = 1;
-        } else if ($request->user_details['member_type']=='ADMIN') {
+        } else if ($request->user_details['role']=='ADMIN') {
             $userDetail->vendor_status = 1;
             $userDetail->admin_status = 1;
-        } else if ($request->user_details['member_type']=='SUPERADMIN') {
+        } else if ($request->user_details['role']=='SUPERADMIN') {
             $userDetail->vendor_status = 1;
             $userDetail->admin_status = 1;
             $userDetail->superadmin_status = 1;
@@ -85,7 +85,7 @@ class UserController extends Controller
         $userDetail->save();
 
 
-        if($request->user_details['member_type']!='SUBSCRIBER') {
+        if($request->user_details['role']!='SUBSCRIBER') {
             $vendorBankDetail = new VendorBankDetail;
             $vendorBankDetail->user_id = $user->id;
             $vendorBankDetail->save();
