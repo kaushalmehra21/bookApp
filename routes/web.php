@@ -119,6 +119,11 @@ Route::prefix('admin')->group(function () {
 
 	Route::get('dashboard', 'Admin\DashboardController@index');
 
+	Route::get('home', 'Admin\DashboardController@index');
+	Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+	Route::post('login', 'Admin\LoginController@login');
+	
+
 });
 
 

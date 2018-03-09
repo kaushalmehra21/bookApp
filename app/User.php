@@ -10,14 +10,6 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * Get the comments for the blog post.
-     */
-    public function user_details()
-    {
-        return $this->hasOne(UserDetail::class, 'user_id', 'id');
-    }
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array

@@ -12,7 +12,6 @@
 
         <!-- Font-icon css-->
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/admin/css/plugins/tokenize2.css') }}">
         <title>Vali Admin</title>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
         <!--if lt IE 9
@@ -20,37 +19,16 @@
         script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
         -->
         <script src="{{ asset('/admin/js/jquery-2.1.4.min.js') }}"></script>
-        <script src="{{ asset('/admin/js/plugins/ckeditor/ckeditor.js') }}"></script>
     </head>
 <html>
 
 <body class="sidebar-mini fixed">
-    <div class="wrapper">
-        <!-- Navbar-->
-        @section('header')
-            @component('admin.header.main')
-            @endcomponent
-        @show
-        
-        <!-- Side-Nav-->
-        @section('sidebar')
-            @component('admin.sidebar.main')
-            @endcomponent
-        @show
-
-        <div class="content-wrapper">
-            @yield('content')
-        </div>
-    </div>
-
+    @yield('content')
 </body>
 <!-- Javascripts-->
-
 <script src="{{ asset('/admin/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('/admin/js/main.js') }}"></script>
-<script src="{{ asset('/admin/js/plugins/tokenize2.js') }}"></script>
 <script src="{{ asset('/admin/js/plugins/pace.min.js') }}"></script>
 <script src="{{ asset('/admin/js/plugins/bootstrap-notify.min.js') }}"></script>
 <script src="{{ asset('/admin/js/plugins/sweetalert.min.js') }}"></script>
-<script src="{{ asset('/admin/js/plugins/bootstrap-datepicker.min.js') }}"></script>
 </html>
