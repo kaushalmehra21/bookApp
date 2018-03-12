@@ -9,7 +9,7 @@
         <h1>Vali</h1>
     </div>
     <div class="login-box">
-        <form class="login-form" method="POST" action="{{ route('login') }}">
+        <form class="login-form" method="POST" action="{{ route('admin.login') }}">
             {{ csrf_field() }}
             <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -43,6 +43,11 @@
             <div class="form-group btn-container">
                 <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
             </div>
+            @if(isset($error_msg) && $error_msg!='')
+                <span class="help-block">
+                    <strong style="color: red">{{ $error_msg }}</strong>
+                </span>
+            @endif
         </form>
         <form class="forget-form" action="index.html">
             <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>

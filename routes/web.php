@@ -24,6 +24,13 @@ Route::prefix('admin')->group(function () {
 
 	//Route::resource('users', 'Admin\UserController');
 
+	Route::get('dashboard', 'Admin\DashboardController@index');
+
+	Route::get('home', 'Admin\DashboardController@index');
+	Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+	Route::post('login', 'Admin\LoginController@login');
+	
+
 	Route::get('users', 'Admin\UserController@index');
 	Route::get('users/create', 'Admin\UserController@create');
 	Route::post('users', 'Admin\UserController@store');
@@ -117,11 +124,6 @@ Route::prefix('admin')->group(function () {
 	Route::get('site-option/{id}/show', 'Admin\SiteOptionController@show');
 	Route::get('site-option/{id}/destroy', 'Admin\SiteOptionController@destroy');
 
-	Route::get('dashboard', 'Admin\DashboardController@index');
-
-	Route::get('home', 'Admin\DashboardController@index');
-	Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
-	Route::post('login', 'Admin\LoginController@login');
 	
 
 });
