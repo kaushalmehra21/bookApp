@@ -10,6 +10,18 @@ use App\Admin\Category;
 
 class CategoryController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $a = $this->middleware('auth');
+
+
+    }
     /**
      * Display a listing of the resource.
      *

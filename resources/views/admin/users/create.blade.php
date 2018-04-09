@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputPassword">Role</label>
                                     <div class="col-lg-10">
-                                        <select name="user_details[member_type]" class="form-control">
+                                        <select name="user_details[role]" class="form-control">
                                             <option value="SUBSCRIBER">Subscriber</option>
                                             <option value="VENDOR">Vendor</option>
                                             <option value="ADMIN">Admin</option>

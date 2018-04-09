@@ -4,6 +4,8 @@
             <div class="pull-left image"><img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"></div>
             <div class="pull-left info">
                 <?php
+                echo '<pre>';
+                print_r(Auth::user());
                 $name = Auth::user()->name;
                 $name = explode(' ', $name);
                 ?>
@@ -140,7 +142,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us Quesries</span><i class="fa fa-angle-right"></i></a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-handshake-o"></i><span>Contact Us</span><i class="fa fa-angle-right"></i></a></li>
             <li class="treeview"><a href="{{ url('/admin/site-options') }}"><i class="fa fa-industry"></i><span>Site Options</span><i class="fa fa-angle-right"></i></a></li>
             
         </ul>
