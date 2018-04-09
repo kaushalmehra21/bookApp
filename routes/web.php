@@ -121,6 +121,8 @@ Route::prefix('admin')->group(function () {
 
 });
 
+Route::get('/', 'FrontEnd\HomeController@index');
+
 
 Auth::routes();
 
