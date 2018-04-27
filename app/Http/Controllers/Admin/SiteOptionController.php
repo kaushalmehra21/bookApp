@@ -41,7 +41,7 @@ class SiteOptionController extends Controller
         $siteOption = new SiteOption;
 
         $siteOption->option_key = $request->site_options['option_key'];
-        $siteOption->option_value = $request->site_options['option_value'];
+        $siteOption->option_value = htmlspecialchars($request->site_options['option_value']);
         
         $siteOption->save();
 
@@ -106,14 +106,10 @@ class SiteOptionController extends Controller
     }
 
 
-    public function ajaxListJson(Request $request)
+    public function getOption($key)
     {
-        return $request->token;
-        //return print_r($category->_token);
+        $siteOption_value = SiteOption::where('option_key', $key);
 
-        //$categories = Category::all()->toArray();
-
-        //->where('name', 'like', 'T%')
-        //return json_encode($categories);
+        return $siteOption_value;
     }
 }

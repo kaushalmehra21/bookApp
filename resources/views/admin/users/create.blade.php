@@ -55,7 +55,6 @@
                                             <option value="ADMIN">Admin</option>
                                             <option value="SUPERADMIN">Super Admin</option>
                                         </select>
-                                        
                                     </div>
                                 </div>
                                 <div class="form-group">

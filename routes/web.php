@@ -128,7 +128,17 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::get('/', 'FrontEnd\HomeController@index');
+Route::get('/', 'FrontEnd\PageController@home');
+Route::get('/about-us', 'FrontEnd\PageController@aboutUs');
+Route::get('/shop', 'FrontEnd\PageController@shop');
+Route::get('/product/{id}/view', 'FrontEnd\PageController@singleProduct');
+
+Route::get('/faq', 'FrontEnd\PageController@faq');
+Route::get('/privacy-policy', 'FrontEnd\PageController@privacyAndPolicy');
+Route::get('/sell-on-booksstock', 'FrontEnd\PageController@sellOnBooksStock');
+Route::get('/term-and-conditions', 'FrontEnd\PageController@termsAndConditions');
+
+Route::get('/contact-us', 'FrontEnd\PageController@contactUs');
 
 
 Auth::routes();

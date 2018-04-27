@@ -9,8 +9,8 @@ class Category extends Model
     /**
      * Get the user that owns the phone.
      */
-    /*public function products()
+    public function products()
     {
-        return $this->belongsTo('App\Admin\Product');
-    }*/
+        return $this->belongsToMany(Product::class, 'product_categories', 'category_id', 'product_id');
+    }
 }

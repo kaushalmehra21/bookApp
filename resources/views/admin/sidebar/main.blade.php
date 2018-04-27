@@ -4,8 +4,8 @@
             <div class="pull-left image"><img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"></div>
             <div class="pull-left info">
                 <?php
-                echo '<pre>';
-                print_r(Auth::user());
+                /*echo '<pre>';
+                print_r(Auth::user());*/
                 $name = Auth::user()->name;
                 $name = explode(' ', $name);
                 ?>

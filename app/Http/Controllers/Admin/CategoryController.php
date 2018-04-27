@@ -19,8 +19,6 @@ class CategoryController extends Controller
     public function __construct()
     {
         $a = $this->middleware('auth');
-
-
     }
     /**
      * Display a listing of the resource.
@@ -55,6 +53,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category;
+
+        //return $request->category;
 
         $category->title = $request->category['title'];
         $category->description = $request->category['description'];

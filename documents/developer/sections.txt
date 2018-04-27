@@ -1,0 +1,16 @@
+head
+
+top-header
+header
+
+banner
+best-seller-books
+staff-recomended-books
+top-books-category
+Author-History-of-Inovation
+latest-blog-and-gallery
+Bookshop-Related-Products
+latest-tweet
+
+footer
+footer-bottom

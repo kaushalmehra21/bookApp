@@ -30,7 +30,7 @@ class vendorController extends Controller
     public function index()
     {
 
-        $vendors = UserDetail::with('users')->where('member_type', 'VENDOR')->get();
+        $vendors = UserDetail::with('users')->where('role', 'VENDOR')->get();
 
         //return $users;
 

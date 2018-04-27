@@ -44,7 +44,7 @@
                                 <tr>
                                     <td>{{ $key }}</td>
                                     <td>{{ $siteOption['option_key'] }}</td>
-                                    <td>{{ $siteOption['option_value'] }}</td>
+                                    <td>{!! html_entity_decode($siteOption['option_value']) !!}</td>
                                     <td>
                                         <a href="{{ url('/admin/site-option/'.$siteOption['id'].'/edit') }}" ><i class="fa fa-pencil"></i> Edit</a> | 
                                         <a href="{{ url('/admin/site-option/'.$siteOption['id'].'/destroy') }}" ><i class="fa fa-trash"></i> Delete</a>
@@ -56,7 +56,9 @@
                                 <td>
                                     <input type="text" class="form-controll" name="site_options[option_key]">
                                 </td>
-                                <td><input type="text" class="form-controll" name="site_options[option_value]"></td>
+                                <td>
+                                    <textarea class="form-controll" name="site_options[option_value]"></textarea>
+                                </td>
                                 <td>
                                     <input type="submit" class="form-controll" name="submit" value="Add" >
                                 </td>
