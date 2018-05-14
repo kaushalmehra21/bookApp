@@ -18,7 +18,7 @@
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a class="btn btn-info" href="{{ url('admin/products/create') }}">Add New Category</a>
+                    <a class="btn btn-info" href="{{ url('admin/products/create') }}">Add New Product</a>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -1,5 +1,9 @@
 @extends('layouts.frontend.main')
 
+@section('topbar')
+    @include('frontend.header.topbar')
+@endsection
+
 @section('banner')
     <div id="main-slider" class="main-slider">
 
@@ -50,7 +54,6 @@
                     <div class="release-book-detail h-white p-white">
                         <div class="release-book-slider">
                             
-
                             <?php foreach (StoreProduct::getNewArrivals() as $key => $value) {
                                 ?>
                                 <div class="item">
@@ -66,8 +69,6 @@
                                 </div>
                                 <?php
                             } ?>
-                            
-                           
                         </div>
                     </div>
                     <!-- Release Book Detail -->
@@ -136,7 +137,11 @@
                                                 <img src="{{ asset('/frontend/images/best-seller/img-01.jpg') }}" alt="">
                                                 <ul class="product-cart-option position-center-x">
                                                     <li><a href="#"><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-cart-arrow-down"></i></a></li>
+                                                    <li>
+                                                        <a 
+                                                            class="addToCartTrgr" 
+                                                            data-product-id="{{ $product['id'] }}">
+                                                            <i class="fa fa-cart-arrow-down"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
                                                 </ul>
                                                 <span class="sale-bacth">sale</span>
@@ -336,4 +341,5 @@
 
 
     </main>
+
 @endsection

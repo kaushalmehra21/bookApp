@@ -19,7 +19,7 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function home(Request $request)
     {
 
         $sliders = Slider::all()->toArray();
@@ -29,12 +29,28 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                //echo $productImages['file'];
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
+        $param['sliders'] = $sliders;
+        $param['categories'] = $categories;
+        $param['login_detail'] = [];
+
+
+        if ($request->session()->has('user_id')) {
+            $login_detail['user_email'] = $request->session()->get('user_email');
+            $login_detail['user_id'] = $request->session()->get('user_id');
+            $param['login_detail'] = $login_detail;
+        }
+
+        //return $param['login_detail'];
+
+        
+
         //return $categories;
-        return view('frontend/pages/home', ['sliders'=>$sliders, 'categories'=>$categories]);
+        return view('frontend/pages/home', $param);
     }
 
 
@@ -62,27 +78,6 @@ class PageController extends Controller
     }
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function shop()
-    {
-        $productsArr = [];
-        
-        $categories = Category::all()->toArray();
-        $products = Product::with('categories')->get()->toArray();
-        //$categories = Category::with('products')->get()->toArray();
-
-        foreach ($products as $key1=>$product) {
-            $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-            $products[$key1]['image'] = $productImages->file;
-        }  
-
-        //return $products;
-        return view('frontend/pages/shop', ['categories'=>$categories, 'products'=>$products]);
-    }
 
 
     /**
@@ -105,6 +100,12 @@ class PageController extends Controller
 
         //return $products;
         return view('frontend/pages/single-page', ['categories'=>$categories, 'products'=>$products]);
+    }
+
+
+    public function cart()
+    {
+        return view('frontend/pages/cart');
     }
 
 

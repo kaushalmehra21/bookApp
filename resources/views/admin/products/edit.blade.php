@@ -25,22 +25,23 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="control-label" for="inputEmail">Title</label>
-                                <input name="products[title]" class="form-control" id="productsTitle" type="text" placeholder="Title">
+                                <input name="products[title]" class="form-control" id="productsTitle" type="text" placeholder="Title" value="{{ $product['title'] }}">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputEmail">Slug</label>
-                                <input name="products[slug]" class="form-control" id="productsSlug" type="text" placeholder="Slug">
+                                <input name="products[slug]" class="form-control" id="productsSlug" type="text" placeholder="Slug" value="{{ $product['slug'] }}">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <label class="control-label" for="inputEmail">Sub Title</label>
-                            <textarea class="form-control" name="products[sub_title]" id="ProductsSubTitle" rows="4" ></textarea>
+                            <textarea class="form-control" name="products[sub_title]" id="ProductsSubTitle" rows="4" > {{ $product['sub_title'] }}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="inputEmail">Description</label>
                         
                         <textarea class="form-control" name="products[description]" id="ProductsDescription" rows="10" cols="80">
+                            {{ $product['description'] }}
                         </textarea>
                         
                     </div>
@@ -53,34 +54,58 @@
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Regular Price</label>
-                            <input name="products[regular_price]" class="form-control ProductsRegularPrice" id="ProductsRegularPrice" type="number" placeholder="e.g. 500">
+                            <input name="products[regular_price]" class="form-control ProductsRegularPrice" id="ProductsRegularPrice" type="number" placeholder="e.g. 500" value="{{ $product['regular_price'] }}">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Sale Price</label>
-                            <input name="products[sale_price]" class="form-control ProductsSalePrice" id="ProductsSalePrice" type="number" placeholder="e.g. 400">
+                            <input name="products[sale_price]" class="form-control ProductsSalePrice" id="ProductsSalePrice" type="number" placeholder="e.g. 400" value="{{ $product['sale_price'] }}">
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Discount Price</label>
-                            <input name="discount" class="form-control discount" id="discount" type="number" placeholder="e.g. 100" readonly>
+                            <input name="discount" class="form-control discount" id="discount" type="number" placeholder="e.g. 100" value="{{ $product['regular_price']-$product['sale_price'] }}" readonly>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Categories</label>
-                            <select class="form-control" name="product_categories[id][]" id="addCategoryTrgr" multiple>
-                                
+                            <select class="form-control" name="product_categories[id][]" id="addCategoryTrgr"  multiple>
+                                <?php
+                                if(!empty($product_categories)) {
+                                    foreach ($product_categories as $key => $value) {
+                                        ?>
+                                        <option value="{{ $value['id'] }}" selected>{{ $value['title'] }}</option>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Add Tags</label>
                             <select class="form-control" name="product_tags[id][]" id="addTagTrgr" multiple>
-                                
+                                <?php
+                                if(!empty($product_tags)) {
+                                    foreach ($product_tags as $key => $value) {
+                                        ?>
+                                        <option value="{{ $value['id'] }}" selected>{{ $value['title'] }}</option>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
                             <label class="control-label" for="inputEmail">Select Language</label>
                             <select class="form-control" name="product_language[id]" id="addLanguageTrgr" multiple>
-                                
+                                <?php
+                                if(!empty($product_language)) {
+                                    foreach ($product_language as $key => $value) {
+                                        ?>
+                                        <option value="{{ $value['id'] }}" selected>{{ $value['title'] }}</option>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>

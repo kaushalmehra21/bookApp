@@ -124,14 +124,17 @@ Route::prefix('admin')->group(function () {
 	Route::get('site-option/{id}/show', 'Admin\SiteOptionController@show');
 	Route::get('site-option/{id}/destroy', 'Admin\SiteOptionController@destroy');
 
-	
-
 });
+
+
+Route::post('users', 'FrontEnd\UserController@store');
+Route::get('users/is-email-exist', 'FrontEnd\UserController@isEmailExist');
 
 Route::get('/', 'FrontEnd\PageController@home');
 Route::get('/about-us', 'FrontEnd\PageController@aboutUs');
 Route::get('/shop', 'FrontEnd\PageController@shop');
 Route::get('/product/{id}/view', 'FrontEnd\PageController@singleProduct');
+//Route::get('/cart', 'FrontEnd\PageController@cart');
 
 Route::get('/faq', 'FrontEnd\PageController@faq');
 Route::get('/privacy-policy', 'FrontEnd\PageController@privacyAndPolicy');

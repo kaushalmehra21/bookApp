@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -84,7 +83,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('admin/categories/create', ['category'=>$category]);
     }
 
     /**
@@ -96,7 +97,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->title = $request->category['title'];
+        $category->description = $request->category['description'];
+        $category->parent_id = $request->category['parent_id'];
+        
+        $category->save();
+
+        return redirect('admin/categories');
     }
 
     /**

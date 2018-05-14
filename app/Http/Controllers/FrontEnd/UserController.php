@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,33 +20,33 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
     
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
 
         $users = User::with('user_details')->get();
 
         return view('admin/users/index', ['users'=>$users]);
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /*public function create()
     {
         return view('admin/users/create');
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -57,51 +57,27 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $user = new User;
+        $user = User::where('email', $request->users['email'])->first();
 
-        $user->name = $request->users['name'];
-        $user->email = $request->users['email'];
-        $user->password = Hash::make($request->users['password']);
-        $user->remember_token = $request->_token;
+        //return $user;
 
-        $user->save();
+        if(empty($user))
+        {
+            $user = new User;
+            $user->name = $request->users['name'];
+            $user->email = $request->users['email'];
+            $user->password = Hash::make($request->users['password']);
+            $user->remember_token = $request->_token;
 
-        $userDetail = new UserDetail;
-        $userDetail->user_id = $user->id;
-        $userDetail->role = $request->user_details['role'];
-        $userDetail->last_name = $request->user_details['last_name'];
-        $userDetail->user_status = 1;
-        if($request->user_details['role']=='VENDOR'){
-            $userDetail->vendor_status = 1;
-        } else if ($request->user_details['role']=='ADMIN') {
-            $userDetail->vendor_status = 1;
-            $userDetail->admin_status = 1;
-        } else if ($request->user_details['role']=='SUPERADMIN') {
-            $userDetail->vendor_status = 1;
-            $userDetail->admin_status = 1;
-            $userDetail->superadmin_status = 1;
+            $user->save();
+
+            $request->session()->put('user_id', $user->id);
+            $request->session()->put('user_email', $user->email);
+
+            return redirect($request['redirect_url']);
+        } else {
+            return redirect($request['redirect_url'])->with('alert_message', 'already exist!');
         }
-
-        $userDetail->save();
-
-
-        if($request->user_details['role']!='SUBSCRIBER') {
-            $vendorBankDetail = new VendorBankDetail;
-            $vendorBankDetail->user_id = $user->id;
-            $vendorBankDetail->save();
-
-            $vendorBusinessDetail = new VendorBusinessDetail;
-            $vendorBusinessDetail->user_id = $user->id;
-            $vendorBusinessDetail->save();
-
-            $vendorStoreDetail = new VendorStoreDetail;
-            $vendorStoreDetail->user_id = $user->id;
-            $vendorStoreDetail->save();
-        }
-
-        
-
-        return redirect('admin/users');
     }
 
     /**
@@ -122,12 +98,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
         $user = User::find($id);
         
         return view('admin/users/edit', ['user'=>$user]);
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -136,7 +112,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /*public function update(Request $request, $id)
     {
         $user = User::find($id);
 
@@ -148,7 +124,7 @@ class UserController extends Controller
         $user->save();
 
         return redirect('admin/users');
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -156,11 +132,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $user = User::find($id);
         $user->delete();
 
         return redirect('admin/users');
+    }*/
+
+
+    public function isEmailExist(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        if(!empty($user)){
+            return $user;
+        } else {
+            return $user;
+        }
     }
 }

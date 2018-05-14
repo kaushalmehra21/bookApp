@@ -152,24 +152,26 @@
         <div class="modal-content">
             <strong>Register</strong>
             <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <div class="social-options">
+            <!-- <div class="social-options">
                 <ul>
                     <li><a class="facebook" href="#"><i class="fa fa-facebook"></i>Register with facebook</a></li>
                     <li><a class="twitter" href="#"><i class="fa fa-twitter"></i>Register with twitter</a></li>
                     <li><a class="google" href="#"><i class="fa fa-google-plus"></i>Register with gmail+</a></li>
                 </ul>
-            </div>
-            <form class="sending-form">
+            </div> -->
+            <form class="sending-form" method="post" action="/users"  >
+                {{ csrf_field() }}
                 <div class="form-group">
-                    <input class="form-control" required="required" placeholder="Full name">
+                    <input type="hidden" name="redirect_url" value="{{ url()->full() }}">
+                    <input name="users[name]" class="form-control" required="required" placeholder="Full name">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" required="required" placeholder="Email Address">
+                    <input name="users[email]" id="model_isEmailExistTrgr" class="form-control" required="required" placeholder="Email Address">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" required="required" placeholder="Password">
+                    <input name="users[password]" class="form-control" type="password" required="required" placeholder="Password">
                     <i class="fa fa-user"></i>
                 </div>
                 <p class="terms">You agree to the hldy.hr <a href="#">Terms &amp; Conditions</a></p>
@@ -245,7 +247,7 @@
 <!-- Java Script -->
 <script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>        
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script>
+<!-- <script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script> -->
 <script src="{{ asset('/frontend/js/gmap3.min.js') }}"></script>                 
 <script src="{{ asset('/frontend/js/datepicker.js') }}"></script>                    
 <script src="{{ asset('/frontend/js/contact-form.js') }}"></script>                  
@@ -267,11 +269,68 @@
 <script src="{{ asset('/frontend/js/wow-min.js') }}"></script>           
 <script src="{{ asset('/frontend/js/classie.js') }}"></script>                   
 <script src="{{ asset('/frontend/js/main.js') }}"></script>      
+<script src="{{ asset('/frontend/js/bootstrap-notify.min.js') }}"></script>      
 
 <!-- Switcher JS -->
 <script type="text/javascript" src="{{ asset('/frontend/switcher/cookie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/frontend/switcher/colorswitcher.js') }}"></script>
 <!-- Switcher JS -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click', '.addToCartTrgr', function(){
+            var product_id = $(this).attr('data-product-id');
+            alert(product_id);
+             $.ajax({
+                type : 'GET',
+                url : 'http://api.joind.in/v2.1/talks/10889',
 
+            })
+        });
+
+
+        $(document).on('blur', '#model_isEmailExistTrgr', function(){
+
+            var email = $(this).val();
+
+            //alert(email);
+
+            
+            $.ajax({
+                type: 'GET',
+                //async : false,
+                url: 'http://localhost:8000/users/is-email-exist?email'+email,
+                data: {
+                    'email' : email
+                },
+                success: function(data) {
+                    alert(data);
+                    console.log(email);
+                }
+            });
+        });
+
+        <?php
+        if (session('alert_message')) {
+            ?>
+                $.notify({
+                    //title: "Update Complete : ",
+                    message: "<?php echo session('alert_message'); ?>",
+                    icon: 'fa fa-check' 
+                },{
+                    type: "info",
+                    placement: {
+                        from: "top",
+                        align: "right"
+                    },
+                    offset: {
+                        x: 50,
+                        y: 100
+                    }
+                });
+            <?php
+        }
+        ?>
+    });
+</script>
 </body>
 </html>
