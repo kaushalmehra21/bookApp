@@ -81,7 +81,7 @@ Route::prefix('admin')->group(function () {
 	Route::post('products', 'Admin\ProductController@store');
 	Route::get('products/{id}/edit', 'Admin\ProductController@edit');
 	Route::post('products/{id}/update', 'Admin\ProductController@update');
-	Route::post('products/update', 'Admin\ProductController@ajaxUpdate');
+	//Route::post('products/update', 'Admin\ProductController@ajaxUpdate');
 	Route::get('products/{id}/show', 'Admin\ProductController@show');
 	Route::get('products/{id}/destroy', 'Admin\ProductController@destroy');
 	Route::get('products/{id}/images', 'Admin\ProductController@images');
@@ -142,6 +142,11 @@ Route::get('/sell-on-booksstock', 'FrontEnd\PageController@sellOnBooksStock');
 Route::get('/term-and-conditions', 'FrontEnd\PageController@termsAndConditions');
 
 Route::get('/contact-us', 'FrontEnd\PageController@contactUs');
+
+
+Route::get('/cart/ajax-add', 'FrontEnd\CartController@ajaxAdd');
+
+
 
 
 Auth::routes();

@@ -280,7 +280,7 @@
         $(document).on('click', '.addToCartTrgr', function(){
             var product_id = $(this).attr('data-product-id');
             alert(product_id);
-             $.ajax({
+            $.ajax({
                 type : 'GET',
                 url : 'http://api.joind.in/v2.1/talks/10889',
 
@@ -298,7 +298,7 @@
             $.ajax({
                 type: 'GET',
                 //async : false,
-                url: 'http://localhost:8000/users/is-email-exist?email'+email,
+                url: '<?php echo url('/users/is-email-exist') ?>',
                 data: {
                     'email' : email
                 },

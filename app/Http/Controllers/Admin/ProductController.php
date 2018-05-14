@@ -157,6 +157,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //return $request->products;
+        //die;
         $product = Product::find($id);
 
         if ($request->hasFile('product_images')) {

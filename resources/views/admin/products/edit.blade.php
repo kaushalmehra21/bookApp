@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <form method="post" action="/admin/products" enctype="multipart/form-data" >
+            <form method="post" action="/admin/products/{{ $product['id'] }}/update" enctype="multipart/form-data" >
                 
                 <div class="card-body">
                     <h4 class="card-title">Basic Detail</h4>

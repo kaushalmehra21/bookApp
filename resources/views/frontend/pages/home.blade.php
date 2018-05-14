@@ -139,9 +139,13 @@
                                                     <li><a href="#"><i class="fa fa-eye"></i></a></li>
                                                     <li>
                                                         <a 
-                                                            class="addToCartTrgr" 
-                                                            data-product-id="{{ $product['id'] }}">
-                                                            <i class="fa fa-cart-arrow-down"></i></a></li>
+                                                        class="addToCartTrgr" 
+                                                        data-product-id="{{ $product['id'] }}"
+                                                        data-product-id="{{ $product['id'] }}"
+                                                        >
+                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                        </a>
+                                                    </li>
                                                     <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
                                                 </ul>
                                                 <span class="sale-bacth">sale</span>
