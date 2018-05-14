@@ -21,7 +21,7 @@
                         <form method="post" action="/admin/languages" class="form-horizontal">
                             {{ csrf_field() }}
                             <fieldset>
-                                <legend>Add New Category</legend>
+                                <legend>Add New Language</legend>
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label" for="inputEmail">Title</label>
                                     <div class="col-lg-10">

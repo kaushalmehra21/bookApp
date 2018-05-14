@@ -75,12 +75,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-shopping-cart"></i><span>Orders</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/categories') }}">
+                        <a href="{{ url('/admin/orders') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/categories/create') }}">
+                        <a href="{{ url('/admin/orders/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>
@@ -117,12 +117,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-pencil"></i><span>Posts</span><i class="fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="{{ url('/admin/users') }}">
+                        <a href="{{ url('/admin/posts') }}">
                             <i class="fa fa-circle-o"></i> View All
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/users/create') }}">
+                        <a href="{{ url('/admin/posts/create') }}">
                             <i class="fa fa-circle-o"></i> Add New
                         </a>
                     </li>

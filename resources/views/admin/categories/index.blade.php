@@ -26,7 +26,7 @@
         <div class="clearfix"></div>
         <div class="col-md-12">
             <div class="card">
-                <h3 class="card-title">Bordered Table</h3>
+                <h3 class="card-title">Categories</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>

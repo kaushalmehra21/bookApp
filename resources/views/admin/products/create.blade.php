@@ -18,7 +18,7 @@
             <form method="post" action="/admin/products" enctype="multipart/form-data" >
                 
                 <div class="card-body">
-                    <h4 class="card-title">Basic Detail</h4>
+                    <h4 class="card-title">Product Basic Details</h4>
                     <input type="hidden" name="_token" id="token_" value="{{ csrf_token() }}">
                     <input type="hidden" name="products[user_id]" id="token_" value="{{ Auth::user()->id }}">
                     <div class="row">

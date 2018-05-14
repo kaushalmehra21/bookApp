@@ -18,7 +18,7 @@
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4">&nbsp;</div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a class="btn btn-info" href="{{ url('admin/tags/create') }}">Add New Category</a>
+                    <a class="btn btn-info" href="{{ url('admin/tags/create') }}">Add New Tag</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -26,7 +26,7 @@
         <div class="clearfix"></div>
         <div class="col-md-12">
             <div class="card">
-                <h3 class="card-title">Bordered Table</h3>
+                <h3 class="card-title">Tags</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
