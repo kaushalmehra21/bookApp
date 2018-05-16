@@ -294,8 +294,12 @@
                         <div class="services-text"> 
                             <strong>Our Book Shop Service</strong>
                             <h3>Bookselling is the commercial <span class="theme-color">Trading of books</span></h3>
-                            <p>Scholars and students spent many hours in these bookshop schools reading, examining, and studying available books . or purchasing favourite selections for their private libraries. 
-                            Book dealers traveled to </p>
+                            <p>The Bookstock is India’s best book Marketplace where you can get all kinds of books , Bookstock offers
+                            millions of new and used items from a network of trusted Sellers, often at discounted prices -- all with
+                            the security and guarantee of Books Stock.
+                           
+                            Our special collection of Rare Collectible Books features include all types of books whether new or
+                            used . </p>
                             <a href="shop-detail.html" class="btn-1 sm shadow-0">Read more<i aria-hidden="true" class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -308,29 +312,29 @@
                                 <div class="col-sm-6">
                                     <div class="service-column">
                                         <span class="service-icon"><i class="icon-amazing"></i></span>
-                                        <h5><a href="#">Amazing Design Quality</a></h5>
-                                        <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books using online bookstores agree</p>
+                                        <h5><a href="#">BUY A BOOK</a></h5>
+                                        <p>Booksstock advance search has made it easier for you to get a book you are looking for.Booksstock has always focused on making the Customer satisfaction hence we have made sure that even a kind can search for the book he is looking for.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="service-column">
                                         <span class="service-icon"><i class="icon-intuitive-design"></i></span>
-                                        <h5><a href="#">Intuitive Design</a></h5>
-                                        <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books using online bookstores agree</p>
+                                        <h5><a href="#">SELL BOOK</a></h5>
+                                        <p>Selling of books is equally hectic as it is buying one. Bookstock has created an easy 4 step process by which you can register yourself on Bookstock and sell your books globally to earn great profits while sitting in your couch.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="service-column m-0">
                                         <span class="service-icon"><i class="icon-responsive"></i></span>
-                                        <h5><a href="#">Responsive</a></h5>
-                                        <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books using online bookstores agree</p>
+                                        <h5><a href="#">RENT YOUR BOOKS</a></h5>
+                                        <p>Got a lot of books at your home but not want to sell them all and still thinking of a way to handle those books. Booksstock is the perfect place for you now you can rent your books with authenticate readers and earn some money and also your books will come back to you anyways.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="service-column m-0">
                                         <span class="service-icon"><i class="icon-seo-optimized"></i></span>
-                                        <h5><a href="#">SEO Optimized</a></h5>
-                                        <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books using online bookstores agree</p>
+                                        <h5><a href="#">Manage your Account</a></h5>
+                                        <p>Booksstock has provided and exaggerated market for books and also a platform where you can establish yourself as a professional book seller now you can manage all your accounts on booksstock with easy to use interface we have made sure you get every possible benefit of being a part of Booksstock.</p>
                                     </div>
                                 </div>
                             </div>
