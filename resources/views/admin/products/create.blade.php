@@ -104,12 +104,7 @@
     });
 </script>
 <script>
-
-    
-
     $(document).ready(function(){
-
-
         $(document).on('keyup', '#productsTitle', function(){
             var title = $(this).val();
             var title1 = title.toLowerCase();

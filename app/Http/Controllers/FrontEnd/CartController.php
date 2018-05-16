@@ -94,10 +94,13 @@ class CartController extends Controller
 
         $cart = new Cart;
 
-        $cart->user_id = $request->cart['user_id'];
-        $cart->ip_address = $request->cart['ip_address'];
-        $cart->product_id = $request->cart['product_id'];
-        $cart->quantity = $request->cart['quantity'];
+        return $request;
+        die;
+
+        $cart->user_id = $request->user_id;
+        $cart->ip_address = $request->ip_address;
+        $cart->product_id = $request->product_id;
+        $cart->quantity = $request->quantity;
 
 
         $cart->save();

@@ -279,12 +279,31 @@
     $(document).ready(function(){
         $(document).on('click', '.addToCartTrgr', function(){
             var product_id = $(this).attr('data-product-id');
-            alert(product_id);
+            var user_id = $(this).attr('data-user-id');
+            var user_ip = '<?php echo $_SERVER['REMOTE_ADDR'] ?>';
+            var _token = $('#_token').val();
+            alert(_token);
             $.ajax({
-                type : 'GET',
-                url : 'http://api.joind.in/v2.1/talks/10889',
+                type: "POST",
+                url: "cart/ajax-add",
+                data: {
+                    'product_id' : product_id,
+                    'user_id' : user_id,
+                    'user_ip' : user_ip,
+                    '_token' : _token
+                },
+                async : true,
+                //dataType: 'json',
+                success: function(data) {
+                    alert(data);
+                    console.log(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+                    console.log(JSON.stringify(jqXHR));
+                    console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+                }
 
-            })
+            });
         });
 
 
@@ -302,31 +321,35 @@
                 data: {
                     'email' : email
                 },
+                dataType: 'json',
                 success: function(data) {
                     alert(data);
                     console.log(email);
                 }
             });
         });
-
+    });
+</script>
+<script type="text/javascript"></script>
+    $(document).ready(function(){
         <?php
         if (session('alert_message')) {
             ?>
-                $.notify({
-                    //title: "Update Complete : ",
-                    message: "<?php echo session('alert_message'); ?>",
-                    icon: 'fa fa-check' 
-                },{
-                    type: "info",
-                    placement: {
-                        from: "top",
-                        align: "right"
-                    },
-                    offset: {
-                        x: 50,
-                        y: 100
-                    }
-                });
+            $.notify({
+                //title: "Update Complete : ",
+                message: "<?php echo session('alert_message'); ?>",
+                icon: 'fa fa-check' 
+            },{
+                type: "info",
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                offset: {
+                    x: 50,
+                    y: 100
+                }
+            });
             <?php
         }
         ?>
