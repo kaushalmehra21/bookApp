@@ -175,7 +175,7 @@ class PageController extends Controller
         }  
 
         //return $products;
-        return view('frontend/pages/single-page', ['categories'=>$categories, 'products'=>$products]);
+        return view('frontend/pages/terms-and-conditions', ['categories'=>$categories, 'products'=>$products]);
     }
 
 

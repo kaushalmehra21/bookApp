@@ -1,5 +1,15 @@
 @extends('layouts.frontend.page')
 
+@section('inner-banner')
+<div class="parallax-window inner-banner tc-padding overlay-dark" data-parallax="scroll" data-image-src="{{ asset('/frontend/images/inner-banner/img-04.jpg') }}">
+    <div class="container">
+        <div class="inner-page-heading h-white style-2">
+            <h2>Term & Condition</h2>
+            <p> Spanning fifteenSpanning fifteen Spanning fifteen years of work, Everywhere I Look is a book full of unexpected moments,</p>
+        </div>
+    </div>
+</div>
+@endsection
 
 @section('content')
 
@@ -12,317 +22,52 @@
                 <!-- Main Heading -->
                 <div class="main-heading-holder">
                     <div class="main-heading style-1">
-                        <h2>Help us Improve <span class="theme-color">our Service</span></h2>
+                        <h2>Terms & <span class="theme-color">Conditions</span></h2>
                     </div>
                 </div>
-                <!-- Main Heading -->
-
-                <!-- Services -->
-                <div class="our-service tc-padding-bottom">
-                    <div class="row">
-                        
-                        <!-- Service Column -->
-                        <div class="col-lg-3 col-xs-6 r-full-width">
-                            <div class="service-column style-2">
-                                <span class="service-icon"><i class="icon-amazing"></i></span>
-                                <h4><a href="#">Amazing Design Quality</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
-                            </div>
-                        </div>
-                        <!-- Service Column -->
-
-                        <!-- Service Column -->
-                        <div class="col-lg-3 col-xs-6 r-full-width">
-                            <div class="service-column style-2">
-                                <span class="service-icon"><i class="icon-intuitive-design"></i></span>
-                                <h4><a href="#">Intuitive Design</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
-                            </div>
-                        </div>
-                        <!-- Service Column -->
-
-                        <!-- Service Column -->
-                        <div class="col-lg-3 col-xs-6 r-full-width">
-                            <div class="service-column style-2">
-                                <span class="service-icon"><i class="icon-responsive"></i></span>
-                                <h4><a href="#">Responsive</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
-                            </div>
-                        </div>
-                        <!-- Service Column -->
-
-                        <!-- Service Column -->
-                        <div class="col-lg-3 col-xs-6 r-full-width">
-                            <div class="service-column style-2">
-                                <span class="service-icon"><i class="icon-seo-optimized"></i></span>
-                                <h4><a href="#">SEO Optimized</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
-                            </div>
-                        </div>
-                        <!-- Service Column -->
-
-                    </div>
-                </div>
-                <!-- Services -->
-
+               
                 <!-- Mission & values -->
                 <div class="mission tc-padding-bottom">
                     <div class="row">
 
                         <!-- Mission Disc -->
-                        <div class="col-lg-6 col-xs-12">
+                        <div class="col-lg-12 col-xs-12">
                             <div class="mission-disc">
-                                <h4>Mission <span>&amp; values</span></h4>
-                                <strong>Text Publishing is an independent, Melbourne-based publisher of literary fiction and non-fiction. Text won the Australian Book Industry Awards (ABIA) Small Publisher of the Year in 2012, 2013 and 2014.</strong>
-                                <p>At Text we want to publish books that make a difference to people’s lives. We believe that reading should be a marvellous experience, that every book you read should somehow change your life if only by a fraction. We love the phrase ‘lost in a book’.</p>
-                                <p> lost in books every day—on the tram, on the beach, in bed. Reading is what keeps the imagination supple and challenges preconceptions and prejudices.</p>
-                                <a href="#" class="btn-1 shadow-0">Read more<i aria-hidden="true" class="fa fa-arrow-circle-right"></i></a>
+                                <p>Welcome to Books Stock . If you continue to browse and use Books Stock, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern “Books Stock” relationship with you in relation to this website and its application thereof.</br> If you disagree with any part of these terms and conditions, please do not use our applications and/or website. The use of this website is subject to the following terms of use:</br> 
+                                Permission is granted to have the information about the ( books or software) on bookstock.com web site for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:.</p>
+                                <ul>
+                                    <li>Modify or copy the materials.</li></br>
+                                    <li>Use the materials for any commercial purpose, or for any public display (commercial or non-commercial)</li></br>
+                                    <li>Attempt to decompile or reverse engineer any software contained on booksstock.com web site</li></br>
+                                    <li>Remove any copyright or other proprietary notations from the materials or</li></br>
+                                    <li>Transfer the materials to another person or “mirror” the materials on any other server.</li></br>
+                                    <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice</li></br>
+                                    <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li></br>
+                                    <li>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.</li></br>
+                                    <li>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance, and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li></br>
+                                    <li>All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.</li></br>
+                                    <li>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</li></br>
+                                    <li>From time to time, this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s).</li></br>
+                                    <li>We have no responsibility for the content of the linked website(s).</li></br>
+                                    <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of the land.</li></br>
+                                    
+                                </ul>
+                                <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by Bookstock.com at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</p>
+                                
+                               <!--  <a href="#" class="btn-1 shadow-0">Read more<i aria-hidden="true" class="fa fa-arrow-circle-right"></i></a> -->
                             </div>
                         </div>
                         <!-- Mission Disc -->
 
                         <!-- Laptop Img -->
-                        <div class="col-sm-6">
-                            <div class="laptop-img">
-                                <img class="floating" src="{{ asset('/frontend/images/laptop.png') }}" alt="">
-                            </div>
-                        </div>
-                        <!-- Laptop Img -->
-
+                        
                     </div>
                 </div>
                 <!-- Mission & values -->
 
             </div>
         </section>
-        <!-- Service And Mission -->
-
-        <!-- Statistic -->
-        <section class="statistic tc-padding overlay-dark" style="background: url({{ asset('/frontend/images/statistic-bg.jpg') }}) 100% 100%;">
-            <div class="container p-relative z-index-2">
-
-                <!-- Simple Heading -->
-                <div class="simple-heading-holder">
-                    <div class="simple-heading h-white p-white">
-                        <h2>Statistic</h2>
-                        <p>We publish a very broad range of fiction and non-fiction, international and</p>
-                    </div>
-                </div>
-                <!-- Simple Heading -->
-
-                <!-- Facts List -->
-                <div class="facts-list">
-                    <ul class="row" id="tc-counters"> 
-                        <li class="col-sm-3">
-                            <i class="fa fa-book"></i>
-                            <strong class="tc-timer" data-from="0" data-to="20000" data-speed="3000" data-refresh-interval="10"></strong>
-                            <span>Reading Skills</span>
-                        </li>
-                        <li class="col-sm-3">
-                            <i class="fa fa-bank"></i>
-                            <strong class="tc-timer" data-from="0" data-to="2500" data-speed="3000" data-refresh-interval="10"></strong>
-                            <span>Books Library</span>
-                        </li>
-                        <li class="col-sm-3">
-                            <i class="fa fa-laptop"></i>
-                            <strong class="tc-timer" data-from="0" data-to="1700" data-speed="3000" data-refresh-interval="10"></strong>
-                            <span>Writing Skills</span>
-                        </li>
-                        <li class="col-sm-3">
-                            <i class="fa fa-lightbulb-o"></i>
-                            <strong class="tc-timer" data-from="0" data-to="33000" data-speed="3000" data-refresh-interval="10"></strong>
-                            <span>Critical Thinking</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Facts List -->
-
-            </div>
-        </section>
-        <!-- Statistic -->
-
-        <!-- Team -->
-        <section class="tc-padding white-bg">
-            <div class="container">
-                
-                <!-- Main Heading -->
-                <div class="main-heading-holder">
-                    <div class="main-heading style-2">
-                        <h2>Our <span class="theme-color">Creative Team</span></h2>
-                        <p>We are committed to providing first-class services to the writers who trust us</p>
-                    </div>
-                </div>
-                <!-- Main Heading -->   
-
-                <!-- Team Slider -->
-                <div class="team-slider">
-                    
-                    <!-- Team Colmun -->
-                    <div class="item">
-                        <div class="team-column">
-                            <div class="team-img">
-                                <img src="{{ asset('/frontend/images/team/img-01.jpg') }}" alt="">
-                                <div class="overlay-padding">
-                                    <div class="overlay">
-                                        <ul class="position-center-center">
-                                            <li>Tel: 12 0123 4567</li>
-                                            <li>Mob 12 0123 4567</li>
-                                            <li>Email: ch.jackson@live.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detail">
-                                <h5>Jhon Doe</h5>
-                                <span>Art Director CEO</span>
-                            </div>
-                            <div class="team-btm">
-                                <ul class="social-icons"> 
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team Colmun -->
-
-                    <!-- Team Colmun -->
-                    <div class="item">
-                        <div class="team-column">
-                            <div class="team-img">
-                                <img src="{{ asset('/frontend/images/team/img-02.jpg') }}" alt="">
-                                <div class="overlay-padding">
-                                    <div class="overlay">
-                                        <ul class="position-center-center">
-                                            <li>Tel: 12 0123 4567</li>
-                                            <li>Mob 12 0123 4567</li>
-                                            <li>Email: ch.jackson@live.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detail">
-                                <h5>Elizabeth Mitchell</h5>
-                                <span>Graphic Designer</span>
-                            </div>
-                            <div class="team-btm">
-                                <ul class="social-icons"> 
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team Colmun -->
-
-                    <!-- Team Colmun -->
-                    <div class="item">
-                        <div class="team-column">
-                            <div class="team-img">
-                                <img src="{{ asset('/frontend/images/team/img-03.jpg') }}" alt="">
-                                <div class="overlay-padding">
-                                    <div class="overlay">
-                                        <ul class="position-center-center">
-                                            <li>Tel: 12 0123 4567</li>
-                                            <li>Mob 12 0123 4567</li>
-                                            <li>Email: ch.jackson@live.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detail">
-                                <h5>Barrett Wilson</h5>
-                                <span>Book Writter</span>
-                            </div>
-                            <div class="team-btm">
-                                <ul class="social-icons"> 
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team Colmun -->
-
-                    <!-- Team Colmun -->
-                    <div class="item">
-                        <div class="team-column">
-                            <div class="team-img">
-                                <img src="{{ asset('/frontend/images/team/img-04.jpg') }}" alt="">
-                                <div class="overlay-padding">
-                                    <div class="overlay">
-                                        <ul class="position-center-center">
-                                            <li>Tel: 12 0123 4567</li>
-                                            <li>Mob 12 0123 4567</li>
-                                            <li>Email: ch.jackson@live.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detail">
-                                <h5>Josh Martin</h5>
-                                <span>Josh Martin</span>
-                            </div>
-                            <div class="team-btm">
-                                <ul class="social-icons"> 
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Team Colmun -->
-
-                </div>
-                <!-- Team Slider -->
-
-            </div>
-        </section>
-        <!-- Team -->
-
-        <!-- Partners -->
-        <section class="partners tc-padding-bottom">
-            <div class="container">
-
-                <!-- Main Heading -->
-                <div class="main-heading-holder">
-                    <div class="main-heading style-2">
-                        <h2>Our <span class="theme-color">Creative Team</span></h2>
-                        <p>We are committed to providing first-class services to the writers who trust us</p>
-                    </div>
-                </div>
-                <!-- Main Heading -->
-
-                <!-- Partners Logos -->
-                <ul class="logos-slider">
-                    <li><img src="{{ asset('/frontend/images/partners/img-01.jpg') }}" alt=""></li>
-                    <li><img src="{{ asset('/frontend/images/partners/img-02.jpg') }}" alt=""></li>
-                    <li><img src="{{ asset('/frontend/images/partners/img-03.jpg') }}" alt=""></li>
-                    <li><img src="{{ asset('/frontend/images/partners/img-04.jpg') }}" alt=""></li>
-                    <li><img src="{{ asset('/frontend/images/partners/img-05.jpg') }}" alt=""></li>
-                    <li><img src="{{ asset('/frontend/images/partners/img-06.jpg') }}" alt=""></li>
-                </ul>
-                <!-- Partners Logos -->
-
-            </div>
-        </section>
-        <!-- Partners -->
-
-        <!-- Call Action -->
-        <section class="call-action">
-            <div class="container">     
-                <div class="action-text">   
-                    <h3>30% Off <span>Onlinebookshop</span> Top 100 Bestsellers</h3>
-                    <strong>Get the bestselling books of 2016 and save!</strong>
-                </div>
-                <a class="btn-1 shadow-0" href="#">View Books</a>
-            </div>
-        </section>
-        <!-- Call Action --> 
+       
 
     </main>
 @endsection
