@@ -1,0 +1,1 @@
+ALTER TABLE `carts` CHANGE `user_id` `user_id` VARCHAR(45) NULL DEFAULT NULL;

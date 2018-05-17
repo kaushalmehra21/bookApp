@@ -242,10 +242,10 @@
     </div>
 </div>
 <!-- Quick View -->
-
+<input type="hiddden" name="_token" id="_token" value="{{ csrf_token() }}">
 
 <!-- Java Script -->
-<script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>        
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>     
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
 <!-- <script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script> -->
 <script src="{{ asset('/frontend/js/gmap3.min.js') }}"></script>                 
@@ -284,15 +284,14 @@
             var _token = $('#_token').val();
             alert(_token);
             $.ajax({
-                type: "POST",
-                url: "cart/ajax-add",
+                type: "GET",
+                url: "<?php echo url('/cart/ajax-add') ?>",
                 data: {
                     'product_id' : product_id,
                     'user_id' : user_id,
                     'user_ip' : user_ip,
                     '_token' : _token
                 },
-                async : true,
                 //dataType: 'json',
                 success: function(data) {
                     alert(data);
