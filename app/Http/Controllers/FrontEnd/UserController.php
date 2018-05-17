@@ -143,12 +143,13 @@ class UserController extends Controller
 
     public function isEmailExist(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        return 'sdfsdf';
+        /*$user = User::where('email', $request->email)->first();
 
         if(!empty($user)){
             return $user;
         } else {
             return $user;
-        }
+        }*/
     }
 }

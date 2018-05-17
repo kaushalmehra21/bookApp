@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\FrontEnd\Cart;
 
 class CartController extends Controller
@@ -90,21 +91,26 @@ class CartController extends Controller
 
     public function ajaxAdd(Request $request)
     {
-        //$categories = DB::table('categories')->select('title', 'id')->where('title', 'like', '%'.$request->search.'%')->get()->toArray();
+        
+    	//return 'dfsdfsdf';
+        $cart = DB::table('carts')->select('id')->where([
+                    ['product_id', '=', $request->product_id],
+                    ['user_id', '=', $request->user_id]
+                ])->get()->toArray();
 
-        $cart = new Cart;
+        //return $cart;
 
-        return $request;
-        die;
+        if(!$cart) {
+        	$cart = new Cart;	
+        }
 
         $cart->user_id = $request->user_id;
-        $cart->ip_address = $request->ip_address;
+        $cart->user_ip = $request->user_ip;
         $cart->product_id = $request->product_id;
         $cart->quantity = $request->quantity;
 
-
         $cart->save();
 
-        return $cart->id;
+        return $cart;
     }
 }

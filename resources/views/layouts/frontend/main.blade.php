@@ -31,6 +31,7 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900italic,900,100italic,100' rel='stylesheet' type='text/css'>
 
 <!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="{{ asset('/frontend/js/vendor/modernizr.js') }}"></script>
 </head>
 <body>
@@ -245,7 +246,7 @@
 
 
 <!-- Java Script -->
-<script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>        
+<!-- <script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script> -->
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
 <!-- <script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script> -->
 <script src="{{ asset('/frontend/js/gmap3.min.js') }}"></script>                 
@@ -276,58 +277,55 @@
 <script type="text/javascript" src="{{ asset('/frontend/switcher/colorswitcher.js') }}"></script>
 <!-- Switcher JS -->
 <script type="text/javascript">
+
     $(document).ready(function(){
         $(document).on('click', '.addToCartTrgr', function(){
             var product_id = $(this).attr('data-product-id');
             var user_id = $(this).attr('data-user-id');
-            var user_ip = '<?php echo $_SERVER['REMOTE_ADDR'] ?>';
+            var user_ip = '<?php echo urlencode($_SERVER['REMOTE_ADDR'])  ?>';
             var _token = $('#_token').val();
             alert(_token);
             $.ajax({
-                type: "POST",
-                url: "cart/ajax-add",
+                type: "GET",
+                url: "/cart/ajax-add",
                 data: {
                     'product_id' : product_id,
                     'user_id' : user_id,
                     'user_ip' : user_ip,
-                    '_token' : _token
+                    'quantity' : 1,
+                    'token' : _token
                 },
                 async : true,
                 //dataType: 'json',
                 success: function(data) {
                     alert(data);
                     console.log(data);
-                },
-                error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-                    console.log(JSON.stringify(jqXHR));
-                    console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                 }
 
             });
         });
 
 
-        $(document).on('blur', '#model_isEmailExistTrgr', function(){
+        /*$(document).on('blur', '#model_isEmailExistTrgr', function(){
 
             var email = $(this).val();
-
+            var _token = $('#_token').val();
             //alert(email);
 
-            
+
             $.ajax({
-                type: 'GET',
-                //async : false,
-                url: '<?php echo url('/users/is-email-exist') ?>',
-                data: {
-                    'email' : email
+                url     : '<?php echo url('/users/is-email-exist') ?>',
+                data: { 
+                    'email' : email,
+                    '_token' : _token
                 },
-                dataType: 'json',
-                success: function(data) {
+                //dataType: 'json',
+                success: function(data){
                     alert(data);
                     console.log(email);
                 }
             });
-        });
+        });*/
     });
 </script>
 <script type="text/javascript"></script>

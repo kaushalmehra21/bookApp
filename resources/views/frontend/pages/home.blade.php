@@ -141,7 +141,7 @@
                                                         <a 
                                                         class="addToCartTrgr" 
                                                         data-product-id="{{ $product['id'] }}"
-                                                        data-user-id="{{ ( !empty(session('user_id') ) ) ? session('user_id'): '' }}"
+                                                        data-user-id="{{ ( !empty(session('user_id') ) ) ? session('user_id'): urlencode($_SERVER['REMOTE_ADDR']) }}"
                                                         >
                                                             <i class="fa fa-cart-arrow-down"></i>
                                                         </a>

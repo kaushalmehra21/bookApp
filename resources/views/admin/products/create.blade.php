@@ -135,7 +135,7 @@
                 var token_ = $('#token_').val();
 
                 $.ajax({
-                    url     : '/admin/categories/ajax_list_json',
+                    url : '/admin/categories/ajax_list_json',
                     data: { 
                         'search'    : term, 
                         'start'     : 0,
