@@ -40,9 +40,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($categories as $category)
+                        @foreach($categories as $key => $category)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $category['title'] }}</td>
                             <td>{{ $category['description'] }}</td>
                             <td>{{ $category['parent_id'] }}</td>

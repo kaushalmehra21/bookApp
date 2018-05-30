@@ -37,9 +37,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tags as $tag)
+                        @foreach($tags as $key => $tag)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $tag['title'] }}</td>
                             <td>{{ $tag['created_at'] }}</td>
                             <td>

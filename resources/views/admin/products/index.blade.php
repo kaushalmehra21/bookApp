@@ -42,9 +42,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $product)
+                        @foreach($products as $key => $product)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key+1 }}</td>
                             <td>
                                 <span title="{{ $product['sub_title'] }}" >
                                 {{ $product['title'] }}

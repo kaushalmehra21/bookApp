@@ -21,17 +21,17 @@
                             <form method="post" action="/admin/categories" class="form-horizontal">
                                 {{ csrf_field() }}
                                 <fieldset>
-                                    <legend>Add New Category</legend>
+                                    <legend>Edit Category</legend>
                                     <div class="form-group">
                                         <label class="col-lg-2 control-label" for="inputEmail">Title</label>
                                         <div class="col-lg-10">
-                                            <input name="category[title]" class="form-control" id="inputEmail" type="text" placeholder="Title">
+                                            <input name="category[title]" class="form-control" id="inputEmail" type="text" placeholder="Title" value="{{ $category->title}}" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-2 control-label" for="inputEmail">Description</label>
                                         <div class="col-lg-10">
-                                            <input name="category[description]" class="form-control" id="inputEmail" type="text" placeholder="Description">
+                                            <input name="category[description]" class="form-control" id="inputEmail" type="text" placeholder="Description" value="{{ $category->description}}">
                                         </div>
                                     </div>
                                     <!-- <div class="form-group">
@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 control-label" for="inputPassword">Parent</label>
                                         <div class="col-lg-10">
-                                            <select name="category[parent_id]" class="form-control" id="addCategoryTrgr" >
+                                            <select name="category[parent_id]" class="form-control" id="addCategoryTrgr" value="{{ $category->parent_id}}" >
                                             </select>
                                         </div>
                                     </div>

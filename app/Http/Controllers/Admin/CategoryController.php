@@ -83,9 +83,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all()->toArray();
+
         $category = Category::find($id);
 
-        return view('admin/categories/create', ['category'=>$category]);
+        return view('admin/categories/create', ['category'=>$category, 'categories'=>$categories]);
     }
 
     /**

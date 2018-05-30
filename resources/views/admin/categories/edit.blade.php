@@ -44,6 +44,13 @@
                                         <label class="col-lg-2 control-label" for="inputPassword">Parent</label>
                                         <div class="col-lg-10">
                                             <select name="category[parent_id]" class="form-control" id="addCategoryTrgr" >
+                                            <?php
+                                            foreach ($categories as $key => $value) {
+                                                echo '<option value="{{ $value->title }}">{{ $value->title }}</option>'
+                                            }
+                                            ?>
+                                            
+                                            
                                             </select>
                                         </div>
                                     </div>

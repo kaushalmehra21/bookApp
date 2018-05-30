@@ -41,9 +41,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($vendors as $vendor)
+                        @foreach($vendors as $key => $vendor)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $vendor['users']['name'] }}</td>
                             <td>{{ $vendor['users']['email'] }}</td>
                             <td><a href="{{ url('/admin/vendors/'.$vendor['user_id'].'/business-detail/edit') }}">Complete Profile</a></td>

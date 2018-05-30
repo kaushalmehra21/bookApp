@@ -37,9 +37,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($languages as $language)
+                        @foreach($languages as $key => $language)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $language['title'] }}</td>
                             <td>{{ $language['created_at'] }}</td>
                             <td>
