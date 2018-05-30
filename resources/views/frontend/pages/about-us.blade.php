@@ -73,9 +73,10 @@
                         <div class="col-lg-6 col-xs-12">
                             <div class="mission-disc">
                                 <h4>Mission <span>&amp; values</span></h4>
-                                <strong>Text Publishing is an independent, Melbourne-based publisher of literary fiction and non-fiction. Text won the Australian Book Industry Awards (ABIA) Small Publisher of the Year in 2012, 2013 and 2014.</strong>
-                                <p>At Text we want to publish books that make a difference to people’s lives. We believe that reading should be a marvellous experience, that every book you read should somehow change your life if only by a fraction. We love the phrase ‘lost in a book’.</p>
-                                <p> lost in books every day—on the tram, on the beach, in bed. Reading is what keeps the imagination supple and challenges preconceptions and prejudices.</p>
+                                <strong>With so many genres, it is important to give customers an easy way to find precisely the books they are looking for.Books stock&#39;s search engine enables customers to locate books by boards, school, or class in a few seconds at most.</strong>
+                                <p>Customers with a general idea of what they want can use our Browse pages to sift through hundreds of categories to find exactly the right book. To further assist users, we offer descriptions and reviews, and our exotic collection of all genres of books are categorized in a manner that a small kid can search a book. We also offer editor recommendations and customer reviews on hundreds of thousands of titles.</p>
+                                <p>In 2018, Booksstock.com become an online book market place where readers can get the book of their taste and sell the books which they feel are of less use , the India&#39;s most advanced online Book store, The Bookstock Marketplace offers millions of new and used items from a network of trusted Sellers, often at discounted prices -- all with the security and guarantee of Books Stock. Our special collection of Rare &amp; Collectible Books features include all types of books whether new.
+                                As the ultimate destination for book lovers, bookstock.com offers an incredible array of content. Booksstocks not only give you the facility of buying and selling books online but you can take books on rent too isn&#39;t that amazing you can try the book and buy whenever feel like.</p>
                                 <a href="#" class="btn-1 shadow-0">Read more<i aria-hidden="true" class="fa fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

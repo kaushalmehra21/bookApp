@@ -144,6 +144,7 @@ Route::get('/term-and-conditions', 'FrontEnd\PageController@termsAndConditions')
 Route::get('/contact-us', 'FrontEnd\PageController@contactUs');
 
 
+Route::get('/cart', 'FrontEnd\PageController@cart');
 Route::get('/cart/ajax-add', 'FrontEnd\CartController@ajaxAdd');
 
 

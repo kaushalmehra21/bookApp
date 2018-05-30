@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 use App\FrontEnd\Cart;
 
 class CartController extends Controller
@@ -101,16 +102,17 @@ class CartController extends Controller
         //return $cart;
 
         if(!$cart) {
-        	$cart = new Cart;	
+        	$cart = new Cart;
+        	$cart->user_id = $request->user_id;
+	        $cart->user_ip = $request->user_ip;
+	        $cart->product_id = $request->product_id;
+	        $cart->quantity = $request->quantity;
+
+	        $cart->save();
+
+	        return '1';
+        } else {
+        	return '0';
         }
-
-        $cart->user_id = $request->user_id;
-        $cart->user_ip = $request->user_ip;
-        $cart->product_id = $request->product_id;
-        $cart->quantity = $request->quantity;
-
-        $cart->save();
-
-        return $cart;
     }
 }

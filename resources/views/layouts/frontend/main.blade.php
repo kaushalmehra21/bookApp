@@ -220,7 +220,7 @@
                                 <div class="sp-quantity">
                                     <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
                                     <div class="sp-input">
-                                      <input type="text" class="quntity-input" value="1" />
+                                        <input type="text" class="quntity-input" value="1" />
                                     </div>
                                     <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
                                 </div>
@@ -243,10 +243,12 @@
     </div>
 </div>
 <!-- Quick View -->
-
+<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 
 <!-- Java Script -->
 <!-- <script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script> -->
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script> 
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
 <!-- <script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script> -->
 <script src="{{ asset('/frontend/js/gmap3.min.js') }}"></script>                 
@@ -284,10 +286,13 @@
             var user_id = $(this).attr('data-user-id');
             var user_ip = '<?php echo urlencode($_SERVER['REMOTE_ADDR'])  ?>';
             var _token = $('#_token').val();
-            alert(_token);
+            var cart = parseInt($('#cart_num').text());
+
+            //alert(_token);
             $.ajax({
                 type: "GET",
                 url: "/cart/ajax-add",
+                url: "<?php echo url('/cart/ajax-add') ?>",
                 data: {
                     'product_id' : product_id,
                     'user_id' : user_id,
@@ -295,13 +300,32 @@
                     'quantity' : 1,
                     'token' : _token
                 },
-                async : true,
                 //dataType: 'json',
                 success: function(data) {
-                    alert(data);
-                    console.log(data);
+                    if(data==1) {
+                        var msg = 'success fully added to cart';
+                        $('#cart_num').text(cart+1);
+                    } else {
+                        var msg = 'already added to cart';
+                    }
+                    $.notify({
+                        //title: "Update Complete : ",
+                        message: msg,
+                        icon: 'fa fa-check'
+                    },{
+                        type: "info",
+                        placement: {
+                            from: "top",
+                            align: "right"
+                        },
+                        offset: {
+                            x: 50,
+                            y: 100
+                        }
+                    });
+                    //alert(data);
+                    //console.log(data);
                 }
-
             });
         });
 
@@ -314,7 +338,7 @@
 
 
             $.ajax({
-                url     : '<?php echo url('/users/is-email-exist') ?>',
+                url     : '<?php // echo url('/users/is-email-exist') ?>',
                 data: { 
                     'email' : email,
                     '_token' : _token
@@ -328,7 +352,7 @@
         });*/
     });
 </script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
     $(document).ready(function(){
         <?php
         if (session('alert_message')) {

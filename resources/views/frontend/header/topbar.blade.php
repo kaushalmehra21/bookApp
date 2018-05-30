@@ -26,7 +26,7 @@
         <!-- Cart Option -->
         <div class="cart-option">
             <ul>
-                <li class="add-cart"><a href=""><i class="fa fa-shopping-bag"></i><span>3</span></a></li>
+                <li class="add-cart"><a href="{{ url('cart') }}"><i class="fa fa-shopping-bag"></i><span id="cart_num">3</span></a></li>
                 <li><a href="#"><i class="fa fa-heart-o"></i>wish List 0 items</a></li>
                 <li>
                     <?php

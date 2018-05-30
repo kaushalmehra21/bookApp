@@ -26,13 +26,10 @@
         </div>
         @endforeach
         <!-- Item -->
-
     </div>
 @endsection
 
 @section('content')
-
-
     <main class="main-content">
 
         <!-- Upcoming Release -->
@@ -53,8 +50,8 @@
                     <!-- Release Book Detail -->
                     <div class="release-book-detail h-white p-white">
                         <div class="release-book-slider">
-                            
-                            <?php foreach (StoreProduct::getNewArrivals() as $key => $value) {
+                            <?php 
+                            foreach (StoreProduct::getNewArrivals() as $key => $value) {
                                 ?>
                                 <div class="item">
                                     <div class="detail">
@@ -345,5 +342,4 @@
 
 
     </main>
-    <input type="hiddden" name="_token" id="_token" value="{{ csrf_token() }}">
 @endsection

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Admin\Slider;
 use App\Admin\Category;
 use App\Admin\Product;
+use App\Admin\Cart;
 
 
 class PageController extends Controller
@@ -46,9 +47,6 @@ class PageController extends Controller
         }
 
         //return $param['login_detail'];
-
-        
-
         //return $categories;
         return view('frontend/pages/home', $param);
     }
@@ -69,7 +67,7 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
@@ -78,6 +76,25 @@ class PageController extends Controller
     }
 
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function shop()
+    {
+        $productsArr = [];
+        
+        $categories = Category::all()->toArray();
+        $products = Product::with('categories')->get()->toArray();
+        //$categories = Category::with('products')->get()->toArray();
+        foreach ($products as $key1=>$product) {
+            $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
+            $products[$key1]['image'] = $productImages['file'];
+        }  
+        //return $products;
+        return view('frontend/pages/shop', ['categories'=>$categories, 'products'=>$products]);
+    }
 
 
     /**
@@ -95,7 +112,7 @@ class PageController extends Controller
 
         foreach ($products as $key1=>$product) {
             $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-            $products[$key1]['image'] = $productImages->file;
+            $products[$key1]['image'] = $productImages['file'];
         }  
 
         //return $products;
@@ -105,7 +122,22 @@ class PageController extends Controller
 
     public function cart()
     {
-        return view('frontend/pages/cart');
+        $user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
+
+        $cart = DB::table('carts')->where([
+                    ['user_id', '=', $user_id]
+                ])->get()->toArray();
+
+       /* $cart_arr = [];
+        foreach ($cart as $key => $value) {
+            $product = Product::find($value->product_id)->all()->toArray();
+            $value[$key]['product'] = $product;
+        }*/
+
+        //$cart = Cart::all()->toArray();
+
+        return $cart;
+        return view('frontend/pages/cart', ['carts'=>$carts]);
     }
 
 
@@ -124,7 +156,7 @@ class PageController extends Controller
 
         foreach ($products as $key1=>$product) {
             $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-            $products[$key1]['image'] = $productImages->file;
+            $products[$key1]['image'] = $productImages['file'];
         }  
 
         //return $products;
@@ -147,7 +179,7 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
@@ -171,11 +203,11 @@ class PageController extends Controller
 
         foreach ($products as $key1=>$product) {
             $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-            $products[$key1]['image'] = $productImages->file;
+            $products[$key1]['image'] = $productImages['file'];
         }  
 
         //return $products;
-        return view('frontend/pages/single-page', ['categories'=>$categories, 'products'=>$products]);
+        return view('frontend/pages/terms-and-conditions', ['categories'=>$categories, 'products'=>$products]);
     }
 
 
@@ -194,7 +226,7 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
@@ -218,7 +250,7 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
@@ -242,7 +274,7 @@ class PageController extends Controller
         foreach ($categories as $key1=>$category) {
             foreach ($category['products'] as $key2=>$product) {
                 $productImages = Product::find($product['id'])->images->where('is_default', 1)->first();
-                $categories[$key1]['products'][$key2]['image'] = $productImages->file;
+                $categories[$key1]['products'][$key2]['image'] = $productImages['file'];
             }            
         }
 
