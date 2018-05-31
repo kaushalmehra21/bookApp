@@ -12,7 +12,7 @@
                 <!-- Main Heading -->
                 <div class="main-heading-holder">
                     <div class="main-heading style-1">
-                        <h2>Help us Improve <span class="theme-color">our Service</span></h2>
+                        <h2>Best Online <span class="theme-color">Buying &amp; Selling Book Platform</span></h2>
                     </div>
                 </div>
                 <!-- Main Heading -->
@@ -25,8 +25,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-amazing"></i></span>
-                                <h4><a href="#">Amazing Design Quality</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">BUY A BOOK</a></h4>
+                                <p>Books Stock advance search has made it easier for you to get a book you are looking for. We have always focused on making the Customer satisfaction hence we have made sure that even a kid can search for the book he is looking for.</p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -35,8 +35,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-intuitive-design"></i></span>
-                                <h4><a href="#">Intuitive Design</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">SELL YOUR BOOK</a></h4>
+                                <p>Selling of books is equally hectic as it is buying one. Books Stock has created an easy 4 step process by which you can register yourself on Books Stock and sell your books globally to earn great profits while sitting in your couch.</p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -45,8 +45,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-responsive"></i></span>
-                                <h4><a href="#">Responsive</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">RENT YOUR BOOKS</a></h4>
+                                <p>Got a lot of books at your home but not want to sell them all and still thinking of a way to handle those books. Books Stock is the perfect place for you, now you can rent your books with authenticate readers and earn some money and also your books will come back to you anyways</p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -55,8 +55,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-seo-optimized"></i></span>
-                                <h4><a href="#">SEO Optimized</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">MANAGE YOUR ACCOUNT</a></h4>
+                                <p>We have an exaggerated market for books and also a platform where you can establish yourself as a professional book seller now you can manage all your accounts on books stock with easy to use interface we have made sure you get every possible benefit of being a part of Books stock.</p>
                             </div>
                         </div>
                         <!-- Service Column -->

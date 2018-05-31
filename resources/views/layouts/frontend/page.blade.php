@@ -31,6 +31,7 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900italic,900,100italic,100' rel='stylesheet' type='text/css'>
 
 <!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="{{ asset('/frontend/js/vendor/modernizr.js') }}"></script>
 </head>
 <body>
@@ -252,9 +253,82 @@
 </div>
 <!-- Quick View -->
 
+<script type="text/javascript">
 
+    $(document).ready(function(){
+        $(document).on('click', '.addToCartTrgr', function(){
+            var product_id = $(this).attr('data-product-id');
+            var user_id = $(this).attr('data-user-id');
+            var user_ip = '<?php echo urlencode($_SERVER['REMOTE_ADDR'])  ?>';
+            var _token = $('#_token').val();
+            var cart = parseInt($('#cart_num').text());
+
+            alert(cart);
+            $.ajax({
+                type: "GET",
+                url: "/cart/ajax-add",
+                url: "<?php echo url('/cart/ajax-add') ?>",
+                data: {
+                    'product_id' : product_id,
+                    'user_id' : user_id,
+                    'user_ip' : user_ip,
+                    'quantity' : 1,
+                    'token' : _token
+                },
+                //dataType: 'json',
+                success: function(data) {
+                    if(data==1) {
+                        var msg = 'success fully added to cart';
+                        $('#cart_num').text(cart+1);
+                    } else {
+                        var msg = 'already added to cart';
+                    }
+                    $.notify({
+                        //title: "Update Complete : ",
+                        message: msg,
+                        icon: 'fa fa-check'
+                    },{
+                        type: "info",
+                        placement: {
+                            from: "top",
+                            align: "right"
+                        },
+                        offset: {
+                            x: 50,
+                            y: 100
+                        }
+                    });
+                    //alert(data);
+                    //console.log(data);
+                }
+            });
+        });
+
+
+        /*$(document).on('blur', '#model_isEmailExistTrgr', function(){
+
+            var email = $(this).val();
+            var _token = $('#_token').val();
+            //alert(email);
+
+
+            $.ajax({
+                url     : '<?php // echo url('/users/is-email-exist') ?>',
+                data: { 
+                    'email' : email,
+                    '_token' : _token
+                },
+                //dataType: 'json',
+                success: function(data){
+                    alert(data);
+                    console.log(email);
+                }
+            });
+        });*/
+    });
+</script>
 <!-- Java Script -->
-<script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>        
+<!-- <script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>  -->       
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('/frontend/http://maps.google.com/maps/api/js?sensor=false') }}"></script>
 <script src="{{ asset('/frontend/js/gmap3.min.js') }}"></script>                 
@@ -278,7 +352,7 @@
 <script src="{{ asset('/frontend/js/wow-min.js') }}"></script>           
 <script src="{{ asset('/frontend/js/classie.js') }}"></script>                   
 <script src="{{ asset('/frontend/js/main.js') }}"></script>      
-
+<script src="{{ asset('/frontend/js/bootstrap-notify.min.js') }}"></script> 
 <!-- Switcher JS -->
 <script type="text/javascript" src="{{ asset('/frontend/switcher/cookie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/frontend/switcher/colorswitcher.js') }}"></script>

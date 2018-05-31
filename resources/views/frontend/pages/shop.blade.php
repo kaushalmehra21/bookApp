@@ -1,5 +1,8 @@
 @extends('layouts.frontend.page')
 
+@section('topbar')
+    @include('frontend.header.topbar')
+@endsection
 
 @section('content')
     <main class="main-content">
@@ -44,9 +47,25 @@
                                         <div class="product-img">
                                             <img src=" {{ $product['image'] }}" alt="">
                                             <ul class="product-cart-option position-center-x">
-                                                <li><a href="/product/{{ $product['id'] }}/view"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-cart-arrow-down"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                                <li>
+                                                <a href="/product/{{ $product['id'] }}/view">
+                                                <i class="fa fa-eye"></i>
+                                                </a>
+                                                </li>
+                                                <li>
+                                                    <a 
+                                                    class="addToCartTrgr" 
+                                                    data-product-id="{{ $product['id'] }}"
+                                                    data-user-id="{{ ( !empty(session('user_id') ) ) ? session('user_id'): urlencode($_SERVER['REMOTE_ADDR']) }}"
+                                                    >
+                                                        <i class="fa fa-cart-arrow-down"></i>
+                                                </a>
+                                                </li>
+                                                <li>
+                                                <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                                </a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="product-detail">
