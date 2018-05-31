@@ -2,7 +2,9 @@
 
 
 @section('content')
-
+    <?php
+    print_r($carts);
+    ?>
     <main class="main-content">
 
         <!-- Service And Mission -->
@@ -12,7 +14,7 @@
                 <!-- Main Heading -->
                 <div class="main-heading-holder">
                     <div class="main-heading style-1">
-                        <h2>Help us Improve <span class="theme-color">our Service</span></h2>
+                        <h2>Book <span class="theme-color">Cart</span></h2>
                     </div>
                 </div>
                 
@@ -22,182 +24,59 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-product-remove"></th>
-                                        <th class="cart-product-thumbnail">Product</th>
-                                        <th class="cart-product-name">Description</th>
-                                        <th class="cart-product-price">Unit Price</th>
-                                        <th class="cart-product-quantity">Quantity</th>
-                                        <th class="cart-product-subtotal">Total</th>
+                                        <th width="5%" class="cart-product-remove"></th>
+                                        <th width="20%" class="cart-product-thumbnail">Product</th>
+                                        <th width="25%" class="cart-product-name">Description</th>
+                                        <th width="15%" class="cart-product-price">Unit Price</th>
+                                        <th width="25%" class="cart-product-quantity">Quantity</th>
+                                        <th width="10%" class="cart-product-subtotal">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($carts as $cart)
                                     <tr>
                                         <td class="cart-product-remove">
                                             <a href="#"><i class="fa fa-close"></i></a>
                                         </td>
 
                                         <td class="cart-product-thumbnail">
-                                            <a href="#">
+                                            <!-- <a href="#">
                                                 <img src="images/shop/products/1.jpg" alt="Bolt Sweatshirt">
-                                            </a>
-                                            <div class="cart-product-thumbnail-name">Bolt Sweatshirt</div>
+                                            </a> -->
+                                            <div class="cart-product-thumbnail-name">{{ $cart['product']['title'] }}</div>
                                         </td>
 
                                         <td class="cart-product-description">
 
-                                            <p><span>Bolt Sweatshirt</span>
-                                                <span>Size: M</span>
+                                            <p><span>{{ $cart['product']['sub_title'] }}</span>
+                                                <!-- <span>Size: M</span>
                                                 <span>Color: Blue</span>
-                                                <span>Gender: Women</span>
+                                                <span>Gender: Women</span> -->
                                             </p>
                                         </td>
 
                                         <td class="cart-product-price">
-                                            <span class="amount">$20.00</span>
+                                            <span class="amount"><i class="fa fa-rupee"></i>{{ $cart['product']['sale_price'] }}</span>
                                         </td>
 
                                         <td class="cart-product-quantity">
                                             <div class="quantity-box">
-                                                    <label>Qty :</label>
-                                                    <div class="sp-quantity">
-                                                        <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
-                                                        <div class="sp-input">
-                                                            <input type="text" class="quntity-input" value="1">
-                                                        </div>
-                                                        <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
+                                                <!-- <label>Qty :</label> -->
+                                                <div class="sp-quantity">
+                                                    <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
+                                                    <div class="sp-input">
+                                                        <input type="text" class="quntity-input" value="1">
                                                     </div>
+                                                    <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
                                                 </div>
+                                            </div>
                                         </td>
 
                                         <td class="cart-product-subtotal">
-                                            <span class="amount">$20.00</span>
+                                            <span class="amount"><i class="fa fa-rupee"></i>{{ $cart['product']['sale_price'] }}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="cart-product-remove">
-                                            <a href="#"><i class="fa fa-close"></i></a>
-                                        </td>
-
-                                        <td class="cart-product-thumbnail">
-                                            <a href="#">
-                                                <img alt="Consume Tshirt" src="images/shop/products/2.jpg">
-                                            </a>
-                                            <div class="cart-product-thumbnail-name">Consume Tshirt</div>
-                                        </td>
-
-                                        <td class="cart-product-description">
-                                            <p><span>Consume Tshirt</span>
-                                                <span>Size: S</span>
-                                                <span>Color: Blue</span>
-                                                <span>Gender: Women</span>
-                                            </p>
-                                        </td>
-
-                                        <td class="cart-product-price">
-                                            <span class="amount">$18.99</span>
-                                        </td>
-
-                                        <td class="cart-product-quantity">
-                                            <div class="quantity-box">
-                                                    <label>Qty :</label>
-                                                    <div class="sp-quantity">
-                                                        <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
-                                                        <div class="sp-input">
-                                                            <input type="text" class="quntity-input" value="1">
-                                                        </div>
-                                                        <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
-                                                    </div>
-                                                </div>
-                                        </td>
-
-                                        <td class="cart-product-subtotal">
-                                            <span class="amount">$18.99</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-remove">
-                                            <a href="#"><i class="fa fa-close"></i></a>
-                                        </td>
-
-                                        <td class="cart-product-thumbnail">
-                                            <a href="#">
-                                                <img src="images/shop/products/3.jpg" alt="Logo Tshirt">
-                                            </a>
-                                            <div class="cart-product-thumbnail-name">Logo Tshirt</div>
-                                        </td>
-
-                                        <td class="cart-product-description">
-
-                                            <p><span>Logo Tshirt</span>
-                                                <span>Size: L</span>
-                                                <span>Color: Grey</span>
-                                                <span>Gender: Man</span>
-                                            </p>
-                                        </td>
-
-                                        <td class="cart-product-price">
-                                            <span class="amount">$9.00</span>
-                                        </td>
-
-                                        <td class="cart-product-quantity">
-                                            <div class="quantity-box">
-                                                    <label>Qty :</label>
-                                                    <div class="sp-quantity">
-                                                        <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
-                                                        <div class="sp-input">
-                                                            <input type="text" class="quntity-input" value="1">
-                                                        </div>
-                                                        <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
-                                                    </div>
-                                                </div>
-                                        </td>
-
-                                        <td class="cart-product-subtotal">
-                                            <span class="amount">$18.00</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-remove">
-                                            <a href="#"><i class="fa fa-close"></i></a>
-                                        </td>
-
-                                        <td class="cart-product-thumbnail">
-                                            <a href="#">
-                                                <img src="images/shop/products/5.jpg" alt="Grey Sweatshirt">
-                                            </a>
-                                            <div class="cart-product-thumbnail-name">Grey Sweatshirt</div>
-                                        </td>
-
-                                        <td class="cart-product-description">
-
-                                            <p><span>Grey Sweatshirt</span>
-                                                <span>Size: L</span>
-                                                <span>Color: Grey</span>
-                                                <span>Gender: Man</span>
-                                            </p>
-                                        </td>
-
-                                        <td class="cart-product-price">
-                                            <span class="amount">$22.99</span>
-                                        </td>
-
-                                        <td class="cart-product-quantity">
-                                            <div class="quantity-box">
-                                                    <label>Qty :</label>
-                                                    <div class="sp-quantity">
-                                                        <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
-                                                        <div class="sp-input">
-                                                            <input type="text" class="quntity-input" value="1">
-                                                        </div>
-                                                        <div class="sp-plus fff"><a class="ddd" data-multi="1">+</a></div>
-                                                    </div>
-                                                </div>
-                                        </td>
-
-                                        <td class="cart-product-subtotal">
-                                            <span class="amount">$68.97</span>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

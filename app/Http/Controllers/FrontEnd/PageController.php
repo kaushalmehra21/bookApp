@@ -128,16 +128,22 @@ class PageController extends Controller
                     ['user_id', '=', $user_id]
                 ])->get()->toArray();
 
-       /* $cart_arr = [];
+        $cart_arr = [];
+        //echo '<pre>';
         foreach ($cart as $key => $value) {
-            $product = Product::find($value->product_id)->all()->toArray();
-            $value[$key]['product'] = $product;
-        }*/
-
+            $value1 = json_decode(json_encode($value), True);
+            //print_r($value);
+            $product = Product::find($value1['product_id'])->toArray();
+            //print_r($product);
+            $cart_arr[$key] = $value1;
+            $cart_arr[$key]['product'] = $product;
+        }
+        //print_r($cart_arr);
+        //echo '</pre>';
         //$cart = Cart::all()->toArray();
 
-        return $cart;
-        return view('frontend/pages/cart', ['carts'=>$carts]);
+        //return $cart;
+        return view('frontend/pages/cart', ['carts'=>$cart_arr]);
     }
 
 
