@@ -325,6 +325,21 @@
                 }
             });
         });*/
+
+
+        $(document).on('click', '.sp-plus', function(){
+            
+            var id = $(this).attr('data-id');
+            var rp = parseInt($('#rp_'+id).val());
+            var qty = parseInt($('#qty_'+id).val());
+            var rp_qty = rp*qty;
+
+            $('#rp_qty_'+id).val(rp_qty);
+            $('#rp_qty_spn_'+id).html(rp_qty);
+
+            alert(rp_qty);
+            
+        });
     });
 </script>
 <!-- Java Script -->
