@@ -31,9 +31,9 @@
                 <li>
                     <?php
                     if( isset($login_detail) && !empty($login_detail) ) {
-                        echo '<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user"></i>'.$login_detail['user_email'].'</a>';
+                        echo '<a href="#" data-toggle="modal" data-target="#register-modal"><i class="fa fa-user"></i>'.$login_detail['user_email'].'</a>';
                     } else {
-                        echo '<a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-user"></i>Login / Register</a>';
+                        echo '<a href="#" data-toggle="modal" data-target="#register-modal"><i class="fa fa-user"></i>Login / Register</a>';
                     }
                     ?>
                 </li>

@@ -158,7 +158,7 @@
 </div>
 <!-- View Pages -->
 
-<!-- Login Modal -->
+<!-- regstration Modal -->
 <div class="modal fade login-modal" id="login-modal" role="dialog">
     <div class="position-center-center" role="document">
         <div class="modal-content">
@@ -190,7 +190,9 @@
         </div>
     </div>
 </div>
-<!-- Login Modal -->
+<!-- reg Modal -->
+
+
 
 <!-- Quick View -->
 <div class="modal fade quick-view" id="quick-view" role="dialog">
