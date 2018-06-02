@@ -147,8 +147,8 @@
 </div>
 <!-- View Pages -->
 
-<!-- Login Modal -->
-<div class="modal fade login-modal" id="login-modal" role="dialog">
+<!-- registration Modal -->
+<div class="modal fade login-modal" id="register-modal" role="dialog">
     <div class="position-center-center" role="document">
         <div class="modal-content">
             <strong>Register</strong>
@@ -170,13 +170,53 @@
                 <div class="form-group">
                     <input name="users[email]" id="model_isEmailExistTrgr" class="form-control" required="required" placeholder="Email Address">
                     <i class="fa fa-user"></i>
+                    <span id="emailExistMsgSpan" style="color:red"><span>
                 </div>
                 <div class="form-group">
                     <input name="users[password]" class="form-control" type="password" required="required" placeholder="Password">
                     <i class="fa fa-user"></i>
                 </div>
                 <p class="terms">You agree to the hldy.hr <a href="#">Terms &amp; Conditions</a></p>
-                <button class="btn-1 shadow-0 full-width">Register account</button>
+                <p>
+                    <a href="#" id="login-modal-trgr">Login</a>
+                </p>
+                <button id="LoginPopUpRegisterBtn" class="btn-1 shadow-0 full-width" disabled>Register account</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- registration Modal -->
+
+<!-- Login Modal -->
+<div class="modal fade login-modal" id="login-modal" role="dialog">
+    <div class="position-center-center" role="document">
+        <div class="modal-content">
+            <strong>Login</strong>
+            <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <!-- <div class="social-options">
+                <ul>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i>Register with facebook</a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i>Register with twitter</a></li>
+                    <li><a class="google" href="#"><i class="fa fa-google-plus"></i>Register with gmail+</a></li>
+                </ul>
+            </div> -->
+            <form class="sending-form" method="post" action="/users"  >
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                    <input name="users[email]" id="model_isEmailExistTrgr" class="form-control" required="required" placeholder="Email Address">
+                    <i class="fa fa-user"></i>
+                    <span id="emailExistMsgSpan" style="color:red"><span>
+                </div>
+                <div class="form-group">
+                    <input name="users[password]" class="form-control" type="password" required="required" placeholder="Password">
+                    <i class="fa fa-user"></i>
+                </div>
+                <p class="terms">You agree to the hldy.hr <a href="#">Terms &amp; Conditions</a></p>
+                <p>
+                    <a href="#" id="register-modal-trgr">Register</a>
+                </p>
+                <button id="LoginPopUpLoginBtn" class="btn-1 shadow-0 full-width" disabled>Register account</button>
             </form>
         </div>
     </div>
@@ -330,27 +370,52 @@
         });
 
 
-        /*$(document).on('blur', '#model_isEmailExistTrgr', function(){
+        $(document).on('blur', '#model_isEmailExistTrgr', function(){
 
             var email = $(this).val();
             var _token = $('#_token').val();
+            $("#register").hide();
             //alert(email);
 
 
             $.ajax({
-                url     : '<?php // echo url('/users/is-email-exist') ?>',
+                url     : '<?php echo url('/users/is-email-exist') ?>',
                 data: { 
                     'email' : email,
                     '_token' : _token
                 },
                 //dataType: 'json',
                 success: function(data){
+                    if(data == '0')
+                    {
+                        $('#LoginPopUpRegisterBtn').prop("disabled", false);
+                        $('#emailExistMsgSpan').html('');
+                    }
+                    else
+                    {
+                        $('#emailExistMsgSpan').html('email already exist');
+                    }
                     alert(data);
-                    console.log(email);
+                    console.log(data);
                 }
             });
-        });*/
+        });
+
+        
+        $(document).on('click', '#login-modal-trgr', function(){
+            $('#login-modal').modal('show');
+            $('#register-modal').modal('hide');
+        });
+
+        $(document).on('click', '#register-modal-trgr', function(){
+            $('#register-modal').modal('show');
+            $('#login-modal').modal('hide');
+        });
+
+        
     });
+
+
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
