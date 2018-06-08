@@ -253,96 +253,10 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 <!-- Quick View -->
 
-<script type="text/javascript">
 
-    $(document).ready(function(){
-        $(document).on('click', '.addToCartTrgr', function(){
-            var product_id = $(this).attr('data-product-id');
-            var user_id = $(this).attr('data-user-id');
-            var user_ip = '<?php echo urlencode($_SERVER['REMOTE_ADDR'])  ?>';
-            var _token = $('#_token').val();
-            var cart = parseInt($('#cart_num').text());
-            alert(cart);
-            $.ajax({
-                type: "GET",
-                url: "/cart/ajax-add",
-                url: "<?php echo url('/cart/ajax-add') ?>",
-                data: {
-                    'product_id' : product_id,
-                    'user_id' : user_id,
-                    'user_ip' : user_ip,
-                    'quantity' : 1,
-                    'token' : _token
-                },
-                //dataType: 'json',
-                success: function(data) {
-                    if(data==1) {
-                        var msg = 'success fully added to cart';
-                        $('#cart_num').text(cart+1);
-                    } else {
-                        var msg = 'already added to cart';
-                    }
-                    $.notify({
-                        //title: "Update Complete : ",
-                        message: msg,
-                        icon: 'fa fa-check'
-                    },{
-                        type: "info",
-                        placement: {
-                            from: "top",
-                            align: "right"
-                        },
-                        offset: {
-                            x: 50,
-                            y: 100
-                        }
-                    });
-                    //alert(data);
-                    //console.log(data);
-                }
-            });
-        });
-
-
-        /*$(document).on('blur', '#model_isEmailExistTrgr', function(){
-
-            var email = $(this).val();
-            var _token = $('#_token').val();
-            //alert(email);
-
-
-            $.ajax({
-                url     : '<?php // echo url('/users/is-email-exist') ?>',
-                data: { 
-                    'email' : email,
-                    '_token' : _token
-                },
-                //dataType: 'json',
-                success: function(data){
-                    alert(data);
-                    console.log(email);
-                }
-            });
-        });*/
-
-
-        $(document).on('click', '.sp-plus', function(){
-            
-            var id = $(this).attr('data-id');
-            var rp = parseInt($('#rp_'+id).val());
-            var qty = parseInt($('#qty_'+id).val());
-            var rp_qty = rp*qty;
-
-            $('#rp_qty_'+id).val(rp_qty);
-            $('#rp_qty_spn_'+id).html(rp_qty);
-
-            alert(rp_qty);
-            
-        });
-    });
-</script>
 <!-- Java Script -->
 <!-- <script src="{{ asset('/frontend/js/vendor/jquery.js') }}"></script>  -->       
 <script src="{{ asset('/frontend/js/vendor/bootstrap.min.js') }}"></script>
@@ -373,6 +287,141 @@
 <script type="text/javascript" src="{{ asset('/frontend/switcher/cookie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/frontend/switcher/colorswitcher.js') }}"></script>
 <!-- Switcher JS -->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $(document).on('click', '.addToCartTrgr', function(){
+            var product_id = $(this).attr('data-product-id');
+            var user_id = $(this).attr('data-user-id');
+            var user_ip = '<?php echo urlencode($_SERVER['REMOTE_ADDR'])  ?>';
+            var _token = $('#_token').val();
+            var cart = parseInt($('#cart_num').text());
+            alert(cart);
+            $.ajax({
+                type: "GET",
+                url: "<?php echo url('/cart/ajax-add') ?>",
+                data: {
+                    'product_id' : product_id,
+                    'user_id' : user_id,
+                    'user_ip' : user_ip,
+                    'quantity' : 1,
+                    'token' : _token
+                },
+                //dataType: 'json',
+                success: function(data) {
+                    if(data==1) {
+                        var msg = 'success fully added to cart';
+                        $('#cart_num').text(cart+1);
+                    } else {
+                        var msg = 'already added to cart';
+                    }
+                    notify_msg(msg);
+                }
+            });
+        });
+
+
+        $(document).on('click', '.sp-plus', function(){
+            
+            var id = $(this).attr('data-id');
+            var rp = parseInt($('#rp_'+id).val());
+            var qty = parseInt($('#qty_'+id).val());
+            var rp_qty = rp*qty;
+
+            $('#rp_qty_'+id).val(rp_qty);
+            $('#rp_qty_spn_'+id).html(rp_qty);
+ 
+        });
+
+        $(document).on('click', '#removeCartTrgr', function(){
+
+            var cart_id = $(this).attr('data-cart-id');
+            var _token = $('#_token').val();
+
+            alert(cart_id);
+
+            $.ajax({
+                type: "GET",
+                url: "<?php echo url('/cart/ajax-delete') ?>",
+                data: {
+                    'cart_id' : cart_id,
+                    'token' : _token
+                },
+                //dataType: 'json',
+                success: function(data) {
+                    alert(data);
+                    $('#removeCartTrgr').closest("tr").remove();
+                    var msg = 'success fully deleted from cart';
+                    notify_msg(msg);
+                }
+            });
+        });
+
+
+        $(document).on('click', '#updateCartTrgr', function(){
+            var total_amount_arr = [];
+            var total_amount = 0;
+            $(".rp_qty_cls").each(function(index) {
+                var amount = $(this).val();
+                total_amount_arr.push(amount);
+                total_amount += amount << 0;
+            });
+            //console.log(total_amount);
+
+            $('#total_amount_span').html(total_amount);
+            $('#grand_total_amount_strong').html(total_amount);
+            $('#total_amount_hidd_inpt').val(total_amount);
+        });
+
+        $(document).on('click', '#cart_form_submit_btn_trgr', function(){
+            $('#cart-form').submit();
+        });
+
+
+        function notify_msg(msg)
+        {
+            
+            $.notify({
+                //title: "Update Complete : ",
+                message: msg,
+                icon: 'fa fa-check'
+            },{
+                type: "info",
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                offset: {
+                    x: 50,
+                    y: 100
+                }
+            });
+        }
+
+
+        /*$(document).on('blur', '#model_isEmailExistTrgr', function(){
+
+            var email = $(this).val();
+            var _token = $('#_token').val();
+            //alert(email);
+
+
+            $.ajax({
+                url     : '<?php // echo url('/users/is-email-exist') ?>',
+                data: { 
+                    'email' : email,
+                    '_token' : _token
+                },
+                //dataType: 'json',
+                success: function(data){
+                    alert(data);
+                    console.log(email);
+                }
+            });
+        });*/
+    });
+</script>
 
 </body>
 </html>

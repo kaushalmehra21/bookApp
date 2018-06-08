@@ -21,7 +21,7 @@
                 <div class="container">
                     <div class="shop-cart">
                         <div class="table table-condensed table-striped table-responsive">
-                            <form>
+                            <form action="checkout" name="cart-form" id="cart-form" method="post">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -43,7 +43,9 @@
                                             ?>
                                             <tr>
                                                 <td class="cart-product-remove">
-                                                    <a href="#"><i class="fa fa-close"></i></a>
+                                                    <a id="removeCartTrgr" data-cart-id="{{ $cart['id'] }}" style="cursor: pointer;">
+                                                        <i class="fa fa-close"></i>
+                                                    </a>
                                                 </td>
 
                                                 <td class="cart-product-thumbnail">
@@ -87,7 +89,7 @@
                                                     <span class="amount">
                                                         <i class="fa fa-rupee"></i>
                                                         <span id="rp_qty_spn_{{ $cart['product']['id'] }}">{{ $cart['product']['sale_price'] }}</span>
-                                                        <input type="hidden" name="cart[rp_qty]" id="rp_qty_{{ $cart['product']['id'] }}"" value="{{ $cart['product']['sale_price'] }}">
+                                                        <input class="rp_qty_cls" type="hidden" name="cart[rp_qty]" id="rp_qty_{{ $cart['product']['id'] }}"" value="{{ $cart['product']['sale_price'] }}">
                                                     </span>
                                                 </td>
                                             </tr>
@@ -97,7 +99,8 @@
                                         ?>
                                     </tbody>
                                 </table>
-                                <input type="hidden" name="total_amount" value="<?php echo $total_amount ?>">
+                                <input type="hidden" name="total_amount" id="total_amount_hidd_inpt" value="<?php echo $total_amount ?>">
+                                <input type="hidden" name="_token" id="cartToken" value="{{ csrf_token() }}">
                             </form>
                         </div>
                         <div class="row">
@@ -111,7 +114,7 @@
                                 </form> -->
                             </div>
                             <div class="col-md-8 text-right">
-                                <button type="button" class="btn btn-default">Update Card</button>
+                                <button type="button" class="btn btn-default" id="updateCartTrgr" >Update Card</button>
                             </div>
                         </div>
                         <div class="row">
@@ -146,7 +149,7 @@
                                                 </td>
 
                                                 <td class="cart-product-name text-right">
-                                                    <span class="amount">
+                                                    <span class="amount" id="total_amount_span">
                                                         <!-- <i class="fa fa-rupee"></i> -->
                                                         <?php echo $total_amount ?>
                                                     </span>
@@ -157,7 +160,7 @@
                                                     <strong>Shipping</strong>
                                                 </td>
 
-                                                <td class="cart-product-name  text-right">
+                                                <td class="cart-product-name text-right">
                                                     <span class="amount">Free Shipping</span>
                                                 </td>
                                             </tr>
@@ -177,7 +180,7 @@
 
                                                 <td class="cart-product-name text-right">
                                                     <span class="amount color lead">
-                                                        <strong>
+                                                        <strong id="grand_total_amount_strong">
                                                         <!-- <i class="fa fa-rupee"></i> -->
                                                         <?php echo $total_amount ?>
                                                         </strong>
@@ -187,7 +190,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="#" class="btn btn-default icon-left float-right">
+                                <a style="cursor: pointer;" id="cart_form_submit_btn_trgr" class="btn btn-default icon-left float-right">
                                     <span>Proceed to Checkout</span>
                                 </a>
                                 </br></br></br>
