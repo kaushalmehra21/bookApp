@@ -1,3 +1,4 @@
+
 <div class="topbar">
     <div class="container">
         
@@ -31,7 +32,15 @@
                 <li>
                     <?php
                     if( isset($login_detail) && !empty($login_detail) ) {
-                        echo '<a href="#" data-toggle="modal" data-target="#register-modal"><i class="fa fa-user"></i>'.$login_detail['user_email'].'</a>';
+                          
+                        echo '<div class="dropdown">
+                                <button class="dropdown-toggle" type="button" data-toggle="dropdown"><a href="#"><i class="fa fa-user"></i>'.$login_detail['user_email'].'</a>
+                                <span class="caret"></span></button>
+                                <ul style="background-color:#333" class="dropdown-menu">
+                                  <li><a href="#" >Logout</a></li>
+                                  
+                                </ul>
+                              </div>';
                     } else {
                         echo '<a href="#" data-toggle="modal" data-target="#register-modal"><i class="fa fa-user"></i>Login / Register</a>';
                     }

@@ -41,6 +41,7 @@ class PageController extends Controller
 
 
         if ($request->session()->has('user_id')) {
+            $login_detail['role'] = $request->session()->get('role');
             $login_detail['user_email'] = $request->session()->get('user_email');
             $login_detail['user_id'] = $request->session()->get('user_id');
             $param['login_detail'] = $login_detail;

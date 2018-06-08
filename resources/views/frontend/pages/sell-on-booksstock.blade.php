@@ -12,7 +12,7 @@
                 <!-- Main Heading -->
                 <div class="main-heading-holder">
                     <div class="main-heading style-1">
-                        <h2>Help us Improve <span class="theme-color">our Service</span></h2>
+                        <h2>Welcome To Booksstock <span class="theme-color">Seller Hub</span></h2>
                     </div>
                 </div>
                 <!-- Main Heading -->
@@ -25,8 +25,9 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-amazing"></i></span>
-                                <h4><a href="#">Amazing Design Quality</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">Help us know you better</a></h4>
+                                <p>We want you to fill your Basic Details and become an eternal part of Books Stock.
+                                </p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -35,8 +36,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-intuitive-design"></i></span>
-                                <h4><a href="#">Intuitive Design</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">Let us know your Business</a></h4>
+                                <p>We need your Business Details like TIN, TAN, CIN and other business related information.</p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -45,8 +46,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-responsive"></i></span>
-                                <h4><a href="#">Responsive</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">Verify your Bank Account</a></h4>
+                                <p>Fill your Bank Account Details like IFSC, A/c No and KYC documents to get verified.</p>
                             </div>
                         </div>
                         <!-- Service Column -->
@@ -55,8 +56,8 @@
                         <div class="col-lg-3 col-xs-6 r-full-width">
                             <div class="service-column style-2">
                                 <span class="service-icon"><i class="icon-seo-optimized"></i></span>
-                                <h4><a href="#">SEO Optimized</a></h4>
-                                <p>Large online bookstores offer used books for sale, too. Individuals wishing to sell their used books</p>
+                                <h4><a href="#">Add  store details & get started</a></h4>
+                                <p>Give your store a name and add description so that your buyers can get a preview.</p>
                             </div>
                         </div>
                         <!-- Service Column -->

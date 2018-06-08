@@ -200,11 +200,12 @@
                     <li><a class="google" href="#"><i class="fa fa-google-plus"></i>Register with gmail+</a></li>
                 </ul>
             </div> -->
-            <form class="sending-form" method="post" action="/users"  >
+            <form class="sending-form" method="post" action="/users/login"  >
                 {{ csrf_field() }}
                 
+                <input type="hidden" name="redirect_url" value="{{ url()->full() }}"> 
                 <div class="form-group">
-                    <input name="users[email]" id="model_isEmailExistTrgr" class="form-control" required="required" placeholder="Email Address">
+                    <input name="users[email]"  class="form-control" required="required" placeholder="Email Address">
                     <i class="fa fa-user"></i>
                     <span id="emailExistMsgSpan" style="color:red"><span>
                 </div>
@@ -216,7 +217,7 @@
                 <p>
                     <a href="#" id="register-modal-trgr">Register</a>
                 </p>
-                <button id="LoginPopUpLoginBtn" class="btn-1 shadow-0 full-width" disabled>Register account</button>
+                <button id="LoginPopUpLoginBtn" class="btn-1 shadow-0 full-width" > Secure Login</button>
             </form>
         </div>
     </div>
@@ -395,7 +396,7 @@
                     {
                         $('#emailExistMsgSpan').html('email already exist');
                     }
-                    alert(data);
+                   // alert(data);
                     console.log(data);
                 }
             });

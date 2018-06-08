@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function () {
 	Route::get('users/{id}/show', 'Admin\UserController@show');
 	Route::get('users/{id}/destroy', 'Admin\UserController@destroy');
 
+
 	
 	Route::get('vendors', 'Admin\VendorController@index');
 	Route::get('vendors/create', 'Admin\VendorController@create');
@@ -128,7 +129,9 @@ Route::prefix('admin')->group(function () {
 
 
 Route::post('users', 'FrontEnd\UserController@store');
+Route::post('user-login', 'FrontEnd\UserController@login');
 Route::get('users/is-email-exist', 'FrontEnd\UserController@isEmailExist');
+Route::post('users/login', 'FrontEnd\UserController@userLogin');
 
 Route::get('/', 'FrontEnd\PageController@home');
 Route::get('/about-us', 'FrontEnd\PageController@aboutUs');
