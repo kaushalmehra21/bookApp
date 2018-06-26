@@ -127,7 +127,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
-
+   
 Route::post('users', 'FrontEnd\UserController@store');
 Route::post('user-login', 'FrontEnd\UserController@login');
 Route::get('users/is-email-exist', 'FrontEnd\UserController@isEmailExist');
@@ -149,6 +149,10 @@ Route::get('/contact-us', 'FrontEnd\PageController@contactUs');
 
 Route::get('/cart', 'FrontEnd\PageController@cart');
 Route::get('/cart/ajax-add', 'FrontEnd\CartController@ajaxAdd');
+Route::get('/cart/ajax-delete', 'FrontEnd\CartController@ajaxDelete');
+
+Route::post('/checkout', 'FrontEnd\CheckoutController@checkout');
+//Route::post('/checkout/login', 'FrontEnd\CheckoutController@login');
 
 
 

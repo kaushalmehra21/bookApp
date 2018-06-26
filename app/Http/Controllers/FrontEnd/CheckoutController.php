@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Admin\Cart;
 
-class CartController extends Controller
+class CheckoutController extends Controller
 {
 
     /**
@@ -91,42 +91,17 @@ class CartController extends Controller
 
     }
 
-
-    public function ajaxAdd(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function checkout(Request $request)
     {
-        
-    	//return 'dfsdfsdf';
-        $cart = DB::table('carts')->select('id')->where([
-                    ['product_id', '=', $request->product_id],
-                    ['user_id', '=', $request->user_id]
-                ])->get()->toArray();
+        //return $request;
+        return view('frontend/pages/checkout');
 
-        //return $cart;
-
-        if(!$cart) {
-        	$cart = new Cart;
-        	$cart->user_id = $request->user_id;
-	        $cart->user_ip = $request->user_ip;
-	        $cart->product_id = $request->product_id;
-	        $cart->quantity = $request->quantity;
-
-	        $cart->save();
-
-	        return '1';
-        } else {
-        	return '0';
-        }
     }
 
-
-    public function ajaxDelete(Request $request)
-    {
-
-        //return $request->cart_id;
-
-        $cart = Cart::find($request->cart_id);
-        //return $cart;
-
-        $cart->delete();
-    }
 }

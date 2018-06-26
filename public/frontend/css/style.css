@@ -1393,3 +1393,22 @@ background: #f8f8f8; color: #555; font-size: 20px; display: inline-block;}
 .massonary-view a.btn-load{width:153px;height:41px;display:block;border:1px solid #e8e8e8;border-radius:30px;font:14px/38px Lato, sans-serif;text-align:center;clear:both;text-decoration:none;margin:0 auto;}
 .massonary-view a.btn-load .fa{padding:0 7px 0 0;}
 .massonary-view a.btn-load:hover{border:1px solid rgba(0,0,0,0);}
+
+.marginTop80
+{
+	margin-top: 80px;
+}
+
+.padding60
+{
+	padding : 50px;
+}
+.marginTop20
+{
+	margin-top : 20px;
+}
+.mainLoginSignupForm
+{
+	 box-shadow: 0px 0px 3px #ddd;
+	 border-radius : 4px;
+}
