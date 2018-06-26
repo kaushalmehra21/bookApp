@@ -177,7 +177,11 @@ class UserController extends Controller
             return redirect($request['redirect_url']);
         } else {
             return '0';    
-            
+
         }
     }
 }
+
+
+
+
