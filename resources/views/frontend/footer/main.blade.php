@@ -33,11 +33,11 @@
                         <h4>Information</h4>
                         <ul>
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">shop</a></li>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="#">categories</a></li>
-                            <li><a href="#">Pages</a></li>
-                            <li><a href="#">contact</a></li>
+                            <li><a href="/about-us">About Us</a></li>
+                            <li><a href="/shop">Shop</a></li>
+                            <li><a href="/sell-on-booksstock">Sell Books</a></li>
+                            <li><a href="/faq">Faq</a></li>
+                            <li><a href="/contact-us">Contact</a></li>
                         </ul>
                     </div>
                 </div>

@@ -143,6 +143,7 @@ Route::get('/faq', 'FrontEnd\PageController@faq');
 Route::get('/privacy-policy', 'FrontEnd\PageController@privacyAndPolicy');
 Route::get('/sell-on-booksstock', 'FrontEnd\PageController@sellOnBooksStock');
 Route::get('/term-and-conditions', 'FrontEnd\PageController@termsAndConditions');
+Route::get('/login-front', 'FrontEnd\PageController@login12');
 
 Route::get('/contact-us', 'FrontEnd\PageController@contactUs');
 

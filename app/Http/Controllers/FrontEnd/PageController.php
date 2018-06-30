@@ -288,5 +288,14 @@ class PageController extends Controller
         //return $categories;
         return view('frontend/pages/contact-us', ['sliders'=>$sliders, 'categories'=>$categories]);
     }
+
+    public function login12()
+    {
+
+        
+       // return ('Ashwani');
+        //return $categories;
+        return view('frontend/pages/login12');
+    }   
    
 }

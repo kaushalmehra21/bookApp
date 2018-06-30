@@ -1,5 +1,8 @@
 @extends('layouts.frontend.page')
 
+@section('topbar')
+    @include('frontend.header.topbar')
+@endsection
 
 @section('content')
 

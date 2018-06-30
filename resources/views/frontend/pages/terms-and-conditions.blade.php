@@ -1,5 +1,9 @@
 @extends('layouts.frontend.page')
 
+@section('topbar')
+    @include('frontend.header.topbar')
+@endsection
+
 @section('inner-banner')
 <div class="parallax-window inner-banner tc-padding overlay-dark" data-parallax="scroll" data-image-src="{{ asset('/frontend/images/inner-banner/img-04.jpg') }}">
     <div class="container">
