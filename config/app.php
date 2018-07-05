@@ -227,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'StoreProduct' => App\Helpers\Store\ProductHelper::class,
+        'OrderSession' => App\Helpers\Store\OrderSessionHelper::class,
 
     ],
 

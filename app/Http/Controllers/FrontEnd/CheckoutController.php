@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 use App\Admin\Cart;
+use App\Admin\Product;
+//use App\Admin\Product;
 
 class CheckoutController extends Controller
 {
@@ -18,7 +20,22 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        $user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
+
+        $cart = DB::table('carts')->where([
+                    ['user_id', '=', $user_id]
+                ])->get()->toArray();
+
+        $cart_arr = [];
+        //echo '<pre>';
+        foreach ($cart as $key => $value) {
+            $value1 = json_decode(json_encode($value), TRUE);
+            $product = Product::find($value1['product_id'])->toArray();
+            $cart_arr[$key] = $value1;
+            $cart_arr[$key]['product'] = $product;
+        }
         
+        return view('frontend/pages/checkout', ['carts'=>$cart_arr]);
     }
 
    
@@ -101,6 +118,34 @@ class CheckoutController extends Controller
     {
         //return $request;
         return view('frontend/pages/checkout');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function address(Request $request)
+    {
+        //return $request;
+        return view('frontend/pages/checkout');
+
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function login(Request $request)
+    {
+        //return $request;
+
+        return view('frontend/pages/checkout-login');
 
     }
 

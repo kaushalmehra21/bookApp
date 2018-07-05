@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 use App\Admin\Cart;
+use App\Admin\Product;
 
 class CartController extends Controller
 {
@@ -18,7 +19,22 @@ class CartController extends Controller
      */
     public function index()
     {
+        $user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
+
+        $cart = DB::table('carts')->where([
+                    ['user_id', '=', $user_id]
+                ])->get()->toArray();
+
+        $cart_arr = [];
         
+        foreach ($cart as $key => $value) {
+            $value1 = json_decode(json_encode($value), True);
+            $product = Product::find($value1['product_id'])->toArray();
+            $cart_arr[$key] = $value1;
+            $cart_arr[$key]['product'] = $product;
+        }
+
+        return view('frontend/pages/cart', ['carts'=>$cart_arr]);
     }
 
    
@@ -116,6 +132,24 @@ class CartController extends Controller
         } else {
         	return '0';
         }
+    }
+
+    public function ajaxUpdate(Request $request)
+    {
+        
+        $cart = Cart::find($request->cart_id);
+
+        //return $cart;
+
+        $cart->quantity = $request->quantity;
+        $aa = $cart->save();
+
+        if($aa) {
+            return '1';
+        } else {
+            return '0';
+        }
+
     }
 
 

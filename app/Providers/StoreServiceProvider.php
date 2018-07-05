@@ -24,5 +24,6 @@ class StoreServiceProvider extends ServiceProvider
     public function register()
     {
         require_once app_path() . '/Helpers/Store/Product.php';
+        require_once app_path() . '/Helpers/Store/OrderSession.php';
     }
 }

@@ -1,9 +1,12 @@
 @extends('layouts.frontend.page')
 
+@section('topbar')
+    @include('frontend.header.topbar')
+@endsection
 
 @section('content')
     <?php
-    print_r($carts);
+    OrderSession::SetOrderSession();
     ?>
     <main class="main-content">
 
@@ -21,7 +24,15 @@
                 <div class="container">
                     <div class="shop-cart">
                         <div class="table table-condensed table-striped table-responsive">
-                            <form action="checkout" name="cart-form" id="cart-form" method="post">
+                            <?php
+                            if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id']))
+                            {
+                                $cart_form_url = 'checkout';
+                            } else {
+                                $cart_form_url = 'checkout/login';
+                            }
+                            ?>
+                            <form action="<?php echo $cart_form_url ?>" name="cart-form" id="cart-form" method="post">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -39,7 +50,7 @@
 
                                         foreach($carts as $cart)
                                         {
-                                            $total_ammount_arr[] = $cart['product']['sale_price'];
+                                            $total_ammount_arr[] = $cart['product']['sale_price']*$cart['quantity'];
                                             ?>
                                             <tr>
                                                 <td class="cart-product-remove">
@@ -76,11 +87,19 @@
                                                     <div class="quantity-box">
                                                         <!-- <label>Qty :</label> -->
                                                         <div class="sp-quantity">
-                                                            <div class="sp-minus fff"><a class="ddd" data-multi="-1">-</a></div>
-                                                            <div class="sp-input">
-                                                                <input type="text" class="quntity-input" value="1" id="qty_{{ $cart['product']['id'] }}">
+                                                            <div class="sp-minus fff" data-id="{{ $cart['product']['id'] }}" data-cart-id="{{ $cart['id'] }}">
+                                                                <a class="ddd" data-multi="-1">-</a>
                                                             </div>
-                                                            <div class="sp-plus fff" data-id="{{ $cart['product']['id'] }}"><a class="ddd" data-multi="1">+</a></div>
+                                                            <div class="sp-input">
+                                                                <input 
+                                                                type="text"
+                                                                class="quntity-input" 
+                                                                value="{{ $cart['quantity'] }}" 
+                                                                id="qty_{{ $cart['product']['id'] }}">
+                                                            </div>
+                                                            <div class="sp-plus fff" data-id="{{ $cart['product']['id'] }}" data-cart-id="{{ $cart['id'] }}">
+                                                                <a class="ddd" data-multi="1">+</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -88,7 +107,7 @@
                                                 <td class="cart-product-subtotal">
                                                     <span class="amount">
                                                         <i class="fa fa-rupee"></i>
-                                                        <span id="rp_qty_spn_{{ $cart['product']['id'] }}">{{ $cart['product']['sale_price'] }}</span>
+                                                        <span id="rp_qty_spn_{{ $cart['product']['id'] }}">{{ ($cart['product']['sale_price']*$cart['quantity']) }}</span>
                                                         <input class="rp_qty_cls" type="hidden" name="cart[rp_qty]" id="rp_qty_{{ $cart['product']['id'] }}"" value="{{ $cart['product']['sale_price'] }}">
                                                     </span>
                                                 </td>

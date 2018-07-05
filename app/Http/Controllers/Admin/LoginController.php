@@ -21,14 +21,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    //use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    //protected $redirectTo = '/admin/dashboard';
 
 
 
@@ -39,7 +39,13 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        //$this->middleware('guest:admin')->except('logout');
+    }
+
+
+    public function login(Request $request)
+    {
+        return $request;
     }
 
 

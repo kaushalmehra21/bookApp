@@ -322,15 +322,34 @@
         });
 
 
-        $(document).on('click', '.sp-plus', function(){
-            
-            var id = $(this).attr('data-id');
-            var rp = parseInt($('#rp_'+id).val());
-            var qty = parseInt($('#qty_'+id).val());
-            var rp_qty = rp*qty;
+        $(document).on('click', '.sp-plus, .sp-minus', function() {
+
+            var id      = $(this).attr('data-id');
+            var cart_id = $(this).attr('data-cart-id');
+            var rp      = parseInt($('#rp_'+id).val());
+            var qty     = parseInt($('#qty_'+id).val());
+            var rp_qty  = rp*qty;
+            var _token  = $('#_token').val();
 
             $('#rp_qty_'+id).val(rp_qty);
             $('#rp_qty_spn_'+id).html(rp_qty);
+
+            $.ajax({
+                type: "GET",
+                url: "<?php echo url('/cart/ajax-update') ?>",
+                data: {
+                    'cart_id' : cart_id,
+                    'quantity' : qty,
+                    'token' : _token
+                },
+                success: function(data) {
+                    /*alert(data);
+                    console.log(data);*/
+                    updateCart();
+                    var msg = 'cart updated';
+                    notify_msg(msg);
+                }
+            });
  
         });
 
@@ -338,8 +357,6 @@
 
             var cart_id = $(this).attr('data-cart-id');
             var _token = $('#_token').val();
-
-            alert(cart_id);
 
             $.ajax({
                 type: "GET",
@@ -350,7 +367,7 @@
                 },
                 //dataType: 'json',
                 success: function(data) {
-                    alert(data);
+                    //alert(data);
                     $('#removeCartTrgr').closest("tr").remove();
                     var msg = 'success fully deleted from cart';
                     notify_msg(msg);
@@ -358,8 +375,12 @@
             });
         });
 
-
         $(document).on('click', '#updateCartTrgr', function(){
+            updateCart();
+        });
+
+        function updateCart()
+        {
             var total_amount_arr = [];
             var total_amount = 0;
             $(".rp_qty_cls").each(function(index) {
@@ -372,11 +393,17 @@
             $('#total_amount_span').html(total_amount);
             $('#grand_total_amount_strong').html(total_amount);
             $('#total_amount_hidd_inpt').val(total_amount);
-        });
+        }
 
         $(document).on('click', '#cart_form_submit_btn_trgr', function(){
             $('#cart-form').submit();
         });
+
+
+        // checkout address page
+        <?php if($_SERVER['REQUEST_URI']=='/checkout/address') { ?>
+            $('#co_collapse2').collapse('show');
+        <?php } ?>
 
 
         function notify_msg(msg)

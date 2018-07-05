@@ -145,7 +145,6 @@ class UserController extends Controller
     {
         
         $user = User::where('email', $request->email)->first();
-        //return $user;
         if(!empty($user)){
             return '1';
         } else {
@@ -156,28 +155,22 @@ class UserController extends Controller
     public function userLogin(Request $request)
     {
         $user = User::where('email', $request->users['email'])->first();
-        $pass = $user['password'];
-        $user_id = $user['id'];
-        $userDetail = UserDetail::where('user_id', $user_id)->first();
-        $password_s = Hash::check($request->users['password'], $pass);
-
-       // return $role;
-       // var_dump($password_s) ;
         
-        //$request->session()->put('user_id', $user->id);
-        //$request->session()->put('user_email', $user->email);
-       
-                /*return $password_s;
-*/        if( $password_s == '1')
+        $db_pass = $user['password'];
+        $user_id = $user['id'];
+        
+        $check_pass = Hash::check($request->users['password'], $db_pass);
+
+        if($check_pass=='1')
         {
+            $userDetail = UserDetail::where('user_id', $user_id)->first();
+
             $request->session()->put('role', $userDetail['role']);
             $request->session()->put('user_id', $user->id);
             $request->session()->put('user_email', $user->email);
-           // echo "hi";
             return redirect($request['redirect_url']);
         } else {
             return '0';    
-
         }
     }
 }
