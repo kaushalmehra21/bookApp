@@ -7,12 +7,6 @@
 
 @section('content')
 
-    <?php
-    /*echo '<pre>';
-    print_r($_SERVER);
-    die;*/
-    ?>
-    
     <main class="main-content">
 
         <!-- Service And Mission -->
@@ -32,39 +26,44 @@
                                 <div class="col-md-4" >
                                     <h4>Add a new address</h4>
                                     <p>Be sure to click "Deliver to this address" when you've finished.</p>
-                                    <form class="weekly-newsletter">
+                                    <form action="" method="post">
+                                        <input type="hidden" name="_token" id="cartAddressToken" value="{{ csrf_token() }}">
                                         <div class="form-group">
                                             <label>Full name: </label>
-                                            <input class="form-control" type="text" required="required">
+                                            <input name="userAddress[full_name]" class="form-control" type="text" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>Mobile number: </label>
-                                            <input class="form-control" type="text" required="required">
+                                            <input name="userAddress[mobile]" class="form-control" type="text" required="required">
                                             <i class="fa fa-address-card"></i>
                                         </div>
                                         <div class="form-group">
                                             <label>Pincode: </label>
-                                            <input class="form-control" type="text" required="required">
+                                            <input name="userAddress[pincode]" class="form-control" type="text" required="required">
                                             <i class="fa fa-address-card"></i>
                                         </div>
                                         <div class="form-group">
                                             <label>Flat, House no., Building, Company, Apartment: </label>
-                                            <input class="form-control" required="required" >
+                                            <input name="userAddress[address_1]" class="form-control" required="required" >
                                         </div>
                                         <div class="form-group">
                                             <label>Area, Colony, Street, Sector, Village: </label>
-                                            <input class="form-control" required="required" type="text" >
+                                            <input name="userAddress[address_2]" class="form-control" required="required" type="text" >
                                         </div>
                                         <div class="form-group">
-                                            <label>Town/City: </label>
-                                            <input class="form-control" required="required" type="text" >
+                                            <label>Country: </label>
+                                            <input name="userAddress[country]" class="form-control" required="required" type="text" >
                                         </div>
                                         <div class="form-group">
                                             <label>State: </label>
-                                            <input class="form-control" required="required" type="text" >
+                                            <input name="userAddress[state]" class="form-control" required="required" type="text" >
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" required="required">
+                                            <label>Town/City: </label>
+                                            <input name="userAddress[city]" class="form-control" required="required" type="text" >
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="userAddress[address_type]" class="form-control" required="required">
                                                 <option value="OFFICE">Office Address</option>
                                                 <option value="HOME">Home Address</option>
                                             </select>
@@ -90,7 +89,7 @@
                             <div class="panel-body">
                                 <div class="col-md-1" ></div>
                                 <div class="col-md-10" >
-                                    <?php if($_SERVER['REQUEST_URI']=='/checkout/cart') { ?>
+                                    <?php if($_SERVER['REQUEST_URI']=='/checkout/review-cart') { ?>
                                     <div class="shop-cart">
                                         <div class="table table-condensed table-striped table-responsive">
                                             <form action="checkout" name="cart-form" id="cart-form" method="post">

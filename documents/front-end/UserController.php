@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+
 use App\Admin\User;
 use App\Admin\UserDetail;
 use App\Admin\VendorBusinessDetail;
@@ -174,7 +175,3 @@ class UserController extends Controller
         }
     }
 }
-
-
-
-

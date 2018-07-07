@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use App\Admin\Cart;
 use App\Admin\Product;
+use App\Admin\Country;
+use App\Admin\UserAddress;
 //use App\Admin\Product;
 
 class CheckoutController extends Controller
@@ -18,8 +20,11 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function reviewCart()
     {
+
+        return $cartsess = session('order');
+
         $user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
 
         $cart = DB::table('carts')->where([
@@ -130,7 +135,43 @@ class CheckoutController extends Controller
     public function address(Request $request)
     {
         //return $request;
-        return view('frontend/pages/checkout');
+
+        $countries = Country::all()->toArray();
+
+        return view('frontend/pages/checkout', ['countries'=>$countries]);
+
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function addressSave(Request $request)
+    {
+        $countries = Country::all()->toArray();
+        $UserAddress = new UserAddress;
+
+        //return $value = $request->session()->get('user_id');
+
+        $UserAddress->user_id = $request->session()->get('user_id');
+        $UserAddress->full_name = $request->userAddress['full_name'];
+        $UserAddress->mobile = $request->userAddress['mobile'];
+        $UserAddress->pin_code = $request->userAddress['pincode'];
+        $UserAddress->address_1 = $request->userAddress['address_1'];
+        $UserAddress->address_2 = $request->userAddress['address_2'];
+        $UserAddress->country = $request->userAddress['country'];
+        $UserAddress->state = $request->userAddress['state'];
+        $UserAddress->city = $request->userAddress['city'];
+        $UserAddress->address_type = $request->userAddress['address_type'];
+
+        $address_id = $UserAddress->save(); 
+
+        $request->session()->put('address_id', $UserAddress->id);
+
+        return redirect('checkout/review-cart');
 
     }
 

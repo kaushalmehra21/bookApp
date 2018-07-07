@@ -403,6 +403,10 @@
         // checkout address page
         <?php if($_SERVER['REQUEST_URI']=='/checkout/address') { ?>
             $('#co_collapse2').collapse('show');
+        <?php }
+
+        if($_SERVER['REQUEST_URI']=='/checkout/review-cart') { ?>
+            $('#co_collapse3').collapse('show');
         <?php } ?>
 
 

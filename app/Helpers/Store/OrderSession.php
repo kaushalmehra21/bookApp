@@ -17,11 +17,13 @@ class OrderSessionHelper {
     {
 
     	$_SESSION['order'] = [];
-        /*$user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
+        $user_id = (!empty(session('user_id'))) ? session('user_id') : urlencode($_SERVER['REMOTE_ADDR']);
 
         $cart = DB::table('carts')->where([
                     ['user_id', '=', $user_id]
                 ])->get()->toArray();
+
+        return $cart;
 
         $cart_arr = [];
         
@@ -43,7 +45,7 @@ class OrderSessionHelper {
         //echo '</pre>';
         //$cart = Cart::all()->toArray();
 
-        $_SESSION['order']['total_amount'] = array_sum($_SESSION['order']['total_prices']);*/
+        $_SESSION['order']['total_amount'] = array_sum($_SESSION['order']['total_prices']);
 
 
         return $_SESSION['order'];

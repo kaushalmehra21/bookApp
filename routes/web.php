@@ -154,6 +154,8 @@ Route::get('/cart/ajax-update', 'FrontEnd\CartController@ajaxUpdate');
 Route::get('/cart/ajax-delete', 'FrontEnd\CartController@ajaxDelete');
 
 Route::get('/checkout/address', 'FrontEnd\CheckoutController@address');
+Route::post('/checkout/address', 'FrontEnd\CheckoutController@addressSave');
+Route::get('/checkout/review-cart', 'FrontEnd\CheckoutController@reviewCart');
 Route::post('/checkout/login', 'FrontEnd\CheckoutController@login');
 
 
