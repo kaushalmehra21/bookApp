@@ -25,14 +25,14 @@
                     <div class="shop-cart">
                         <div class="table table-condensed table-striped table-responsive">
                             <?php
-                            if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id']))
+                            if(session('user_id') && !empty(session('user_id') ) )
                             {
-                                $cart_form_url = 'checkout';
+                                $cart_form_url = 'checkout/address';
                             } else {
                                 $cart_form_url = 'checkout/login';
                             }
                             ?>
-                            <form action="<?php echo $cart_form_url ?>" name="cart-form" id="cart-form" method="post">
+                            
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -120,7 +120,6 @@
                                 </table>
                                 <input type="hidden" name="total_amount" id="total_amount_hidd_inpt" value="<?php echo $total_amount ?>">
                                 <input type="hidden" name="_token" id="cartToken" value="{{ csrf_token() }}">
-                            </form>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -209,7 +208,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a style="cursor: pointer;" id="cart_form_submit_btn_trgr" class="btn btn-default icon-left float-right">
+                                <a href="{{ $cart_form_url }}" class="btn btn-default icon-left float-right">
                                     <span>Proceed to Checkout</span>
                                 </a>
                                 </br></br></br>

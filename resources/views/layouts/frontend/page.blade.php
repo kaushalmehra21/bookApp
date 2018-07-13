@@ -395,9 +395,9 @@
             $('#total_amount_hidd_inpt').val(total_amount);
         }
 
-        $(document).on('click', '#cart_form_submit_btn_trgr', function(){
+        /*$(document).on('click', '#cart_form_submit_btn_trgr', function(){
             $('#cart-form').submit();
-        });
+        });*/
 
 
         // checkout address page

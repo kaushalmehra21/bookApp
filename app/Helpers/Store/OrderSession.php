@@ -36,6 +36,7 @@ class OrderSessionHelper {
             $cart_arr[$key] = $value1;
             $cart_arr[$key]['product'] = $product;
 
+            $_SESSION['order']['cart_ids'][] = $value1['id'];
             $_SESSION['order']['product_ids'][] = $product['id'];
             $_SESSION['order']['prices'][$product['id']] = $product['sale_price'];
             $_SESSION['order']['quantities'][$product['id']] = $value->quantity;

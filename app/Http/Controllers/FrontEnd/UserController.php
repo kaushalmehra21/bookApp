@@ -176,8 +176,7 @@ class UserController extends Controller
            // echo "hi";
             return redirect($request['redirect_url']);
         } else {
-            return '0';    
-
+            return redirect(url()->previous())->with('alert_message', 'password not match');
         }
     }
 }

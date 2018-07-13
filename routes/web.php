@@ -129,7 +129,7 @@ Route::prefix('admin')->group(function () {
 
    
 Route::post('users', 'FrontEnd\UserController@store');
-Route::post('user-login', 'FrontEnd\UserController@login');
+//Route::post('user-login', 'FrontEnd\UserController@login');
 Route::get('users/is-email-exist', 'FrontEnd\UserController@isEmailExist');
 Route::post('users/login', 'FrontEnd\UserController@userLogin');
 
